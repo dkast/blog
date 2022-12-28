@@ -3,5 +3,6 @@
   "arrowParens": "avoid",
   "tabWidth": 2,
   "useTabs": false,
-  "semi": false
+  "semi": false,
+  "plugins": ["prettier-plugin-tailwindcss"]
 }

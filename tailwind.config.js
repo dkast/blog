@@ -6,6 +6,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
+    fontFamily: {
+      display: ["var(--font-grotesk)"]
+    },
     extend: {
       fontFamily: {
         sans: ["var(--font-inter)"]
