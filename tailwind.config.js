@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const colors = require("tailwindcss/colors")
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}", // Note the addition of the `app` directory.
@@ -10,6 +13,9 @@ module.exports = {
       display: ["var(--font-grotesk)"]
     },
     extend: {
+      colors: {
+        gray: colors.stone
+      },
       fontFamily: {
         sans: ["var(--font-inter)"]
       }

@@ -15,6 +15,7 @@ specifiers:
   prettier-plugin-tailwindcss: ^0.2.1
   react: 18.2.0
   react-dom: 18.2.0
+  react-wrap-balancer: ^0.2.4
   tailwindcss: ^3.2.4
   typescript: 4.9.4
 
@@ -29,6 +30,7 @@ dependencies:
   next: 13.1.1_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-wrap-balancer: 0.2.4_react@18.2.0
   typescript: 4.9.4
 
 devDependencies:
@@ -1936,6 +1938,14 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: false
+
+  /react-wrap-balancer/0.2.4_react@18.2.0:
+    resolution: {integrity: sha512-MVL9/Tw1X72t0i5Y/2j3YmSx1vkJJ22b5Vb+vZ/IOEdq7r9JPNzTfnfkB8wrl98Jwx+F6VCwJXmU7a1lT5PtCA==}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react/18.2.0:
