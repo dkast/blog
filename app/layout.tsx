@@ -1,5 +1,7 @@
-import MainNav from "@/components/main-nav"
 import { Inter, Space_Grotesk } from "@next/font/google"
+
+import Footer from "@/components/footer"
+import MainNav from "@/components/main-nav"
 
 import "./globals.css"
 
@@ -24,6 +26,7 @@ export default function RootLayout({
       <body>
         <MainNav />
         {children}
+        <Footer />
       </body>
     </html>
   )

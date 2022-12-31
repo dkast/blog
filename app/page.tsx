@@ -37,7 +37,7 @@ export default function Home() {
             Proyectos
           </small>
           <h2 className="text-2xl font-semibold md:text-3xl">
-            Proyectos personales y experimentos.
+            Proyectos personales y experimentos
           </h2>
         </div>
         <div className="flex flex-col gap-8 py-12">
@@ -54,6 +54,16 @@ export default function Home() {
             mollis lorem vel dictum ullamcorper. Ut vitae libero nunc. Mauris
             eros est, molestie et hendrerit nec, vulputate vitae tellus.
           </ProjectCard>
+        </div>
+      </section>
+      <section className="py-12">
+        <div className="mx-auto max-w-3xl px-8 sm:px-3">
+          <small className="text-md mb-1 font-semibold uppercase tracking-widest text-gray-500">
+            Blog
+          </small>
+          <h2 className="text-2xl font-semibold md:text-3xl">
+            Últimas entradas
+          </h2>
         </div>
       </section>
     </main>
