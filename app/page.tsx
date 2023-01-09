@@ -1,8 +1,16 @@
 import Balancer from "react-wrap-balancer"
+import { compareDesc } from "date-fns"
+import { allPosts } from "contentlayer/generated"
 
 import ProjectCard from "@/components/project-card"
 
 export default function Home() {
+  const posts = allPosts
+    .filter(post => post.published)
+    .sort((a, b) => {
+      return compareDesc(new Date(a.date), new Date(b.date))
+    })
+
   return (
     <main>
       <section className="pb-32 pt-44">
@@ -64,6 +72,17 @@ export default function Home() {
           <h2 className="text-2xl font-semibold md:text-3xl">
             Últimas entradas
           </h2>
+          {posts?.length ? (
+            <div>
+              {posts.map((post, index) => (
+                <article key={index}>
+                  <h2>{post.title}</h2>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <p>No hay entradas</p>
+          )}
         </div>
       </section>
     </main>
