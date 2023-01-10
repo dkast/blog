@@ -29,7 +29,7 @@ La idea es combinar lo mejor de SSR y SSG. Poniendo por ejemplo, este blog, al m
 
 Para hacer esto, no hace falta mas que un par de líneas en nuestro código.
 
-```js{8}
+```js {8}
 export const getStaticProps = async ({ params }) => {
   const data = await getPostAndMorePosts(params.slug);
   return {
@@ -48,14 +48,14 @@ En terminos prácticos, el visitante recibiriá la página al instante mientras 
 
 La otra pieza del rompecabezas es en la función de `getStaticPaths` que es la que se encarga de generar cada una de las posibles páginas de nuestro sitio.
 
-```js{5}
+```js {5}
 export const getStaticPaths = async () => {
-  const allPosts = await getAllPosts();
+  const allPosts = await getAllPosts()
   return {
     paths: allPosts?.map(post => `/post/${post.fields.slug}`) ?? [],
     fallback: "blocking"
-  };
-};
+  }
+}
 ```
 
 El parámetro de `fallback` define que sucede cuando se recibe la petición de una página que no ha sido generada previamente como HTML. Sin este parametro nuestros visitantes recibirán un error 404. Sin embargo, al fijarlo como **blocking** estamos indicando que debemos esperar a la generación del HTML como sucedería con SSR.

@@ -64,8 +64,11 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: "github-dark",
+          theme: "github-dark-dimmed",
+          keepBackground: true,
           onVisitLine(node) {
+            // Prevent lines from collapsing in `display: grid` mode, and allow empty
+            // lines to be copy/pasted
             if (node.children.length === 0) {
               node.children = [{ type: "text", value: " " }]
             }

@@ -1,8 +1,10 @@
-import Balancer from "react-wrap-balancer"
+import Link from "next/link"
 import { compareDesc } from "date-fns"
+import Balancer from "react-wrap-balancer"
 import { allPosts } from "contentlayer/generated"
 
 import ProjectCard from "@/components/project-card"
+import { formatDate } from "@/lib/utils"
 
 export default function Home() {
   const posts = allPosts
@@ -76,7 +78,10 @@ export default function Home() {
             <div>
               {posts.map((post, index) => (
                 <article key={index}>
-                  <h2>{post.title}</h2>
+                  {formatDate(post.date)}
+                  <Link href={post.slug}>
+                    <h2>{post.title}</h2>
+                  </Link>
                 </article>
               ))}
             </div>

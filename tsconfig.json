@@ -23,6 +23,7 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/types/*": ["types/*"],
+      "@/lib/*": ["lib/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
