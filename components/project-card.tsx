@@ -42,7 +42,9 @@ const ProjectCard = ({
           })}
         </ul>
       </div>
-      <div className="col-span-2 p-4 text-gray-600 sm:col-auto">{children}</div>
+      <div className="col-span-2 p-4 leading-6 text-gray-600 sm:col-auto">
+        {children}
+      </div>
     </div>
   )
 }

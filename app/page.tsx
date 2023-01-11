@@ -18,9 +18,9 @@ export default function Home() {
       <section className="pb-32 pt-44">
         <div className="mx-auto max-w-3xl px-8 sm:px-3">
           <h1 className="font-display text-5xl font-bold text-gray-800">
-            Hola, soy Dante Cavelari,
+            Hola, soy Daniel Castillejo,
           </h1>
-          <div className="flex flex-col gap-2 pt-6 text-xl text-gray-700 md:text-2xl">
+          <div className="flex flex-col gap-2 pt-6 text-xl leading-6 text-gray-500 md:text-2xl">
             <p>
               <Balancer>
                 <strong>Ingeniero de Software</strong> con más de 10 años de
@@ -66,7 +66,7 @@ export default function Home() {
           </ProjectCard>
         </div>
       </section>
-      <section className="py-12">
+      <section className="pt-12 pb-24">
         <div className="mx-auto max-w-3xl px-8 sm:px-3">
           <small className="text-md mb-1 font-semibold uppercase tracking-widest text-gray-500">
             Blog
@@ -75,13 +75,22 @@ export default function Home() {
             Últimas entradas
           </h2>
           {posts?.length ? (
-            <div>
+            <div className="my-4">
               {posts.map((post, index) => (
-                <article key={index}>
-                  {formatDate(post.date)}
-                  <Link href={post.slug}>
-                    <h2>{post.title}</h2>
-                  </Link>
+                <article key={index} className="flex gap-4">
+                  <span className="text-sm font-semibold leading-7 text-gray-500">
+                    {formatDate(post.date)}
+                  </span>
+                  <div>
+                    <Link href={post.slug} className="no-underline">
+                      <h2 className="text-lg font-semibold no-underline">
+                        {post.title}
+                      </h2>
+                    </Link>
+                    <small className="text-sm text-gray-500">
+                      {post.description}
+                    </small>
+                  </div>
                 </article>
               ))}
             </div>

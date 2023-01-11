@@ -64,7 +64,7 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: "github-dark-dimmed",
+          theme: "one-dark-pro",
           keepBackground: true,
           onVisitLine(node) {
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
