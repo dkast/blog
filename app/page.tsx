@@ -75,12 +75,14 @@ export default function Home() {
             Últimas entradas
           </h2>
           {posts?.length ? (
-            <div className="my-4">
+            <div className="my-4 flex flex-col gap-4">
               {posts.map((post, index) => (
                 <article key={index} className="flex gap-4">
-                  <span className="text-sm font-semibold leading-7 text-gray-500">
-                    {formatDate(post.date)}
-                  </span>
+                  <div className="w-20 text-right">
+                    <span className="text-sm font-semibold leading-7 text-gray-500">
+                      {formatDate(post.date)}
+                    </span>
+                  </div>
                   <div>
                     <Link href={post.slug} className="no-underline">
                       <h2 className="text-lg font-semibold no-underline">

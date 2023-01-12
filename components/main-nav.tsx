@@ -9,7 +9,7 @@ const MainNav = () => {
         <div>
           <Link href="/" className="flex items-center gap-3 no-underline">
             <GlobeAltIcon className="h-8 w-8"></GlobeAltIcon>
-            <span>@dkast</span>
+            <span className="font-semibold">dkast.dev</span>
           </Link>
         </div>
         <nav>

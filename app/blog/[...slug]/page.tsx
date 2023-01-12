@@ -33,7 +33,7 @@ export default async function PostPage({ params }: PostPageProps) {
     <article className="mx-auto max-w-3xl pt-12 pb-24">
       <div>
         {post.date && (
-          <div className="py-2 text-center text-sm text-gray-500">
+          <div className="py-2 text-center text-sm font-semibold text-gray-500">
             Publicado <time dateTime={post.date}>{formatDate(post.date)}</time>
           </div>
         )}
