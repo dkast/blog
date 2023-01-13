@@ -51,7 +51,7 @@ export default async function PostPage({ params }: PostPageProps) {
             width={800}
             height={600}
             priority
-            className="my-12 rounded-md shadow-lg"
+            className="my-12 sm:rounded-md sm:shadow-lg"
           />
         )}
         <Mdx code={post.body.code} />

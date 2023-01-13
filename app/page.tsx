@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <main>
-      <section className="pb-32 pt-44">
+      <section className="pb-24 pt-32 sm:pb-32 sm:pt-44">
         <div className="mx-auto max-w-3xl px-8 sm:px-3">
           <h1 className="font-display text-5xl font-bold text-gray-800">
             Hola, soy Daniel Castillejo,
@@ -65,6 +65,7 @@ export default function Home() {
             stack={["next.js", "prisma", "trpc"]}
             imageURL="/images/iphone-hero.png"
             className="bg-gradient-to-b from-orange-100 to-rose-300"
+            alternate
           >
             Aplicación PWA para premiar las buenas acciones de mis hijos.
           </ProjectCard>

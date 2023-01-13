@@ -9,6 +9,7 @@ type ProjectCardProps = {
   children?: React.ReactNode
   stack?: string[]
   className?: string
+  alternate?: boolean
 }
 
 const ProjectCard = ({
@@ -16,7 +17,8 @@ const ProjectCard = ({
   imageURL,
   children,
   stack,
-  className
+  className,
+  alternate = false
 }: ProjectCardProps) => {
   return (
     <div
@@ -25,15 +27,20 @@ const ProjectCard = ({
         className
       )}
     >
-      <div className="relative min-h-[300px]">
+      <div className="relative min-h-[200px]">
         <Image
           src={imageURL}
           alt={title}
-          className="object-contain object-left-bottom"
+          className="object-contain object-left-bottom sm:object-bottom"
           fill
         />
       </div>
-      <div className="order-first flex flex-col justify-end gap-4 px-4 py-6 sm:order-last">
+      <div
+        className={classNames(
+          "order-first flex flex-col justify-end gap-4 px-4 py-6 sm:order-last",
+          alternate ? "sm:order-first" : "sm:order-last"
+        )}
+      >
         <h3 className="font-display text-2xl md:text-3xl">{title}</h3>
         <div className="leading-6 text-gray-600">{children}</div>
         <ul className="flex flex-row gap-2">
