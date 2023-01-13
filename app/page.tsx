@@ -50,19 +50,23 @@ export default function Home() {
             Proyectos personales y experimentos
           </h2>
         </div>
-        <div className="flex flex-col gap-8 py-12">
+        <div className="col-auto grid gap-8 py-12 px-0 sm:px-3">
           <ProjectCard
             title="Biztro"
             stack={["next.js", "prisma", "next-auth", "craft.js"]}
+            imageURL="/images/editor.png"
+            className="bg-gradient-to-b from-indigo-100 to-purple-300"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-            mollis lorem vel dictum ullamcorper. Ut vitae libero nunc. Mauris
-            eros est, molestie et hendrerit nec, vulputate vitae tellus.
+            Aplicación web para la creción y publicación de menus digitales con
+            QR.
           </ProjectCard>
-          <ProjectCard title="Deberes" stack={["next.js", "prisma", "trpc"]}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-            mollis lorem vel dictum ullamcorper. Ut vitae libero nunc. Mauris
-            eros est, molestie et hendrerit nec, vulputate vitae tellus.
+          <ProjectCard
+            title="Deberes"
+            stack={["next.js", "prisma", "trpc"]}
+            imageURL="/images/iphone-hero.png"
+            className="bg-gradient-to-b from-orange-100 to-rose-300"
+          >
+            Aplicación PWA para premiar las buenas acciones de mis hijos.
           </ProjectCard>
         </div>
       </section>
