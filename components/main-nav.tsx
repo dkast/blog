@@ -1,6 +1,22 @@
 import React from "react"
-import { GlobeAltIcon } from "@heroicons/react/24/outline"
 import Link from "next/link"
+import { GlobeAltIcon } from "@heroicons/react/24/outline"
+
+interface NavItem {
+  title: string
+  href: string
+}
+
+const navItems: NavItem[] = [
+  {
+    title: "Inicio",
+    href: "/"
+  },
+  {
+    title: "Acerca",
+    href: "/about"
+  }
+]
 
 const MainNav = () => {
   return (
@@ -12,11 +28,15 @@ const MainNav = () => {
             <span className="font-semibold">dkast.dev</span>
           </Link>
         </div>
-        <nav>
-          <ul className="flex gap-8">
-            <li>Proyectos</li>
-            <li>Acerca</li>
-          </ul>
+        <nav className="flex gap-8">
+          {navItems &&
+            navItems.map((navItem, index) => {
+              return (
+                <Link key={index} href={navItem.href}>
+                  {navItem.title}
+                </Link>
+              )
+            })}
         </nav>
       </div>
     </header>
