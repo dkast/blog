@@ -23,7 +23,6 @@ export async function generateStaticParams(): Promise<
 export default async function PagePage({ params }: PagePageProps) {
   const slug = params?.slug?.join("/")
   const post = allPages.find(post => post.slugAsParams === slug)
-  console.log(slug)
 
   if (!post) {
     notFound()

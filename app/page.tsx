@@ -41,7 +41,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-gray-100 py-12">
+      <section className="pb-12">
         <div className="mx-auto max-w-3xl px-8 sm:px-3">
           <small className="text-md mb-1 font-semibold uppercase tracking-widest text-gray-500">
             Proyectos
@@ -55,7 +55,7 @@ export default function Home() {
             title="Biztro"
             stack={["next.js", "prisma", "next-auth", "craft.js"]}
             imageURL="/images/editor.png"
-            className="bg-gradient-to-b from-indigo-100 to-purple-300"
+            className="bg-gradient-to-r from-purple-400 to-indigo-200"
           >
             Aplicación web para la creción y publicación de menus digitales con
             QR.
@@ -64,14 +64,14 @@ export default function Home() {
             title="Deberes"
             stack={["next.js", "prisma", "trpc"]}
             imageURL="/images/iphone-hero.png"
-            className="bg-gradient-to-b from-orange-100 to-rose-300"
+            className="bg-gradient-to-r from-rose-200 to-orange-400"
             alternate
           >
             Aplicación PWA para premiar las buenas acciones de mis hijos.
           </ProjectCard>
         </div>
       </section>
-      <section className="pt-12 pb-24">
+      <section className="bg-gray-100 pt-12 pb-24">
         <div className="mx-auto max-w-3xl px-8 sm:px-3">
           <small className="text-md mb-1 font-semibold uppercase tracking-widest text-gray-500">
             Blog

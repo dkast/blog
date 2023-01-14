@@ -23,7 +23,7 @@ const ProjectCard = ({
   return (
     <div
       className={classNames(
-        "mx-auto grid h-[400px] max-w-4xl grid-cols-1 gap-2 overflow-hidden rounded-none sm:grid-cols-2 sm:rounded-2xl",
+        "mx-auto grid h-[400px] max-w-3xl grid-cols-1 gap-2 overflow-hidden rounded-none sm:grid-cols-2 sm:rounded-2xl",
         className
       )}
     >
@@ -37,7 +37,7 @@ const ProjectCard = ({
       </div>
       <div
         className={classNames(
-          "order-first flex flex-col justify-end gap-4 px-4 py-6 sm:order-last",
+          "order-first flex flex-col justify-end gap-4 p-8 sm:order-last",
           alternate ? "sm:order-first" : "sm:order-last"
         )}
       >

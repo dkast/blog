@@ -20,7 +20,7 @@ const navItems: NavItem[] = [
 
 const MainNav = () => {
   return (
-    <header className="pt-8">
+    <header className="border-t-8 pt-8">
       <div className="mx-auto flex h-12 max-w-3xl items-center justify-between px-8 sm:px-3">
         <div>
           <Link href="/" className="flex items-center gap-3 no-underline">
