@@ -24,7 +24,7 @@ const navItems: NavItem[] = [
 
 const MainNav = () => {
   const segment = useSelectedLayoutSegment()
-  console.log(segment)
+
   return (
     <header className="pt-8">
       <div className="mx-auto flex h-12 max-w-3xl items-center justify-between px-8 sm:px-3">
@@ -34,7 +34,7 @@ const MainNav = () => {
             <span className="font-semibold">dkast.dev</span>
           </Link>
         </div>
-        <nav className="flex gap-2 rounded-full bg-gray-100">
+        <nav className="flex gap-2 rounded-full bg-gray-100 p-1">
           {navItems &&
             navItems.map((navItem, index) => {
               return (
@@ -42,8 +42,11 @@ const MainNav = () => {
                   key={index}
                   href={navItem.href}
                   className={classNames(
-                    "py-2 px-4 no-underline",
-                    navItem.href.startsWith(`/${segment}`) ? "bg-white" : ""
+                    "rounded-full py-2 px-4 no-underline",
+                    navItem.href.startsWith(`/${segment}`) ||
+                      (navItem.href === "/" && segment === null)
+                      ? "bg-white shadow-sm"
+                      : ""
                   )}
                 >
                   {navItem.title}
