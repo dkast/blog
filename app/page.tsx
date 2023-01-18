@@ -63,8 +63,8 @@ export default function Home() {
           <ProjectCard
             title="Deberes"
             stack={["next.js", "prisma", "trpc"]}
-            imageURL="/images/iphone-hero.png"
-            className="bg-gradient-to-r from-rose-200 to-orange-400"
+            imageURL="/images/deberes-project.png"
+            className="bg-gradient-to-br from-purple-200 to-red-400"
             alternate
           >
             Aplicación PWA para premiar las buenas acciones de mis hijos.

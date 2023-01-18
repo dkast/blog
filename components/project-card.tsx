@@ -23,7 +23,7 @@ const ProjectCard = ({
   return (
     <div
       className={classNames(
-        "mx-auto grid h-[400px] max-w-3xl grid-cols-1 gap-2 overflow-hidden rounded-none sm:grid-cols-2 sm:rounded-2xl",
+        "mx-auto grid h-[500px] sm:h-[300px] max-w-3xl grid-cols-1 gap-2 overflow-hidden rounded-none sm:grid-cols-2 sm:rounded-2xl",
         className
       )}
     >
@@ -31,8 +31,11 @@ const ProjectCard = ({
         <Image
           src={imageURL}
           alt={title}
-          className="object-contain object-left-bottom sm:object-bottom"
+          className="object-cover object-top"
           fill
+          sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
         />
       </div>
       <div
