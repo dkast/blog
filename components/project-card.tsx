@@ -1,7 +1,9 @@
 import React from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 import classNames from "@/lib/classnames"
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline"
 
 type ProjectCardProps = {
   title: string
@@ -10,6 +12,7 @@ type ProjectCardProps = {
   stack?: string[]
   className?: string
   alternate?: boolean
+  href?: string
 }
 
 const ProjectCard = ({
@@ -18,12 +21,13 @@ const ProjectCard = ({
   children,
   stack,
   className,
-  alternate = false
+  alternate = false,
+  href
 }: ProjectCardProps) => {
   return (
     <div
       className={classNames(
-        "mx-auto grid h-[500px] sm:h-[300px] max-w-3xl grid-cols-1 gap-2 overflow-hidden rounded-none sm:grid-cols-2 sm:rounded-2xl",
+        "mx-auto grid h-[500px] max-w-3xl grid-cols-1 gap-2 overflow-hidden rounded-none sm:h-[300px] sm:grid-cols-2 sm:rounded-2xl",
         className
       )}
     >
@@ -44,14 +48,21 @@ const ProjectCard = ({
           alternate ? "sm:order-first" : "sm:order-last"
         )}
       >
-        <h3 className="font-display text-2xl md:text-3xl">{title}</h3>
-        <div className="leading-6 text-gray-600">{children}</div>
+        <h3 className="flex items-baseline gap-2 font-display text-2xl md:text-3xl">
+          <span>{title}</span>
+          {href && (
+            <Link href={href} target="_blank">
+              <ArrowTopRightOnSquareIcon className="h-5 w-5" />
+            </Link>
+          )}
+        </h3>
+        <div className="leading-6 text-black/70">{children}</div>
         <ul className="flex flex-row gap-2">
           {stack?.map(item => {
             return (
               <li
                 key={item}
-                className="rounded-full bg-black/70 px-3 py-0.5 text-xs tracking-wide text-white/90"
+                className="rounded-full bg-black/60 px-3 py-0.5 text-xs tracking-wide text-white/90"
               >
                 {item}
               </li>

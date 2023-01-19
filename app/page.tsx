@@ -41,7 +41,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="pb-12">
+      <section className="bg-gray-50 py-12">
         <div className="mx-auto max-w-3xl px-8 sm:px-3">
           <small className="text-md mb-1 font-semibold uppercase tracking-widest text-gray-500">
             Proyectos
@@ -56,9 +56,10 @@ export default function Home() {
             stack={["next.js", "prisma", "next-auth", "craft.js"]}
             imageURL="/images/editor.png"
             className="bg-gradient-to-r from-purple-400 to-indigo-200"
+            href="https://biztro.co"
           >
-            Aplicación web para la creción y publicación de menus digitales con
-            QR.
+            Una aplicación SASS para restaurantes, que permite la creción y
+            publicación de menus digitales con código QR.
           </ProjectCard>
           <ProjectCard
             title="Deberes"
@@ -66,8 +67,10 @@ export default function Home() {
             imageURL="/images/deberes-project.png"
             className="bg-gradient-to-br from-purple-200 to-red-400"
             alternate
+            href="https://github.com/dkast/deeds-app"
           >
-            Aplicación PWA para premiar las buenas acciones de mis hijos.
+            Aplicación web personal, <em>mobile-first</em>, que me ayuda a
+            incentivar las buenas acciones de mis hijos.
           </ProjectCard>
         </div>
       </section>
