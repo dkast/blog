@@ -26,7 +26,7 @@ export default async function handler(req: NextRequest) {
         ? `${values.heading!.substring(0, 140)}...`
         : values.heading
 
-    const paint = "#fff"
+    const paint = "#000"
 
     const fontSize = heading!.length > 100 ? "70px" : "100px"
 
