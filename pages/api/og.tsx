@@ -25,6 +25,7 @@ export default async function handler(req: NextRequest) {
       values.heading!.length > 140
         ? `${values.heading!.substring(0, 140)}...`
         : values.heading
+    const avatar = `${url.protocol}//${url.host}/images/avatar.jpg`
 
     // const fontSize = heading!.length > 100 ? "70px" : "100px"
 
@@ -43,7 +44,7 @@ export default async function handler(req: NextRequest) {
           }}
         >
           <div tw="flex">
-            <img tw="w-24 h-24 rounded-full" src="../../images/avatar.jpg" />
+            <img tw="w-24 h-24 rounded-full" src={avatar} />
           </div>
           <div tw="flex flex-col">
             <span tw="text-stone-500 text-xl uppercase">Blog</span>
