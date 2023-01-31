@@ -14,7 +14,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        gray: colors.stone
+        gray: colors.neutral
       },
       fontFamily: {
         sans: ["var(--font-inter)"]

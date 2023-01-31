@@ -31,7 +31,7 @@ export default async function PagePage({ params }: PagePageProps) {
   return (
     <article className="mx-auto max-w-3xl pt-12 pb-24">
       <div>
-        <h1 className="mx-3 my-8 font-display text-4xl font-bold">
+        <h1 className="mx-3 my-8 text-center font-display text-4xl font-bold">
           <Balancer>{post.title}</Balancer>
         </h1>
         <Mdx code={post.body.code} />

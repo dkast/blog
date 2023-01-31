@@ -24,6 +24,7 @@
       "@/components/*": ["components/*"],
       "@/types/*": ["types/*"],
       "@/lib/*": ["lib/*"],
+      "@/styles/*": ["styles/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },

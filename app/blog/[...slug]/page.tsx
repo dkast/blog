@@ -6,6 +6,8 @@ import Image from "next/image"
 import Mdx from "@/components/mdx"
 import { formatDate } from "@/lib/utils"
 
+import "@/styles/mdx.css"
+
 interface PostPageProps {
   params: {
     slug: string[]
@@ -51,7 +53,7 @@ export default async function PostPage({ params }: PostPageProps) {
             width={800}
             height={600}
             priority
-            className="my-12 sm:rounded-md sm:shadow-lg"
+            className="my-12 sm:rounded-xl sm:shadow-lg"
           />
         )}
         <Mdx code={post.body.code} />

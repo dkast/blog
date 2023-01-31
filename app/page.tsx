@@ -17,10 +17,10 @@ export default function Home() {
     <main>
       <section className="pb-24 pt-32 sm:pb-32 sm:pt-44">
         <div className="mx-auto max-w-3xl px-8 sm:px-3">
-          <h1 className="font-display text-5xl font-bold text-gray-800">
-            Hola, soy Daniel Castillejo,
+          <h1 className="font-display text-3xl font-bold text-gray-800 sm:text-5xl">
+            Hola, soy Daniel Castillejo
           </h1>
-          <div className="flex flex-col gap-2 pt-6 text-xl leading-6 text-gray-500 md:text-2xl">
+          <div className="flex flex-col gap-2 pt-6 text-lg leading-6 text-gray-500 sm:text-xl md:text-2xl">
             <p>
               <Balancer>
                 <strong>Ingeniero de Software</strong> con más de 10 años de
@@ -41,16 +41,16 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-gray-50 py-12">
+      <section className="border-t border-b border-gray-100 bg-gray-50 py-12">
         <div className="mx-auto max-w-3xl px-8 sm:px-3">
           <small className="text-md mb-1 font-semibold uppercase tracking-widest text-gray-500">
             Proyectos
           </small>
-          <h2 className="text-2xl font-semibold md:text-3xl">
+          <h2 className="pb-8 text-2xl font-semibold md:text-3xl">
             Proyectos personales y experimentos
           </h2>
         </div>
-        <div className="col-auto grid gap-8 py-12 px-0 sm:px-3">
+        <div className="col-auto grid gap-8 px-0 sm:px-3">
           <ProjectCard
             title="Biztro"
             stack={["next.js", "prisma", "next-auth", "craft.js"]}
@@ -58,23 +58,23 @@ export default function Home() {
             className="bg-gradient-to-r from-purple-400 to-indigo-200"
             href="https://biztro.co"
           >
-            Una aplicación SASS para restaurantes, que permite la creción y
+            Una aplicación SAAS para restaurantes, permite la creción y
             publicación de menus digitales con código QR.
           </ProjectCard>
           <ProjectCard
             title="Deberes"
-            stack={["next.js", "prisma", "trpc"]}
+            stack={["next.js", "prisma", "next-auth", "trpc"]}
             imageURL="/images/deberes-project.png"
             className="bg-gradient-to-br from-purple-200 to-red-400"
             alternate
             href="https://github.com/dkast/deeds-app"
           >
-            Aplicación web personal, <em>mobile-first</em>, que me ayuda a
-            incentivar las buenas acciones de mis hijos.
+            Aplicación web personal, mobile-first, para incentivar las buenas
+            acciones de mis pequeños.
           </ProjectCard>
         </div>
       </section>
-      <section className="bg-gray-100 pt-12 pb-24">
+      <section className="bg-gradient-to-b from-white via-white to-gray-200 pt-12 pb-24">
         <div className="mx-auto max-w-3xl px-8 sm:px-3">
           <small className="text-md mb-1 font-semibold uppercase tracking-widest text-gray-500">
             Blog

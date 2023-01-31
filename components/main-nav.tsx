@@ -43,7 +43,7 @@ const MainNav = () => {
             <span className="font-semibold">dkast.dev</span>
           </Link>
         </div>
-        <nav className="flex gap-2 rounded-full border bg-white p-1 shadow">
+        <nav className="flex gap-2 rounded-full border border-gray-200 bg-white p-1 shadow-md shadow-gray-100">
           {navItems &&
             navItems.map((navItem, index) => {
               return (
