@@ -51,7 +51,11 @@ const ProjectCard = ({
         <h3 className="flex items-baseline gap-2 font-display text-2xl md:text-3xl">
           <span>{title}</span>
           {href && (
-            <Link href={href} target="_blank">
+            <Link
+              href={href}
+              target="_blank"
+              aria-label="Liga al sitio del proyecto"
+            >
               <ArrowTopRightOnSquareIcon className="h-5 w-5" />
             </Link>
           )}

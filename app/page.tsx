@@ -57,8 +57,8 @@ export default function Home() {
             className="bg-gradient-to-r from-purple-400 to-indigo-200"
             href="https://biztro.co"
           >
-            Una aplicación SAAS para restaurantes, permite la creción y
-            publicación de menus digitales con código QR.
+            Aplicación SaaS para restaurantes, permite la creación y publicación
+            de menus digitales con código QR.
           </ProjectCard>
           <ProjectCard
             title="Deberes"
