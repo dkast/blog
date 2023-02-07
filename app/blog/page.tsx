@@ -11,10 +11,12 @@ export default async function BlogPage() {
     })
 
   return (
-    <main className="mx-auto max-w-3xl pt-12 pb-24">
-      <h1 className="mx-3 my-8 font-display text-4xl font-bold">Blog</h1>
+    <main className="mx-auto max-w-3xl px-6 pt-12 pb-24 sm:px-3">
+      <h1 className="mx-3 my-8 font-display text-3xl font-bold sm:text-4xl">
+        Blog
+      </h1>
       {posts?.length ? (
-        <div className="my-4 flex flex-col gap-4">
+        <div className="my-4 mx-3 flex flex-col gap-4">
           {posts.map((post, index) => (
             <PostCard key={index} post={post}></PostCard>
           ))}

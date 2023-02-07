@@ -11,7 +11,7 @@ interface PostCardProps {
 const PostCard = ({ post }: PostCardProps) => {
   return (
     <article className="flex gap-4">
-      <div className="w-20 text-right">
+      <div className="min-w-[80px] text-right">
         <span className="text-sm font-semibold leading-7 text-gray-500">
           {formatDate(post.date)}
         </span>

@@ -44,7 +44,7 @@ const MainNav = () => {
               height={40}
               className="rounded-full border shadow"
             ></Image>
-            <span className="font-semibold">dkast.dev</span>
+            <span className="hidden font-semibold sm:inline">dkast.dev</span>
           </Link>
         </div>
         <nav className="flex gap-2 rounded-full border border-gray-300/50 bg-white p-1 shadow-md shadow-gray-100">
