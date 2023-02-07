@@ -1,13 +1,12 @@
-import MdxHead from "@/components/mdx-head";
+import MdxHead from "@/components/mdx-head"
 
-
-export default function Head({ params }: { params: { slug: string[] }}) {
-    return (
-      <MdxHead
-        params={params}
-        og={{
-          type: "Blog Post",
-        }}
-      />
-    )
-  }
+export default function Head({ params }: { params: { slug: string[] } }) {
+  return (
+    <MdxHead
+      params={params}
+      og={{
+        type: "Blog"
+      }}
+    />
+  )
+}

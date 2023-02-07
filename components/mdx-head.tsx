@@ -12,7 +12,7 @@ interface MdxHeadProps {
 
 export default function MdxHead({ params, og }: MdxHeadProps) {
   const slug = params?.slug?.join("/") || ""
-  const mdxPost = allPosts.find((doc) => doc.slugAsParams === slug)
+  const mdxPost = allPosts.find(doc => doc.slugAsParams === slug)
 
   if (!mdxPost) {
     return null
@@ -34,7 +34,10 @@ export default function MdxHead({ params, og }: MdxHeadProps) {
   return (
     <>
       <title>{title}</title>
-      <link rel="canonical" href={`${process.env.NEXT_PUBLIC_APP_URL}${mdxPost.slug}`} />
+      <link
+        rel="canonical"
+        href={`${process.env.NEXT_PUBLIC_APP_URL}${mdxPost.slug}`}
+      />
       <meta name="description" content={ogDescription} />
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width" />
