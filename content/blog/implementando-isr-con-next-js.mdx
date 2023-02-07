@@ -1,29 +1,29 @@
 ---
 title: Implementando ISR con Next.js
-description: Que es ISR y como se compara contra SSG y SSR.
+description: ISR y su relación con SSG y SSR.
 image: "https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=768&q=80"
 date: "2021-05-06"
 ---
 
-[Next.js](https://nextjs.org) es uno de los frameworks más populares de la actualidad basado en React, y uno de los primeros en permitir implementar _Server-Side Rendering_ o SSR de forma sencilla.
+[Next.js](https://nextjs.org) es uno de los frameworks más populares de la actualidad basado en React, y uno de los primeros en permitir implementar Server-Side Rendering o SSR de forma sencilla.
 
-Este blog de hecho esta construido con Next.js y hasta hace poco, implementado con SSR. Sin embargo, de un tiempo para aca, ha resurgido la idea de desarrollar sitios estáticos, sirviendo HTML con soluciones de tipo _Static-Site Generation_ o SSG para crear sitios más eficientes en cuanto a desempeño y tiempos de carga.
+Este blog esta construido con Next.js y hasta hace poco, implementado con SSR. Sin embargo, de un tiempo para aca, ha resurgido la idea de desarrollar sitios estáticos, sirviendo HTML con soluciones de tipo Static-Site Generation o SSG para crear sitios más eficientes en cuanto a desempeño y tiempos de carga.
 
 ## SSR vs SSG
 
-¿Pero que no SSR ya entrega HTML desde el servidor? Así es, pero la principal diferencia entre SSR y SSG esta en que el primero construye el HTML de la página en cada petición del usuario, mientras que el segundo construye el HTML una sola vez, al momento de hacer el _build y deploy_ de nuestro sitio sirviendolo a todas las peticiones de los visitantes al sitio.
+La principal diferencia entre SSR y SSG esta en que el primero construye el HTML de la página en cada petición del usuario al servidor donde se aloje el sitio, mientras que el segundo construye el HTML una sola vez, generalmente al momento de publicar o liberar nuestro sitio, y es la versión que se entrega en todas las peticiones a nuestro sitio de ahí en adelante.
 
-Esto hace que un sitio con SSG sea muy rápido al momento de cargar vs el tiempo de espera que lleva con SSR compilar y entregar el HTML al cliente.
+Esto hace que un sitio implementado con SSG sea muy rápido al momento de cargar comparado con el tiempo de espera que lleva con SSR compilar y entregar el HTML al cliente.
 
 ## ISR, un híbrido entre SSR y SSG
 
-Por su naturaleza SSG esta pensado para sitios donde los cambios son poco frecuentes, como es el caso de un blog. Sin embargo a pesar de sus ventajas, tener que hacer un _build y deploy_ cada vez que quieras modificar tu sitio, se vuelve un proceso engorroso.
+Por su naturaleza SSG esta pensado para sitios donde los cambios son poco frecuentes, como es el caso de un blog. Sin embargo a pesar de sus ventajas, tener que hacer un build y deploy cada vez que quieras modificar el contenido de tú sitio, se puede convertir en un proceso tedioso.
 
-Sin embargo, ya hay una solución para esto, en Next.js a partir de la versión 9.5 implementa algo llamado ISR o _Incremental Static Regeneration_.
+Para resolver esto en Next.js, a partir de la versión 9.5, es posible implementar algo llamado ISR o Incremental Static Regeneration.
 
-La idea es combinar lo mejor de SSR y SSG. Poniendo por ejemplo, este blog, al momento de hacer _build y deploy_ generamos todos los artículos a HTML utilizando `getStaticProps` y `getStaticPaths`, ambos métodos de Next.js para generar sitios estáticos.
+La idea es combinar lo mejor de SSR y SSG. Poniendo de ejemplo este blog, al momento de hacer build y deploy se generan todos los artículos en HTML utilizando `getStaticProps` y `getStaticPaths`, que son los métodos de Next.js para generar sitios estáticos.
 
-¿Pero que pasa cuando nuestro sitio ya está en línea y queremos publicar un artículo nuevo? ISR nos permite generar estos nuevos articulos a HTML la primera vez que se recibe una visita, permitiendo que en visitas subsecuentes se entregue la página de inmediato. La mismo función aplica cuando haces modificaciones a tu sitio.
+¿Pero que pasa cuando nuestro sitio ya está en línea y queremos modificar el contenido, por ejemplo, publicar un artículo nuevo? ISR nos permite generar estos nuevos artículos en HTML la primera vez que se recibe una visita, permitiendo que en visitas subsecuentes se entregue la página de inmediato. La mismo función aplica cuando haces modificaciones a tu sitio.
 
 ## Como implementar ISR con Next.js
 
@@ -44,7 +44,7 @@ export const getStaticProps = async ({ params }) => {
 
 En nuestra función de `getStaticProps` agregamos un el parámetro `revalidate`. Con este indicamos que la página deberá regenerarse, en este ejemplo, después de 60 segundos a partir de cuando se recibió la petición.
 
-En terminos prácticos, el visitante recibiriá la página al instante mientras en el fondo esta se reprocesa de nuevo para entregar el nuevo HTML y que se entregará en la próxima visita. Esto asegura que nuestra información nunca estará desactualizada más de los 60 segundos que especificamos. Este parametro es configurable y puedes capturar los segundos que consideres conveniente.
+En términos prácticos, el visitante recibirá la página al instante mientras en el fondo esta se regenera de nuevo para entregar la última versión disponible en HTML al próximo usuario que visite nuestro sitio. Esto asegura que nuestra información nunca estará des-actualizada más de los 60 segundos que especificamos. Este parámetro es configurable y puedes capturar los segundos que consideres conveniente.
 
 La otra pieza del rompecabezas es en la función de `getStaticPaths` que es la que se encarga de generar cada una de las posibles páginas de nuestro sitio.
 
@@ -58,10 +58,10 @@ export const getStaticPaths = async () => {
 }
 ```
 
-El parámetro de `fallback` define que sucede cuando se recibe la petición de una página que no ha sido generada previamente como HTML. Sin este parametro nuestros visitantes recibirán un error 404. Sin embargo, al fijarlo como **blocking** estamos indicando que debemos esperar a la generación del HTML como sucedería con SSR.
+El parámetro de `fallback` define que sucede cuando se recibe la petición de una página que no ha sido generada previamente como HTML. Sin este parámetro nuestros visitantes recibirán un error 404. Sin embargo, al fijarlo como **blocking** estamos indicando que debemos esperar a la generación del HTML como sucedería con SSR.
 
-Al hacer esta configuración logramos implementar ISR y podemos actualizar nuestro sitio sin tener que hacer un _deploy_ y con el rendimiento de un sitio HTML con respuesta casi al instante.
+Al hacer esta configuración logramos implementar ISR y podemos actualizar nuestro sitio sin tener que hacer un deploy y con el rendimiento de un sitio HTML con respuesta casi al instante.
 
 ## Conclusión
 
-Si estas considerando un sitio que implemente SSG para mejorar los tiempos de respuesta, considera definitivamente utilizar ISR. Si tu sitio cuenta con cientos de páginas, por ejemplo un sitio e-commerce con cientos de articulos, generar una página para cada artículo puede no ser viable, y ISR se convertiría en una excelente opción.
+Si estas considerando un sitio que implemente SSG para mejorar los tiempos de respuesta, considera definitivamente utilizar ISR. Si tu sitio cuenta con cientos de páginas, por ejemplo un sitio e-commerce con cientos de artículos, generar una página para cada artículo puede no ser viable, y ISR se convertiría en una excelente opción.
