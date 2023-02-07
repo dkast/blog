@@ -1,10 +1,9 @@
-import Link from "next/link"
 import { compareDesc } from "date-fns"
 import Balancer from "react-wrap-balancer"
 import { allPosts } from "contentlayer/generated"
 
 import ProjectCard from "@/components/project-card"
-import { formatDate } from "@/lib/utils"
+import PostCard from "@/components/post-card"
 
 export default function Home() {
   const posts = allPosts
@@ -85,23 +84,7 @@ export default function Home() {
           {posts?.length ? (
             <div className="my-4 flex flex-col gap-4">
               {posts.map((post, index) => (
-                <article key={index} className="flex gap-4">
-                  <div className="w-20 text-right">
-                    <span className="text-sm font-semibold leading-7 text-gray-500">
-                      {formatDate(post.date)}
-                    </span>
-                  </div>
-                  <div>
-                    <Link href={post.slug} className="no-underline">
-                      <h2 className="text-lg font-semibold no-underline">
-                        {post.title}
-                      </h2>
-                    </Link>
-                    <small className="text-sm text-gray-500">
-                      {post.description}
-                    </small>
-                  </div>
-                </article>
+                <PostCard key={index} post={post}></PostCard>
               ))}
             </div>
           ) : (

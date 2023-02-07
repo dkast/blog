@@ -1,10 +1,8 @@
 import { notFound } from "next/navigation"
 import { allPages } from "contentlayer/generated"
 import Balancer from "react-wrap-balancer"
-import Image from "next/image"
 
 import Mdx from "@/components/mdx"
-import { formatDate } from "@/lib/utils"
 
 interface PagePageProps {
   params: {
