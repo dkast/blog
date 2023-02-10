@@ -3,7 +3,7 @@ import { Inter, Space_Grotesk } from "@next/font/google"
 import Footer from "@/components/footer"
 import MainNav from "@/components/main-nav"
 
-import "./globals.css"
+import "@/styles/globals.css"
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] })
 const grotesk = Space_Grotesk({

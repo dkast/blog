@@ -1,9 +1,9 @@
-import { compareDesc } from "date-fns"
-import Balancer from "react-wrap-balancer"
 import { allPosts } from "contentlayer/generated"
+import { compareDesc } from "date-fns"
 
-import ProjectCard from "@/components/project-card"
+import Hero from "@/components/hero"
 import PostCard from "@/components/post-card"
+import ProjectCard from "@/components/project-card"
 
 export default function Home() {
   const posts = allPosts
@@ -16,28 +16,7 @@ export default function Home() {
     <main>
       <section className="pb-24 pt-32 sm:pb-32 sm:pt-44">
         <div className="mx-auto max-w-3xl px-8 sm:px-3">
-          <h1 className="font-display text-3xl font-bold text-gray-800 sm:text-5xl">
-            Hola, soy Daniel Castillejo
-          </h1>
-          <div className="flex flex-col gap-2 pt-6 text-lg leading-6 text-gray-500 sm:text-xl md:text-2xl">
-            <p>
-              <Balancer>
-                <strong>Ingeniero de Software</strong> con más de 10 años de
-                experiencia.
-              </Balancer>
-            </p>
-            <p>
-              <Balancer ratio={0.2}>
-                Soy entusiasta del diseño, amante de la música y guitarrista
-                promedio.
-              </Balancer>
-            </p>
-          </div>
-          <div className="flex gap-4 py-12">
-            <a href="https://github.com/dkast">Github</a>
-            <a href="https://twitter.com/dkast">Twitter</a>
-            <a href="https://instagram.com/dkast">Instagram</a>
-          </div>
+          <Hero />
         </div>
       </section>
       <section className="border-t border-b border-gray-100 bg-gray-50 py-12">
