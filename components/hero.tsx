@@ -9,14 +9,14 @@ const variants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "tween",
+      ease: "backInOut",
       delay: i * 0.1,
-      duration: 0.3
+      duration: 0.5
     }
   }),
   hidden: {
     opacity: 0,
-    y: -50
+    y: 50
   }
 }
 
@@ -27,7 +27,7 @@ const Hero = () => {
         initial="hidden"
         animate="visible"
         variants={variants}
-        custom={2}
+        custom={0}
         className="font-display text-3xl font-bold text-gray-800 sm:text-5xl"
       >
         Hola, soy Daniel Castillejo
@@ -56,7 +56,7 @@ const Hero = () => {
         initial="hidden"
         animate="visible"
         variants={variants}
-        custom={0}
+        custom={2}
         className="flex gap-4 py-12"
       >
         <a href="https://github.com/dkast">Github</a>
