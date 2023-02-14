@@ -1,9 +1,12 @@
-import React from "react"
+"use client"
+
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline"
+import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
+import React from "react"
 
 import classNames from "@/lib/classnames"
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline"
 
 type ProjectCardProps = {
   title: string
@@ -25,7 +28,11 @@ const ProjectCard = ({
   href
 }: ProjectCardProps) => {
   return (
-    <div
+    <motion.div
+      initial={{ scale: 1.2, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      viewport={{ once: true, margin: "-200px" }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
       className={classNames(
         "mx-auto grid h-[500px] max-w-3xl grid-cols-1 gap-2 overflow-hidden rounded-none sm:h-[300px] sm:grid-cols-2 sm:rounded-2xl",
         className
@@ -74,7 +81,7 @@ const ProjectCard = ({
           })}
         </ul>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

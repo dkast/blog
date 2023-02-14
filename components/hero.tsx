@@ -9,8 +9,8 @@ const variants = {
     opacity: 1,
     y: 0,
     transition: {
-      ease: "backInOut",
-      delay: i * 0.1,
+      ease: "easeOut",
+      delay: i * 0.2,
       duration: 0.5
     }
   }),
