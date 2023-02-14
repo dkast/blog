@@ -1,10 +1,11 @@
 "use client"
 
-import React from "react"
-import Link from "next/link"
 import { GlobeAltIcon } from "@heroicons/react/24/outline"
-import { useSelectedLayoutSegment } from "next/navigation"
+import { motion } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
+import { useSelectedLayoutSegment } from "next/navigation"
+import React from "react"
 
 import classNames from "@/lib/classnames"
 
@@ -51,19 +52,24 @@ const MainNav = () => {
           <nav className="flex gap-2 rounded-full border border-black/5 bg-white p-1 shadow-drop shadow-gray-700/5">
             {navItems &&
               navItems.map((navItem, index) => {
+                const selected =
+                  navItem.href.startsWith(`/${segment}`) ||
+                  (navItem.href === "/" && segment === null)
                 return (
                   <Link
                     key={index}
                     href={navItem.href}
-                    className={classNames(
-                      "rounded-full py-2 px-4 no-underline",
-                      navItem.href.startsWith(`/${segment}`) ||
-                        (navItem.href === "/" && segment === null)
-                        ? "bg-gray-100"
-                        : ""
-                    )}
+                    className="rounded-full py-2 px-4 no-underline relative"
                   >
-                    {navItem.title}
+                    {selected && (
+                      <motion.div
+                        layoutId="menu"
+                        className="absolute bg-gray-100 rounded-full inset-0 z-0"
+                      ></motion.div>
+                    )}
+                    <span className="z-30 relative text-gray-900">
+                      {navItem.title}
+                    </span>
                   </Link>
                 )
               })}

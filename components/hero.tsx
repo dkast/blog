@@ -1,8 +1,10 @@
 "use client"
 
-import { delay, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import React from "react"
 import Balancer from "react-wrap-balancer"
+
+import TwitterIcon from "@/components/icons/twitter"
 
 const variants = {
   visible: (i: number) => ({
@@ -60,7 +62,9 @@ const Hero = () => {
         className="flex gap-4 py-12"
       >
         <a href="https://github.com/dkast">Github</a>
-        <a href="https://twitter.com/dkast">Twitter</a>
+        <a href="https://twitter.com/dkast">
+          <TwitterIcon className="text-red-800 w-5 h-5" />
+        </a>
         <a href="https://instagram.com/dkast">Instagram</a>
       </motion.div>
     </>
