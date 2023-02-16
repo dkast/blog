@@ -33,7 +33,7 @@ export default function Home() {
             title="Biztro"
             stack={["next.js", "prisma", "next-auth", "craft.js"]}
             imageURL="/images/editor.png"
-            className="bg-gradient-to-r from-purple-400 to-indigo-200"
+            className="bg-gradient-to-r from-purple-400 to-indigo-500"
             href="https://biztro.co"
           >
             Aplicación SaaS para restaurantes, permite la creación y publicación
@@ -43,7 +43,7 @@ export default function Home() {
             title="Deberes"
             stack={["next.js", "prisma", "next-auth", "trpc"]}
             imageURL="/images/deberes-project.png"
-            className="bg-gradient-to-br from-purple-200 to-red-400"
+            className="bg-gradient-to-br from-purple-500 to-red-400"
             alternate
             href="https://github.com/dkast/deeds-app"
           >

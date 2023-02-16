@@ -55,7 +55,7 @@ const ProjectCard = ({
           alternate ? "sm:order-first" : "sm:order-last"
         )}
       >
-        <h3 className="flex items-baseline gap-2 font-display text-2xl md:text-3xl">
+        <h3 className="flex items-baseline text-white gap-2 font-display text-2xl md:text-3xl">
           <span>{title}</span>
           {href && (
             <Link
@@ -67,7 +67,7 @@ const ProjectCard = ({
             </Link>
           )}
         </h3>
-        <div className="leading-6 text-black/70">{children}</div>
+        <div className="leading-6 text-white/70">{children}</div>
         <ul className="flex flex-row gap-2">
           {stack?.map(item => {
             return (

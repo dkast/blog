@@ -4,6 +4,8 @@ import { motion } from "framer-motion"
 import React from "react"
 import Balancer from "react-wrap-balancer"
 
+import GithubIcon from "@/components/icons/github"
+import InstagramIcon from "@/components/icons/instagram"
 import TwitterIcon from "@/components/icons/twitter"
 
 const variants = {
@@ -59,13 +61,17 @@ const Hero = () => {
         animate="visible"
         variants={variants}
         custom={2}
-        className="flex gap-4 py-12"
+        className="flex gap-8 py-12 items-center"
       >
-        <a href="https://github.com/dkast">Github</a>
-        <a href="https://twitter.com/dkast">
-          <TwitterIcon className="text-red-800 w-5 h-5" />
+        <a href="https://github.com/dkast">
+          <GithubIcon className="fill-gray-400 hover:fill-gray-600 w-5 h-5" />
         </a>
-        <a href="https://instagram.com/dkast">Instagram</a>
+        <a href="https://twitter.com/dkast">
+          <TwitterIcon className="fill-gray-400 hover:fill-gray-600 w-5 h-5" />
+        </a>
+        <a href="https://instagram.com/dkast">
+          <InstagramIcon className="fill-gray-400 hover:fill-gray-600 w-5 h-5" />
+        </a>
       </motion.div>
     </>
   )

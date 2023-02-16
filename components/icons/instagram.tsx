@@ -2,7 +2,7 @@ import React from "react"
 
 import { IconProps } from "@/lib/types"
 
-function Icon({ className }: IconProps) {
+function InstagramIcon({ className }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,4 +14,4 @@ function Icon({ className }: IconProps) {
   )
 }
 
-export default Icon
+export default InstagramIcon
