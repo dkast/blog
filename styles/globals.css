@@ -7,3 +7,9 @@
     @apply underline underline-offset-2 hover:text-gray-500
   }
 }
+
+@layer utilities {
+  .border {
+    background-clip: padding-box;
+  }
+}
