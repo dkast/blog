@@ -6,6 +6,8 @@ import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 
+// import { isMobileOnly } from "react-device-detect"
+
 import classNames from "@/lib/classnames"
 
 type ProjectCardProps = {
@@ -27,14 +29,34 @@ const ProjectCard = ({
   alternate = false,
   href
 }: ProjectCardProps) => {
+  // Animations disable until I find a fix for hydration mistmatch on Safari iOS
+  // let variants = {}
+
+  // if (!isMobileOnly) {
+  //   variants = {
+  //     initial: {
+  //       scale: 1.2,
+  //       opacity: 0
+  //     },
+  //     whileInView: {
+  //       scale: 1,
+  //       opacity: 1
+  //     },
+  //     viewport: {
+  //       once: true,
+  //       margin: "-200px"
+  //     },
+  //     transition: {
+  //       duration: 0.7,
+  //       ease: "easeOut"
+  //     }
+  //   }
+  // }
+
   return (
     <motion.div
-      initial={{ scale: 1.2, opacity: 0 }}
-      whileInView={{ scale: 1, opacity: 1 }}
-      viewport={{ once: true, margin: "-200px" }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
       className={classNames(
-        "mx-auto grid h-[500px] max-w-3xl grid-cols-1 gap-2 overflow-hidden rounded-none sm:h-[300px] sm:grid-cols-2 sm:rounded-2xl",
+        "mx-auto grid h-[300px] max-w-3xl grid-cols-1 gap-2 overflow-hidden rounded-none sm:grid-cols-2 sm:rounded-2xl",
         className
       )}
     >
