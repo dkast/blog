@@ -29,7 +29,7 @@ const ProjectCard = ({
   alternate = false,
   href
 }: ProjectCardProps) => {
-  // Animations disable until I find a fix for hydration mistmatch on Safari iOS
+  // Animations disable until I find a fix for hydration mismatch on Safari iOS
   // let variants = {}
 
   // if (!isMobileOnly) {
@@ -54,13 +54,13 @@ const ProjectCard = ({
   // }
 
   return (
-    <motion.div
-      className={classNames(
-        "mx-auto grid h-[300px] max-w-3xl grid-cols-1 gap-2 overflow-hidden rounded-none sm:grid-cols-2 sm:rounded-2xl",
-        className
-      )}
-    >
-      <div className="relative min-h-[200px]">
+    <motion.div className="grid grid-cols-1 gap-2">
+      <div
+        className={classNames(
+          "relative h-[220px] rounded-lg border border-black/5 overflow-hidden",
+          className
+        )}
+      >
         <Image
           src={imageURL}
           alt={title}
@@ -71,15 +71,11 @@ const ProjectCard = ({
               33vw"
         />
       </div>
-      <div
-        className={classNames(
-          "order-first flex flex-col justify-end gap-4 p-8 sm:order-last",
-          alternate ? "sm:order-first" : "sm:order-last"
-        )}
-      >
-        <h3 className="flex items-baseline text-white gap-2 font-display text-2xl md:text-3xl">
-          <span>{title}</span>
-          {href && (
+      <div className="flex flex-col justify-between gap-4">
+        <div className="text-lg md:text-xl lg:text-2xl">
+          <span className="text-black mr-2 font-semibold">
+            {title}.
+            {/* {href && (
             <Link
               href={href}
               target="_blank"
@@ -87,15 +83,16 @@ const ProjectCard = ({
             >
               <ArrowTopRightOnSquareIcon className="h-5 w-5" />
             </Link>
-          )}
-        </h3>
-        <div className="leading-6 text-white/70">{children}</div>
+          )} */}
+          </span>
+          <span className="text-gray-500">{children}</span>
+        </div>
         <ul className="flex flex-row gap-2">
           {stack?.map(item => {
             return (
               <li
                 key={item}
-                className="rounded-full bg-black/60 px-3 py-0.5 text-xs tracking-wide text-white/90"
+                className="rounded-full bg-gray-200 px-3 py-0.5 text-xs tracking-wide text-gray-900"
               >
                 {item}
               </li>

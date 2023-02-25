@@ -28,7 +28,7 @@ export default function Home() {
             Proyectos personales y experimentos
           </h2>
         </div>
-        <div className="col-auto grid gap-8 px-0 sm:px-3">
+        <div className="max-w-3xl mx-auto grid-cols-2 grid gap-8 px-0 sm:px-3">
           <ProjectCard
             title="Biztro"
             stack={["next.js", "prisma", "next-auth", "craft.js"]}
