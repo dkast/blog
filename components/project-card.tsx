@@ -1,12 +1,7 @@
 "use client"
 
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline"
-import { motion } from "framer-motion"
 import Image from "next/image"
-import Link from "next/link"
 import React from "react"
-
-// import { isMobileOnly } from "react-device-detect"
 
 import classNames from "@/lib/classnames"
 
@@ -29,35 +24,11 @@ const ProjectCard = ({
   alternate = false,
   href
 }: ProjectCardProps) => {
-  // Animations disable until I find a fix for hydration mismatch on Safari iOS
-  // let variants = {}
-
-  // if (!isMobileOnly) {
-  //   variants = {
-  //     initial: {
-  //       scale: 1.2,
-  //       opacity: 0
-  //     },
-  //     whileInView: {
-  //       scale: 1,
-  //       opacity: 1
-  //     },
-  //     viewport: {
-  //       once: true,
-  //       margin: "-200px"
-  //     },
-  //     transition: {
-  //       duration: 0.7,
-  //       ease: "easeOut"
-  //     }
-  //   }
-  // }
-
   return (
-    <motion.div className="grid grid-cols-1 gap-2">
+    <div className="grid grid-cols-1 gap-2">
       <div
         className={classNames(
-          "relative h-[220px] rounded-lg border border-black/5 overflow-hidden",
+          "relative h-[220px] rounded-none sm:rounded-lg border border-black/5 overflow-hidden",
           className
         )}
       >
@@ -71,8 +42,8 @@ const ProjectCard = ({
               33vw"
         />
       </div>
-      <div className="flex flex-col justify-between gap-4">
-        <div className="text-lg md:text-xl lg:text-2xl">
+      <div className="flex flex-col justify-between gap-4 px-6 sm:px-0">
+        <div className="text-lg">
           <span className="text-black mr-2 font-semibold">
             {title}.
             {/* {href && (
@@ -92,7 +63,7 @@ const ProjectCard = ({
             return (
               <li
                 key={item}
-                className="rounded-full bg-gray-200 px-3 py-0.5 text-xs tracking-wide text-gray-900"
+                className="rounded-full bg-gray-100 px-3 py-0.5 text-xs tracking-wide text-gray-900"
               >
                 {item}
               </li>
@@ -100,7 +71,7 @@ const ProjectCard = ({
           })}
         </ul>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
