@@ -1,5 +1,6 @@
-import { notFound } from "next/navigation"
 import { allPages } from "contentlayer/generated"
+import { Metadata } from "next"
+import { notFound } from "next/navigation"
 import Balancer from "react-wrap-balancer"
 
 import Mdx from "@/components/mdx"
@@ -7,6 +8,21 @@ import Mdx from "@/components/mdx"
 interface PagePageProps {
   params: {
     slug: string[]
+  }
+}
+
+export async function generateMetadata({
+  params
+}: PagePageProps): Promise<Metadata | undefined> {
+  const slug = params?.slug?.join("/")
+  const post = allPages.find(post => post.slugAsParams === slug)
+
+  if (!post) {
+    return
+  }
+
+  return {
+    title: post.title
   }
 }
 

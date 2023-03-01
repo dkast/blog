@@ -1,12 +1,15 @@
-import { notFound } from "next/navigation"
 import { allPosts } from "contentlayer/generated"
-import Balancer from "react-wrap-balancer"
 import Image from "next/image"
+import { notFound } from "next/navigation"
+import Balancer from "react-wrap-balancer"
 
 import Mdx from "@/components/mdx"
+
 import { formatDate } from "@/lib/utils"
 
 import "@/styles/mdx.css"
+
+import { Metadata } from "next"
 
 interface PostPageProps {
   params: {
@@ -20,6 +23,46 @@ export async function generateStaticParams(): Promise<
   return allPosts.map(post => ({
     slug: post.slugAsParams.split("/")
   }))
+}
+
+export async function generateMetadata({
+  params
+}: PostPageProps): Promise<Metadata | undefined> {
+  const slug = params?.slug?.join("/")
+  const post = allPosts.find(post => post.slugAsParams === slug)
+
+  if (!post) {
+    return
+  }
+
+  const { title, date: publishedTime, description } = post
+
+  const url = process.env.NEXT_PUBLIC_APP_URL
+  let ogImage = new URL(`${url}/api/og`)
+  ogImage.searchParams.set("title", title)
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      publishedTime,
+      url,
+      images: [
+        {
+          url: ogImage.toString()
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage.toString()]
+    }
+  }
 }
 
 export default async function PostPage({ params }: PostPageProps) {

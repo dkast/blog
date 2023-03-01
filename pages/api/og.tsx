@@ -1,6 +1,7 @@
-import { ogImageSchema } from "@/lib/og"
 import { ImageResponse } from "@vercel/og"
 import { NextRequest } from "next/server"
+
+import { ogImageSchema } from "@/lib/og"
 
 export const config = {
   runtime: "edge"
@@ -21,13 +22,13 @@ export default async function handler(req: NextRequest) {
 
     const url = new URL(req.url)
     const values = ogImageSchema.parse(Object.fromEntries(url.searchParams))
-    const heading =
-      values.heading!.length > 140
-        ? `${values.heading!.substring(0, 140)}...`
-        : values.heading
+    const title =
+      values.title!.length > 140
+        ? `${values.title!.substring(0, 140)}...`
+        : values.title
     const avatar = `${url.protocol}//${url.host}/images/avatar.jpg`
 
-    // const fontSize = heading!.length > 100 ? "70px" : "100px"
+    // const fontSize = title!.length > 100 ? "70px" : "100px"
 
     return new ImageResponse(
       (
@@ -48,7 +49,7 @@ export default async function handler(req: NextRequest) {
           </div>
           <div tw="flex flex-col">
             <span tw="text-stone-400 text-2xl uppercase">Blog</span>
-            <h1 tw="text-white text-6xl font-bold">{heading}</h1>
+            <h1 tw="text-white text-6xl font-bold">{title}</h1>
           </div>
           <div tw="flex items-center">
             <svg
