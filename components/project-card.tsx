@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowRightIcon } from "@heroicons/react/24/outline"
+import { ArrowUpRightIcon } from "@heroicons/react/24/outline"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
@@ -58,7 +58,7 @@ const ProjectCard = ({
               className="flex gap-2 no-underline items-center"
             >
               <span>{domain.hostname}</span>
-              <ArrowRightIcon className="h-4 w-4" />
+              <ArrowUpRightIcon className="h-4 w-4" />
             </Link>
           )}
         </div>
