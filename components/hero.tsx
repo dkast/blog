@@ -45,8 +45,7 @@ const Hero = () => {
       >
         <p>
           <Balancer>
-            <strong>Ingeniero de Software</strong> con más de 10 años de
-            experiencia.
+            Ingeniero de Software con más de 10 años de experiencia.
           </Balancer>
         </p>
         <p>

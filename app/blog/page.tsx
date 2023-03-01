@@ -1,7 +1,12 @@
 import { allPosts } from "contentlayer/generated"
 import { compareDesc } from "date-fns"
+import { Metadata } from "next"
 
 import PostCard from "@/components/post-card"
+
+export const metadata: Metadata = {
+  title: "Blog"
+}
 
 export default async function BlogPage() {
   const posts = allPosts

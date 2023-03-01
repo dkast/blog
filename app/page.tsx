@@ -19,7 +19,7 @@ export default function Home() {
           <Hero />
         </div>
       </section>
-      <section className="border-t border-b border-gray-100 bg-gray-50 py-12">
+      <section className="pb-24 sm:pb-32">
         <div className="mx-auto max-w-3xl px-8 sm:px-3">
           <small className="text-md mb-1 font-semibold uppercase tracking-widest text-gray-500">
             Proyectos
@@ -28,7 +28,7 @@ export default function Home() {
             Proyectos personales y experimentos
           </h2>
         </div>
-        <div className="col-auto grid gap-8 px-0 sm:px-3">
+        <div className="max-w-3xl mx-auto grid-cols-1 sm:grid-cols-2 grid gap-8 px-0 sm:px-3">
           <ProjectCard
             title="Biztro"
             stack={["next.js", "prisma", "next-auth", "craft.js"]}
@@ -36,23 +36,21 @@ export default function Home() {
             className="bg-gradient-to-r from-purple-400 to-indigo-500"
             href="https://biztro.co"
           >
-            Aplicación SaaS para restaurantes, permite la creación y publicación
-            de menus digitales con código QR.
+            Aplicación SaaS para crear menus digitales con código QR.
           </ProjectCard>
           <ProjectCard
             title="Deberes"
             stack={["next.js", "prisma", "next-auth", "trpc"]}
             imageURL="/images/deberes-project.png"
             className="bg-gradient-to-br from-purple-500 to-red-400"
-            alternate
             href="https://github.com/dkast/deeds-app"
           >
-            Aplicación web personal, mobile-first, para incentivar las buenas
-            acciones de mis pequeños.
+            Aplicación web personal para incentivar las buenas acciones de mis
+            pequeños.
           </ProjectCard>
         </div>
       </section>
-      <section className="bg-gradient-to-b from-white via-white to-gray-200 pt-12 pb-24">
+      <section className="bg-gradient-to-b from-white via-white to-gray-200 pb-24 sm:pb-32">
         <div className="mx-auto max-w-3xl px-8 sm:px-3">
           <small className="text-md mb-1 font-semibold uppercase tracking-widest text-gray-500">
             Blog

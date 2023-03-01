@@ -1,12 +1,10 @@
 "use client"
 
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline"
+import { ArrowRightIcon } from "@heroicons/react/24/outline"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import React from "react"
-
-// import { isMobileOnly } from "react-device-detect"
 
 import classNames from "@/lib/classnames"
 
@@ -16,8 +14,7 @@ type ProjectCardProps = {
   children?: React.ReactNode
   stack?: string[]
   className?: string
-  alternate?: boolean
-  href?: string
+  href: string
 }
 
 const ProjectCard = ({
@@ -26,41 +23,17 @@ const ProjectCard = ({
   children,
   stack,
   className,
-  alternate = false,
   href
 }: ProjectCardProps) => {
-  // Animations disable until I find a fix for hydration mistmatch on Safari iOS
-  // let variants = {}
-
-  // if (!isMobileOnly) {
-  //   variants = {
-  //     initial: {
-  //       scale: 1.2,
-  //       opacity: 0
-  //     },
-  //     whileInView: {
-  //       scale: 1,
-  //       opacity: 1
-  //     },
-  //     viewport: {
-  //       once: true,
-  //       margin: "-200px"
-  //     },
-  //     transition: {
-  //       duration: 0.7,
-  //       ease: "easeOut"
-  //     }
-  //   }
-  // }
-
+  const domain = new URL(href)
   return (
-    <motion.div
-      className={classNames(
-        "mx-auto grid h-[300px] max-w-3xl grid-cols-1 gap-2 overflow-hidden rounded-none sm:grid-cols-2 sm:rounded-2xl",
-        className
-      )}
-    >
-      <div className="relative min-h-[200px]">
+    <motion.div whileHover={{ y: -5 }} className="grid grid-cols-1 gap-2">
+      <div
+        className={classNames(
+          "relative h-[220px] rounded-none sm:rounded-lg border border-black/5 overflow-hidden",
+          className
+        )}
+      >
         <Image
           src={imageURL}
           alt={title}
@@ -71,31 +44,30 @@ const ProjectCard = ({
               33vw"
         />
       </div>
-      <div
-        className={classNames(
-          "order-first flex flex-col justify-end gap-4 p-8 sm:order-last",
-          alternate ? "sm:order-first" : "sm:order-last"
-        )}
-      >
-        <h3 className="flex items-baseline text-white gap-2 font-display text-2xl md:text-3xl">
-          <span>{title}</span>
+      <div className="flex flex-col justify-between gap-4 px-6 sm:px-0">
+        <div className="text-lg">
+          <span className="text-black mr-2 font-semibold">{title}.</span>
+          <span className="text-gray-500">{children}</span>
+        </div>
+        <div>
           {href && (
             <Link
               href={href}
               target="_blank"
               aria-label="Liga al sitio del proyecto"
+              className="flex gap-2 no-underline items-center"
             >
-              <ArrowTopRightOnSquareIcon className="h-5 w-5" />
+              <span>{domain.hostname}</span>
+              <ArrowRightIcon className="h-4 w-4" />
             </Link>
           )}
-        </h3>
-        <div className="leading-6 text-white/70">{children}</div>
+        </div>
         <ul className="flex flex-row gap-2">
           {stack?.map(item => {
             return (
               <li
                 key={item}
-                className="rounded-full bg-black/60 px-3 py-0.5 text-xs tracking-wide text-white/90"
+                className="rounded-full bg-gray-100 px-3 py-0.5 text-xs tracking-wide text-gray-900"
               >
                 {item}
               </li>
