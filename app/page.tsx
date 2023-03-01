@@ -43,7 +43,6 @@ export default function Home() {
             stack={["next.js", "prisma", "next-auth", "trpc"]}
             imageURL="/images/deberes-project.png"
             className="bg-gradient-to-br from-purple-500 to-red-400"
-            alternate
             href="https://github.com/dkast/deeds-app"
           >
             Aplicación web personal para incentivar las buenas acciones de mis

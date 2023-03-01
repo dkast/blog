@@ -1,6 +1,9 @@
 "use client"
 
+import { ArrowRightIcon } from "@heroicons/react/24/outline"
+import { motion } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
 import React from "react"
 
 import classNames from "@/lib/classnames"
@@ -11,8 +14,7 @@ type ProjectCardProps = {
   children?: React.ReactNode
   stack?: string[]
   className?: string
-  alternate?: boolean
-  href?: string
+  href: string
 }
 
 const ProjectCard = ({
@@ -21,11 +23,11 @@ const ProjectCard = ({
   children,
   stack,
   className,
-  alternate = false,
   href
 }: ProjectCardProps) => {
+  const domain = new URL(href)
   return (
-    <div className="grid grid-cols-1 gap-2">
+    <motion.div whileHover={{ y: -5 }} className="grid grid-cols-1 gap-2">
       <div
         className={classNames(
           "relative h-[220px] rounded-none sm:rounded-lg border border-black/5 overflow-hidden",
@@ -44,19 +46,21 @@ const ProjectCard = ({
       </div>
       <div className="flex flex-col justify-between gap-4 px-6 sm:px-0">
         <div className="text-lg">
-          <span className="text-black mr-2 font-semibold">
-            {title}.
-            {/* {href && (
+          <span className="text-black mr-2 font-semibold">{title}.</span>
+          <span className="text-gray-500">{children}</span>
+        </div>
+        <div>
+          {href && (
             <Link
               href={href}
               target="_blank"
               aria-label="Liga al sitio del proyecto"
+              className="flex gap-2 no-underline items-center"
             >
-              <ArrowTopRightOnSquareIcon className="h-5 w-5" />
+              <span>{domain.hostname}</span>
+              <ArrowRightIcon className="h-4 w-4" />
             </Link>
-          )} */}
-          </span>
-          <span className="text-gray-500">{children}</span>
+          )}
         </div>
         <ul className="flex flex-row gap-2">
           {stack?.map(item => {
@@ -71,7 +75,7 @@ const ProjectCard = ({
           })}
         </ul>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
