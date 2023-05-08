@@ -1,10 +1,11 @@
 "use client"
 
-import { ArrowUpRightIcon } from "@heroicons/react/24/outline"
+import React from "react"
+
 import { motion } from "framer-motion"
+import { ArrowUpRightIcon, GitFork } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import React from "react"
 
 import classNames from "@/lib/classnames"
 
@@ -58,7 +59,11 @@ const ProjectCard = ({
               className="flex gap-2 no-underline items-center"
             >
               <span>{domain.hostname}</span>
-              <ArrowUpRightIcon className="h-4 w-4" />
+              {domain.hostname.includes("github") ? (
+                <GitFork size={16} />
+              ) : (
+                <ArrowUpRightIcon size={16} />
+              )}
             </Link>
           )}
         </div>

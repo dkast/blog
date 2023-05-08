@@ -12,9 +12,14 @@ module.exports = {
     "@ianvs/prettier-plugin-sort-imports"
   ],
   importOrder: [
+    "^react",
+    "<THIRD_PARTY_MODULES>",
+    "",
     "^@/components/(.*)$",
+    "^@/hooks/(.*)$",
     "^@/lib/(.*)$",
     "^@/styles/(.*)$",
+    "^@/env.mjs",
     "^[./]"
   ],
   importOrderBuiltinModulesToTop: true,

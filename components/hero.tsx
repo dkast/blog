@@ -1,21 +1,35 @@
 "use client"
 
-import { motion } from "framer-motion"
 import React from "react"
 import Balancer from "react-wrap-balancer"
+
+import { motion } from "framer-motion"
 
 import GithubIcon from "@/components/icons/github"
 import InstagramIcon from "@/components/icons/instagram"
 import TwitterIcon from "@/components/icons/twitter"
 
-const variants = {
+const titleVariants = {
+  visible: {
+    opacity: 1,
+    transition: {
+      ease: "easeOut",
+      duration: 0.5
+    }
+  },
+  hidden: {
+    opacity: 0
+  }
+}
+
+const elVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
       ease: "easeOut",
-      delay: i * 0.2,
-      duration: 0.5
+      delay: i * 0.3,
+      duration: 0.7
     }
   }),
   hidden: {
@@ -30,8 +44,7 @@ const Hero = () => {
       <motion.h1
         initial="hidden"
         animate="visible"
-        variants={variants}
-        custom={0}
+        variants={titleVariants}
         className="font-display text-3xl font-bold text-gray-800 sm:text-5xl"
       >
         Hola, soy Daniel Castillejo
@@ -39,7 +52,7 @@ const Hero = () => {
       <motion.div
         initial="hidden"
         animate="visible"
-        variants={variants}
+        variants={elVariants}
         custom={1}
         className="flex flex-col gap-2 pt-6 text-lg leading-6 text-gray-500 sm:text-xl md:text-2xl"
       >
@@ -58,9 +71,9 @@ const Hero = () => {
       <motion.div
         initial="hidden"
         animate="visible"
-        variants={variants}
+        variants={elVariants}
         custom={2}
-        className="flex gap-8 py-12 items-center"
+        className="flex gap-8 pt-12 items-center"
       >
         <a href="https://github.com/dkast">
           <GithubIcon className="fill-gray-400 hover:fill-gray-600 w-5 h-5" />

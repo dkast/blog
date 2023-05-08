@@ -18,30 +18,17 @@ export const metadata: Metadata = {
     template: "%s | Daniel Castillejo"
   },
   description: "Sitio personal de Daniel Castillejo",
-  icons: {
-    icon: "/favicon-32x32.png",
-    apple: "/apple-touch-icon.png"
-  },
-  manifest: "/site.webmanifest",
   themeColor: "#ffffff",
   openGraph: {
     title: "Daniel Castillejo",
     type: "website",
-    url: "https://dkast.dev",
-    images: [
-      {
-        url: "https://dkast.dev/og.jpg",
-        width: 1200,
-        height: 675
-      }
-    ]
+    url: "https://dkast.dev"
   },
   twitter: {
     title: "Daniel Castillejo",
     card: "summary_large_image",
     description: "Sitio personal de Daniel Castillejo",
-    creator: "@dkast",
-    images: ["https://dkast.dev/og.jpg"]
+    creator: "@dkast"
   }
 }
 
