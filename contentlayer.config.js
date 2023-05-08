@@ -1,6 +1,6 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files"
-import remarkGfm from "remark-gfm"
 import rehypePrettyCode from "rehype-pretty-code"
+import remarkGfm from "remark-gfm"
 
 /** @type {import('contentlayer/source-files/').ComputedFields} */
 const computedFields = {
@@ -64,8 +64,8 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: "one-dark-pro",
-          keepBackground: false,
+          theme: "poimandres",
+          keepBackground: true,
           onVisitLine(node) {
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted

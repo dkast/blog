@@ -14,12 +14,13 @@ export default function Home() {
 
   return (
     <main>
-      <section className="pb-24 pt-32 sm:pb-32 sm:pt-44">
+      <section className="pb-10 pt-32 sm:pb-16 sm:pt-44">
         <div className="mx-auto max-w-3xl px-8 sm:px-3">
           <Hero />
         </div>
       </section>
-      <section className="pb-24 sm:pb-32">
+      <div className="gridline my-10 sm:my-16" />
+      <section className="pb-3 sm:pb-6">
         <div className="mx-auto max-w-3xl px-8 sm:px-3">
           <small className="text-md mb-1 font-semibold uppercase tracking-widest text-gray-500">
             Proyectos
@@ -50,6 +51,7 @@ export default function Home() {
           </ProjectCard>
         </div>
       </section>
+      <div className="gridline my-10 sm:my-16" />
       <section className="bg-gradient-to-b from-white via-white to-gray-200 pb-24 sm:pb-32">
         <div className="mx-auto max-w-3xl px-8 sm:px-3">
           <small className="text-md mb-1 font-semibold uppercase tracking-widest text-gray-500">
