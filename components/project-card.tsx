@@ -47,8 +47,10 @@ const ProjectCard = ({
       </div>
       <div className="flex flex-col justify-between gap-4 px-6 sm:px-0">
         <div className="text-lg">
-          <span className="text-black mr-2 font-semibold">{title}.</span>
-          <span className="text-gray-500">{children}</span>
+          <span className="text-black dark:text-white mr-2 font-semibold">
+            {title}.
+          </span>
+          <span className="text-gray-500 dark:text-gray-400">{children}</span>
         </div>
         <div>
           {href && (
@@ -72,7 +74,7 @@ const ProjectCard = ({
             return (
               <li
                 key={item}
-                className="rounded-full bg-gray-100 px-3 py-0.5 text-xs tracking-wide text-gray-900"
+                className="rounded-full bg-gray-100 dark:bg-gray-700 dark:text-gray-300 px-3 py-0.5 text-xs tracking-wide text-gray-900"
               >
                 {item}
               </li>

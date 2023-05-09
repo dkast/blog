@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google"
 
 import Footer from "@/components/footer"
 import MainNav from "@/components/main-nav"
+import NextThemesProvider from "@/components/theme-provider"
 
 import "@/styles/globals.css"
 
@@ -45,9 +46,13 @@ export default function RootLayout({
       */}
       <head />
       <body className="flex h-screen flex-col overflow-x-hidden">
-        <MainNav />
-        <div className="grow">{children}</div>
-        <Footer />
+        <NextThemesProvider>
+          <main className="bg-white dark:bg-gray-900 contents">
+            <MainNav />
+            <div className="grow">{children}</div>
+            <Footer />
+          </main>
+        </NextThemesProvider>
       </body>
     </html>
   )

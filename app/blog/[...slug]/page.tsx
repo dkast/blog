@@ -1,7 +1,8 @@
+import Balancer from "react-wrap-balancer"
+
 import { allPosts } from "contentlayer/generated"
 import Image from "next/image"
 import { notFound } from "next/navigation"
-import Balancer from "react-wrap-balancer"
 
 import Mdx from "@/components/mdx"
 
@@ -85,7 +86,7 @@ export default async function PostPage({ params }: PostPageProps) {
           <Balancer>{post.title}</Balancer>
         </h1>
         {post.description && (
-          <p className="py-2 text-center text-lg text-gray-700">
+          <p className="py-2 text-center text-lg text-gray-700 dark:text-gray-400">
             <Balancer>{post.description}</Balancer>
           </p>
         )}
@@ -96,7 +97,7 @@ export default async function PostPage({ params }: PostPageProps) {
             width={800}
             height={600}
             priority
-            className="my-12 sm:rounded-xl sm:shadow-lg"
+            className="my-12 sm:rounded-xl sm:shadow-lg border border-transparent dark:border-gray-300/5"
           />
         )}
         <Mdx code={post.body.code} />

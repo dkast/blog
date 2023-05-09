@@ -1,10 +1,11 @@
 "use client"
 
+import React from "react"
+
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { useSelectedLayoutSegment } from "next/navigation"
-import React from "react"
 
 interface NavItem {
   title: string
@@ -45,7 +46,7 @@ const MainNav = () => {
           </Link>
         </div>
         <div className="relative after:pointer-events-none after:absolute after:inset-px after:rounded-full after:shadow-highlight after:shadow-white/5 after:transition">
-          <nav className="flex gap-2 rounded-full border border-black/5 bg-white p-1 shadow-md shadow-gray-700/5">
+          <nav className="flex gap-2 rounded-full border border-black/5 bg-white dark:bg-gray-800 p-1 shadow-md shadow-gray-700/5 dark:shadow-gray-950/25">
             {navItems &&
               navItems.map((navItem, index) => {
                 const selected =
@@ -60,10 +61,10 @@ const MainNav = () => {
                     {selected && (
                       <motion.div
                         layoutId="menu"
-                        className="absolute bg-gray-100 rounded-full inset-0 z-0"
+                        className="absolute bg-gray-100 dark:bg-gray-700 rounded-full inset-0 z-0"
                       ></motion.div>
                     )}
-                    <span className="z-30 relative text-gray-900">
+                    <span className="z-30 relative text-gray-900 dark:text-gray-300">
                       {navItem.title}
                     </span>
                   </Link>

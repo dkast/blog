@@ -45,7 +45,7 @@ const Hero = () => {
         initial="hidden"
         animate="visible"
         variants={titleVariants}
-        className="font-display text-3xl font-bold text-gray-800 sm:text-5xl"
+        className="font-display text-3xl font-bold text-gray-800 dark:text-gray-100 sm:text-5xl"
       >
         Hola, soy Daniel Castillejo
       </motion.h1>
@@ -54,7 +54,7 @@ const Hero = () => {
         animate="visible"
         variants={elVariants}
         custom={1}
-        className="flex flex-col gap-2 pt-6 text-lg leading-6 text-gray-500 sm:text-xl md:text-2xl"
+        className="flex flex-col gap-2 pt-6 text-lg leading-6 text-gray-500 dark:text-gray-400 sm:text-xl md:text-2xl"
       >
         <p>
           <Balancer>
