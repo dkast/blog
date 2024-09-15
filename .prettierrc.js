@@ -7,6 +7,7 @@ module.exports = {
   tabWidth: 2,
   useTabs: false,
   semi: false,
+  printWidth: 80,
   plugins: [
     "prettier-plugin-tailwindcss",
     "@ianvs/prettier-plugin-sort-imports"
@@ -16,6 +17,7 @@ module.exports = {
     "<THIRD_PARTY_MODULES>",
     "",
     "^@/components/(.*)$",
+    "^@/app/(.*)$",
     "^@/hooks/(.*)$",
     "^@/lib/(.*)$",
     "^@/styles/(.*)$",

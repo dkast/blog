@@ -1,10 +1,9 @@
-import { withContentlayer } from "next-contentlayer"
+import { withContentlayer } from "next-contentlayer2"
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true
-  },
+  reactStrictMode: true,
+  swcMinify: false,
   images: {
     remotePatterns: [
       {

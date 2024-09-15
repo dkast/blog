@@ -1,16 +1,21 @@
-import { defineDocumentType, makeSource } from "contentlayer/source-files"
-import rehypePrettyCode from "rehype-pretty-code"
+import {
+  defineDocumentType,
+  makeSource,
+  type ComputedFields,
+  type LocalDocument
+} from "contentlayer2/source-files"
+import rehypePrettyCode, { type LineElement } from "rehype-pretty-code"
 import remarkGfm from "remark-gfm"
 
-/** @type {import('contentlayer/source-files/').ComputedFields} */
-const computedFields = {
+const computedFields: ComputedFields = {
   slug: {
     type: "string",
-    resolve: doc => `/${doc._raw.flattenedPath}`
+    resolve: (doc: LocalDocument) => `/${doc._raw.flattenedPath}`
   },
   slugAsParams: {
     type: "string",
-    resolve: doc => doc._raw.flattenedPath.split("/").slice(1).join("/")
+    resolve: (doc: LocalDocument) =>
+      doc._raw.flattenedPath.split("/").slice(1).join("/")
   }
 }
 
@@ -66,17 +71,17 @@ export default makeSource({
         {
           theme: "poimandres",
           keepBackground: true,
-          onVisitLine(node) {
+          onVisitLine(node: LineElement) {
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted
             if (node.children.length === 0) {
               node.children = [{ type: "text", value: " " }]
             }
           },
-          onVisitHighlightedLine(node) {
-            node.properties.className.push("line--highlighted")
+          onVisitHighlightedLine(node: LineElement) {
+            node.properties.className?.push("line--highlighted")
           },
-          onVisitHighlightedWord(node) {
+          onVisitHighlightedWord(node: LineElement) {
             node.properties.className = ["word--highlighted"]
           }
         }
