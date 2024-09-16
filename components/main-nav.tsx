@@ -1,27 +1,32 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
+import { CircleUser, Home, PenLine, type LucideIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useSelectedLayoutSegment } from "next/navigation"
-import React from "react"
 
 interface NavItem {
   title: string
+  Icon: LucideIcon
   href: string
 }
 
 const navItems: NavItem[] = [
   {
     title: "Inicio",
+    Icon: Home,
     href: "/"
   },
   {
     title: "Blog",
+    Icon: PenLine,
     href: "/blog"
   },
   {
     title: "Acerca",
+    Icon: CircleUser,
     href: "/about"
   }
 ]
@@ -30,49 +35,51 @@ const MainNav = () => {
   const segment = useSelectedLayoutSegment()
 
   return (
-    <header className="pt-8">
-      <div className="mx-auto flex h-12 max-w-3xl items-center justify-between px-8 sm:px-3">
-        <div>
-          <Link href="/" className="flex items-center gap-3 no-underline">
-            <Image
-              src="/images/avatar.jpg"
-              alt="Daniel Castillejo"
-              width={40}
-              height={40}
-              className="rounded-full border border-black/10 shadow"
-            ></Image>
-            <span className="hidden font-semibold sm:inline">dkast.dev</span>
-          </Link>
-        </div>
-        <div className="relative after:pointer-events-none after:absolute after:inset-px after:rounded-full after:shadow-highlight after:shadow-white/5 after:transition">
-          <nav className="flex gap-2 rounded-full border border-black/5 bg-white p-1 shadow-md shadow-gray-700/5">
-            {navItems &&
-              navItems.map((navItem, index) => {
-                const selected =
-                  navItem.href.startsWith(`/${segment}`) ||
-                  (navItem.href === "/" && segment === null)
-                return (
-                  <Link
-                    key={index}
-                    href={navItem.href}
-                    className="rounded-full py-2 px-4 no-underline relative"
-                  >
-                    {selected && (
-                      <motion.div
-                        layoutId="menu"
-                        className="absolute bg-gray-100 rounded-full inset-0 z-0"
-                      ></motion.div>
-                    )}
-                    <span className="z-30 relative text-gray-900">
-                      {navItem.title}
-                    </span>
-                  </Link>
-                )
-              })}
-          </nav>
+    <div className="mx-auto absolute inset-0">
+      <div className="fixed w-[100px]">
+        <div className="flex flex-col py-4 gap-20 h-screen grow items-center justify-start">
+          <header>
+            <Link href="/" className="flex items-center gap-3 no-underline">
+              <Image
+                src="/images/avatar.jpg"
+                alt="Daniel Castillejo"
+                width={40}
+                height={40}
+                className="rounded-full border border-black/10 shadow-sm"
+              ></Image>
+              {/* <span className="hidden font-semibold sm:inline">dkast.dev</span> */}
+            </Link>
+          </header>
+          <div className="relative">
+            <nav className="flex flex-col gap-2 py-1 rounded-full border border-black/5 bg-white p-1">
+              {navItems &&
+                navItems.map((navItem, index) => {
+                  const selected =
+                    navItem.href.startsWith(`/${segment}`) ||
+                    (navItem.href === "/" && segment === null)
+                  return (
+                    <Link
+                      key={index}
+                      href={navItem.href}
+                      className="rounded-full no-underline relative"
+                    >
+                      {selected && (
+                        <motion.div
+                          layoutId="menu"
+                          className="absolute p-2 bg-gray-100 rounded-full inset-0 z-0"
+                        ></motion.div>
+                      )}
+                      <span className="z-30 relative text-gray-900">
+                        <navItem.Icon className="size-8 p-2" />
+                      </span>
+                    </Link>
+                  )
+                })}
+            </nav>
+          </div>
         </div>
       </div>
-    </header>
+    </div>
   )
 }
 

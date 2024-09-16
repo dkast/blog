@@ -10,7 +10,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      display: ["var(--font-grotesk)"]
+      display: ["var(--font-display)"]
     },
     extend: {
       colors: {

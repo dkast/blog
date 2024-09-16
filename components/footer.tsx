@@ -2,11 +2,22 @@ import React from "react"
 
 const Footer = () => {
   return (
-    <footer className="border-black/5 bg-black p-8">
-      <div className="mx-auto max-w-3xl px-8 sm:px-3">
-        <span className="text-sm text-gray-400">
-          Creado por Daniel Castillejo. Construido con Next.js y Tailwind CSS
-        </span>
+    <footer className="p-8">
+      <div className="mx-auto max-w-3xl px-8 sm:px-3 text-sm text-gray-400">
+        <div className="flex items-center justify-between">
+          <span>&copy; {new Date().getFullYear()} Daniel Castillejo</span>
+          <div className="flex gap-4">
+            <a href="https://twitter.com/dkast" className="no-underline">
+              @dkast
+            </a>
+            <a href="https://github.com/dkast" className="no-underline">
+              github
+            </a>
+            <a href="https://instagram.com/dkast" className="no-underline">
+              instagram
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   )

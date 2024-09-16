@@ -13,23 +13,17 @@ export default function Home() {
     })
 
   return (
-    <main>
-      <section className="pb-10 pt-32 sm:pb-16 sm:pt-44">
-        <div className="mx-auto max-w-3xl px-8 sm:px-3">
-          <Hero />
-        </div>
+    <main className="mx-auto max-w-3xl px-8 sm:px-3">
+      <section className="pt-20 sm:pt-36">
+        <Hero />
       </section>
-      <div className="gridline my-10 sm:my-16" />
-      <section className="pb-3 sm:pb-6">
-        <div className="mx-auto max-w-3xl px-8 sm:px-3">
-          <small className="text-md mb-1 font-semibold uppercase tracking-widest text-gray-500">
-            Proyectos
-          </small>
-          <h2 className="pb-8 text-2xl font-semibold md:text-3xl">
-            Proyectos personales y experimentos
-          </h2>
-        </div>
-        <div className="max-w-3xl mx-auto grid-cols-1 sm:grid-cols-2 grid gap-8 px-0 sm:px-3">
+      <div className="my-10 sm:my-16" />
+      <section>
+        <Subheading
+          eyebrow="Proyectos"
+          title="Proyectos personales y experimentos"
+        />
+        <div className="grid-cols-1 sm:grid-cols-2 grid gap-8">
           <ProjectCard
             title="Biztro"
             stack={["next.js", "prisma", "next-auth", "craft.js"]}
@@ -51,26 +45,30 @@ export default function Home() {
           </ProjectCard>
         </div>
       </section>
-      <div className="gridline my-10 sm:my-16" />
-      <section className="bg-gradient-to-b from-white via-white to-gray-200 pb-24 sm:pb-32">
-        <div className="mx-auto max-w-3xl px-8 sm:px-3">
-          <small className="text-md mb-1 font-semibold uppercase tracking-widest text-gray-500">
-            Blog
-          </small>
-          <h2 className="text-2xl font-semibold md:text-3xl">
-            Últimas entradas
-          </h2>
-          {posts?.length ? (
-            <div className="my-4 flex flex-col gap-4">
-              {posts.map((post, index) => (
-                <PostCard key={index} post={post}></PostCard>
-              ))}
-            </div>
-          ) : (
-            <p>No hay entradas</p>
-          )}
-        </div>
+      <div className="my-10 sm:my-16" />
+      <section className="pb-24 sm:pb-32">
+        <Subheading eyebrow="Blog" title="Últimas entradas" />
+        {posts?.length ? (
+          <div className="my-4 flex flex-col gap-4">
+            {posts.map((post, index) => (
+              <PostCard key={index} post={post}></PostCard>
+            ))}
+          </div>
+        ) : (
+          <p>No hay entradas</p>
+        )}
       </section>
     </main>
+  )
+}
+
+function Subheading({ eyebrow, title }: { eyebrow: string; title: string }) {
+  return (
+    <div>
+      <small className="text-xs mb-1 font-semibold uppercase tracking-widest text-gray-500">
+        {eyebrow}
+      </small>
+      <h2 className="pb-8 text-lg font-medium md:text-xl">{title}</h2>
+    </div>
   )
 }

@@ -1,14 +1,14 @@
 import type { Metadata } from "next"
-import { Inter, Space_Grotesk } from "next/font/google"
+import { Inter, Sora } from "next/font/google"
 
 import Footer from "@/components/footer"
 import MainNav from "@/components/main-nav"
 
 import "@/styles/globals.css"
 
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"] })
-const grotesk = Space_Grotesk({
-  variable: "--font-grotesk",
+const base = Inter({ variable: "--font-inter", subsets: ["latin"] })
+const display = Sora({
+  variable: "--font-display",
   subsets: ["latin"]
 })
 
@@ -38,16 +38,21 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${grotesk.variable}`}>
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
+    <html
+      lang="en"
+      className={`${base.variable} ${display.variable} antialiased bg-zinc-50`}
+    >
       <head />
       <body className="flex h-screen flex-col overflow-x-hidden">
-        <MainNav />
-        <div className="grow">{children}</div>
-        <Footer />
+        <div className="grid grid-cols-[100px_1fr] grow justify-stretch">
+          <div className="relative">
+            <MainNav />
+          </div>
+          <div className="flex flex-col justify-between">
+            {children}
+            <Footer />
+          </div>
+        </div>
       </body>
     </html>
   )
