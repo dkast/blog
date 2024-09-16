@@ -11,9 +11,13 @@
     "typecheck": "tsc --project ./tsconfig.json"
   },
   "dependencies": {
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-tooltip": "^1.1.2",
     "@types/node": "22.5.5",
     "@types/react": "18.3.5",
     "@types/react-dom": "18.3.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "contentlayer2": "^0.5.1",
     "date-fns": "^3.6.0",
     "eslint": "8.40.0",
@@ -27,6 +31,8 @@
     "react-dom": "18.3.1",
     "react-wrap-balancer": "^1.1.1",
     "shiki": "^1.17.6",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "5.6.2",
     "zod": "^3.23.8"
   },

@@ -1,13 +1,8 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from "tailwindcss"
+import colors from "tailwindcss/colors"
 
-const colors = require("tailwindcss/colors")
-
-module.exports = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}", // Note the addition of the `app` directory.
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}"
-  ],
+const config = {
+  content: ["./src/**/*.{ts,tsx}"],
   theme: {
     fontFamily: {
       display: ["var(--font-display)"]
@@ -35,4 +30,6 @@ module.exports = {
     }
   },
   plugins: [require("@tailwindcss/typography")]
-}
+} satisfies Config
+
+export default config

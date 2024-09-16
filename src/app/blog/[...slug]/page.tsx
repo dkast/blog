@@ -1,12 +1,12 @@
 import { allPosts } from "contentlayer/generated"
-// import Image from "next/image"
-import { notFound } from "next/navigation"
-
-import Mdx from "@/components/mdx"
 
 import "@/styles/mdx.css"
 
 import { Metadata } from "next"
+import { notFound } from "next/navigation"
+
+import Mdx from "@/components/mdx"
+import { Separator } from "@/components/ui/separator"
 
 interface PostPageProps {
   params: {
@@ -128,7 +128,7 @@ function Header({
             <span>por</span>
             <span className="text-gray-600">{author}</span>
           </div>
-          {/* <Separator orientation="vertical" className="mx-2 h-5 bg-gray-300" /> */}
+          <Separator orientation="vertical" className="mx-2 h-5 bg-gray-300" />
           <span className="text-xs font-medium text-orange-500 md:text-sm">
             {category}
           </span>
@@ -140,7 +140,7 @@ function Header({
           </p>
         )}
       </div>
-      {/* <Separator className="my-10 w-20 bg-gray-300" /> */}
+      <Separator className="my-10 w-20 bg-gray-300" />
     </div>
   )
 }

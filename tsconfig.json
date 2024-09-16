@@ -21,9 +21,7 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/types/*": ["types/*"],
-      "@/lib/*": ["lib/*"],
+      "@/*": ["./src/*"],
       "@/styles/*": ["styles/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
