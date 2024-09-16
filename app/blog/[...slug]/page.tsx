@@ -1,10 +1,8 @@
-import Balancer from "react-wrap-balancer"
 import { allPosts } from "contentlayer/generated"
-import Image from "next/image"
+// import Image from "next/image"
 import { notFound } from "next/navigation"
 
 import Mdx from "@/components/mdx"
-import { formatDate } from "@/lib/utils"
 
 import "@/styles/mdx.css"
 
@@ -72,34 +70,76 @@ export default async function PostPage({ params }: PostPageProps) {
     notFound()
   }
 
+  const formattedDate = new Intl.DateTimeFormat("es-MX", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  }).format(new Date(post?.date))
+
   return (
     <article className="mx-auto max-w-3xl pt-12 pb-24">
       <div>
-        {post.date && (
-          <div className="py-2 text-center text-sm font-semibold text-gray-500">
-            Publicado <time dateTime={post.date}>{formatDate(post.date)}</time>
-          </div>
-        )}
-        <h1 className="text-center font-display text-4xl font-bold">
-          <Balancer>{post.title}</Balancer>
-        </h1>
-        {post.description && (
-          <p className="py-2 text-center text-lg text-gray-700">
-            <Balancer>{post.description}</Balancer>
-          </p>
-        )}
-        {post.image && (
-          <Image
-            src={post.image}
-            alt={post.title}
-            width={800}
-            height={600}
-            priority
-            className="my-12 sm:rounded-xl sm:shadow-lg"
-          />
-        )}
-        <Mdx code={post.body.code} />
+        <Header
+          title={post?.title}
+          category={post?.category}
+          description={post?.description}
+          formattedDate={formattedDate}
+          author="Daniel Castillejo"
+          avatar="avatar.jpg"
+        />
+        <div className="flex flex-col items-center">
+          {/* {post.image && (
+            <Image
+              src={post.image}
+              alt={post.title}
+              width={800}
+              height={400}
+              priority
+              className="my-12 sm:rounded-xl sm:shadow-lg"
+            />
+          )} */}
+          <Mdx code={post.body.code} />
+        </div>
       </div>
     </article>
+  )
+}
+
+function Header({
+  title,
+  category,
+  description,
+  formattedDate,
+  author
+}: {
+  title: string
+  category: string
+  description?: string
+  formattedDate: string
+  author: string
+  avatar: string
+}) {
+  return (
+    <div className="mt-20">
+      <div className="space-y-3">
+        <div className="flex flex-row items-center gap-2 text-xs font-medium text-gray-400 md:text-sm">
+          <time>{formattedDate},</time>
+          <div className="flex flex-row items-center gap-2">
+            <span>por {author}</span>
+          </div>
+          {/* <Separator orientation="vertical" className="mx-2 h-5 bg-gray-300" /> */}
+          <span className="text-xs font-medium text-orange-500 md:text-sm">
+            {category}
+          </span>
+        </div>
+        <h1 className="font-display text-lg font-medium sm:text-xl">{title}</h1>
+        {description && (
+          <p className="font-medium leading-relaxed text-gray-500 sm:text-sm md:text-base">
+            {description}
+          </p>
+        )}
+      </div>
+      {/* <Separator className="my-10 w-20 bg-gray-300" /> */}
+    </div>
   )
 }

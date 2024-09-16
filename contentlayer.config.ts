@@ -41,6 +41,10 @@ export const Post = defineDocumentType(() => ({
     },
     image: {
       type: "string",
+      required: false
+    },
+    category: {
+      type: "string",
       required: true
     }
   },

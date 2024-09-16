@@ -16,19 +16,19 @@ export default async function BlogPage() {
     })
 
   return (
-    <main className="mx-auto max-w-3xl px-6 pt-12 pb-24 sm:px-3">
-      <h1 className="mx-3 my-8 font-display text-3xl font-bold sm:text-4xl">
-        Blog
-      </h1>
-      {posts?.length ? (
-        <div className="my-4 mx-3 flex flex-col gap-4">
-          {posts.map((post, index) => (
-            <PostCard key={index} post={post}></PostCard>
-          ))}
-        </div>
-      ) : (
-        <p>No hay entradas</p>
-      )}
+    <main className="mx-auto max-w-3xl w-full px-8 sm:px-3">
+      <section className="pt-20 sm:pt-36">
+        <h1 className="font-display text-lg font-medium sm:text-xl">Blog</h1>
+        {posts?.length ? (
+          <div className="my-4 flex flex-col gap-4">
+            {posts.map((post, index) => (
+              <PostCard key={index} post={post}></PostCard>
+            ))}
+          </div>
+        ) : (
+          <p>No hay entradas</p>
+        )}
+      </section>
     </main>
   )
 }

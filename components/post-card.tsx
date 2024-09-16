@@ -1,8 +1,8 @@
 import React from "react"
 import Link from "next/link"
 
-import { Post } from ".contentlayer/generated/types"
 import { formatDate } from "@/lib/utils"
+import { Post } from ".contentlayer/generated/types"
 
 interface PostCardProps {
   post: Post
@@ -18,7 +18,7 @@ const PostCard = ({ post }: PostCardProps) => {
       </div>
       <div>
         <Link href={post.slug} className="no-underline">
-          <h2 className="text-lg font-semibold no-underline">{post.title}</h2>
+          <h2 className="text-lg font-medium no-underline">{post.title}</h2>
         </Link>
         <small className="text-sm text-gray-500">{post.description}</small>
       </div>
