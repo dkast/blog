@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { ViewTransitions } from "next-view-transitions"
 import { Inter, Sora } from "next/font/google"
 
 import Footer from "@/components/footer"
@@ -38,22 +39,24 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={`${base.variable} ${display.variable} antialiased bg-zinc-50`}
-    >
-      <head />
-      <body className="flex h-screen flex-col overflow-x-hidden">
-        <div className="grid grid-cols-1 sm:grid-cols-[100px_1fr] justify-stretch">
-          <div className="relative">
-            <MainNav />
+    <ViewTransitions>
+      <html
+        lang="en"
+        className={`${base.variable} ${display.variable} bg-zinc-50 antialiased`}
+      >
+        <head />
+        <body className="flex h-screen flex-col overflow-x-hidden">
+          <div className="grid grid-cols-1 justify-stretch sm:grid-cols-[100px_1fr]">
+            <div className="relative">
+              <MainNav />
+            </div>
+            <div className="flex flex-col justify-start">
+              <div className="grow">{children}</div>
+              <Footer />
+            </div>
           </div>
-          <div className="flex flex-col justify-start">
-            <div className="grow">{children}</div>
-            <Footer />
-          </div>
-        </div>
-      </body>
-    </html>
+        </body>
+      </html>
+    </ViewTransitions>
   )
 }

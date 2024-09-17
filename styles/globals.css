@@ -4,7 +4,7 @@
 
 @layer base {
   a {
-    @apply hover:text-gray-500 underline underline-offset-2;
+    @apply underline underline-offset-2 hover:text-gray-500;
   }
   :root {
     --radius: 0.5rem;
@@ -15,4 +15,9 @@
   .border {
     background-clip: padding-box;
   }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: fade 0.5s;
 }
