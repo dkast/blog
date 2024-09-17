@@ -7,6 +7,13 @@ import Image from "next/image"
 import Link from "next/link"
 import { useSelectedLayoutSegment } from "next/navigation"
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from "@/components/ui/tooltip"
+
 interface NavItem {
   title: string
   Icon: LucideIcon
@@ -35,9 +42,9 @@ const MainNav = () => {
   const segment = useSelectedLayoutSegment()
 
   return (
-    <div className="mx-auto absolute inset-0">
-      <div className="fixed w-[100px]">
-        <div className="flex flex-col py-4 gap-20 h-screen grow items-center justify-start">
+    <div className="mx-auto absolute inset-0 z-30">
+      <div className="sm:fixed px-8 sm:px-0 h-20 sm:h-full sm:w-[100px]">
+        <div className="flex flex-row sm:flex-col py-4 gap-10 sm:gap-20 sm:h-screen grow items-center justify-start">
           <header>
             <Link href="/" className="flex items-center gap-3 no-underline">
               <Image
@@ -51,30 +58,38 @@ const MainNav = () => {
             </Link>
           </header>
           <div className="relative">
-            <nav className="flex flex-col gap-2 py-1 rounded-full border border-black/5 bg-white p-1">
-              {navItems &&
-                navItems.map((navItem, index) => {
-                  const selected =
-                    navItem.href.startsWith(`/${segment}`) ||
-                    (navItem.href === "/" && segment === null)
-                  return (
-                    <Link
-                      key={index}
-                      href={navItem.href}
-                      className="rounded-full no-underline relative"
-                    >
-                      {selected && (
-                        <motion.div
-                          layoutId="menu"
-                          className="absolute p-2 bg-gray-100 rounded-full inset-0 z-0"
-                        ></motion.div>
-                      )}
-                      <span className="z-30 relative text-gray-900">
-                        <navItem.Icon className="size-8 p-2" />
-                      </span>
-                    </Link>
-                  )
-                })}
+            <nav className="flex flex-row sm:flex-col gap-2 py-1 rounded-full border border-black/5 bg-white p-1">
+              <TooltipProvider>
+                {navItems &&
+                  navItems.map((navItem, index) => {
+                    const selected =
+                      navItem.href.startsWith(`/${segment}`) ||
+                      (navItem.href === "/" && segment === null)
+                    return (
+                      <Tooltip key={index}>
+                        <TooltipTrigger asChild>
+                          <Link
+                            href={navItem.href}
+                            className="rounded-full no-underline relative"
+                          >
+                            {selected && (
+                              <motion.div
+                                layoutId="menu"
+                                className="absolute p-2 bg-gray-100 rounded-full inset-0 z-0"
+                              ></motion.div>
+                            )}
+                            <span className="relative z-40 text-gray-900">
+                              <navItem.Icon className="size-8 p-2" />
+                            </span>
+                          </Link>
+                        </TooltipTrigger>
+                        <TooltipContent side="right">
+                          {navItem.title}
+                        </TooltipContent>
+                      </Tooltip>
+                    )
+                  })}
+              </TooltipProvider>
             </nav>
           </div>
         </div>

@@ -44,12 +44,12 @@ export default function RootLayout({
     >
       <head />
       <body className="flex h-screen flex-col overflow-x-hidden">
-        <div className="grid grid-cols-[100px_1fr] grow justify-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-[100px_1fr] justify-stretch">
           <div className="relative">
             <MainNav />
           </div>
-          <div className="flex flex-col justify-between">
-            {children}
+          <div className="flex flex-col justify-start">
+            <div className="grow">{children}</div>
             <Footer />
           </div>
         </div>

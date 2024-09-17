@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss"
 import colors from "tailwindcss/colors"
 
 const config = {
+  darkMode: "class",
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     fontFamily: {

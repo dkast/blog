@@ -5,6 +5,8 @@ import Hero from "@/components/hero"
 import PostCard from "@/components/post-card"
 import ProjectCard from "@/components/project-card"
 
+import "@/styles/gradient-blur.css"
+
 export default function Home() {
   const posts = allPosts
     .filter(post => post.published)
@@ -13,8 +15,8 @@ export default function Home() {
     })
 
   return (
-    <main className="mx-auto max-w-3xl px-8 sm:px-3">
-      <section className="pt-20 sm:pt-36">
+    <main className="mx-auto max-w-3xl">
+      <section className="pt-20 sm:pt-36 px-8 sm:px-3">
         <Hero />
       </section>
       <div className="my-10 sm:my-16" />
@@ -22,6 +24,7 @@ export default function Home() {
         <Subheading
           eyebrow="Proyectos"
           title="Proyectos personales y experimentos"
+          className="px-8 sm:px-3"
         />
         <div className="grid-cols-1 sm:grid-cols-2 grid gap-8">
           <ProjectCard
@@ -40,13 +43,12 @@ export default function Home() {
             className="bg-gradient-to-br from-purple-500 to-red-400"
             href="https://github.com/dkast/deeds-app"
           >
-            Aplicación web personal para incentivar las buenas acciones de mis
-            pequeños.
+            Aplicación web para incentivar las buenas acciones de mis pequeños.
           </ProjectCard>
         </div>
       </section>
       <div className="my-10 sm:my-16" />
-      <section className="pb-24 sm:pb-32">
+      <section className="pb-24 sm:pb-32 px-8 sm:px-3">
         <Subheading eyebrow="Blog" title="Últimas entradas" />
         {posts?.length ? (
           <div className="my-4 flex flex-col gap-4">
@@ -62,9 +64,17 @@ export default function Home() {
   )
 }
 
-function Subheading({ eyebrow, title }: { eyebrow: string; title: string }) {
+function Subheading({
+  eyebrow,
+  title,
+  className
+}: {
+  eyebrow: string
+  title: string
+  className?: string
+}) {
   return (
-    <div>
+    <div className={className}>
       <small className="text-xs mb-1 font-semibold uppercase tracking-widest text-gray-500">
         {eyebrow}
       </small>

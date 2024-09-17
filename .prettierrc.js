@@ -9,8 +9,8 @@ module.exports = {
   semi: false,
   printWidth: 80,
   plugins: [
-    "prettier-plugin-tailwindcss",
-    "@ianvs/prettier-plugin-sort-imports"
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
   ],
   importOrder: [
     "^react",

@@ -87,7 +87,7 @@ export default async function PostPage({ params }: PostPageProps) {
           author="Daniel Castillejo"
           avatar="avatar.jpg"
         />
-        <div className="flex flex-col items-center">
+        <div className="px-6 sm:px-3">
           {/* {post.image && (
             <Image
               src={post.image}
@@ -120,7 +120,7 @@ function Header({
   avatar: string
 }) {
   return (
-    <div className="mt-20">
+    <div className="mt-20 px-8 sm:px-3">
       <div className="space-y-3">
         <div className="flex flex-row items-center gap-2 text-xs font-medium text-gray-400 md:text-sm">
           <time>{formattedDate},</time>
@@ -128,19 +128,23 @@ function Header({
             <span>por</span>
             <span className="text-gray-600">{author}</span>
           </div>
-          <Separator orientation="vertical" className="mx-2 h-5 bg-gray-300" />
+          <Separator orientation="vertical" className="mx-2 h-5 bg-gray-200" />
           <span className="text-xs font-medium text-orange-500 md:text-sm">
             {category}
           </span>
         </div>
-        <h1 className="font-display text-lg font-medium sm:text-xl">{title}</h1>
-        {description && (
-          <p className="font-medium leading-relaxed text-gray-500 sm:text-sm md:text-base">
-            {description}
-          </p>
-        )}
+        <div>
+          <h1 className="font-display text-lg font-medium sm:text-xl">
+            {title}
+          </h1>
+          {description && (
+            <p className="font-semilight leading-relaxed text-gray-500 sm:text-sm md:text-base">
+              {description}
+            </p>
+          )}
+        </div>
       </div>
-      <Separator className="my-10 w-20 bg-gray-300" />
+      <Separator className="my-10 w-20 bg-gray-200" />
     </div>
   )
 }

@@ -73,7 +73,7 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: "poimandres",
+          theme: "vesper",
           keepBackground: true,
           onVisitLine(node: LineElement) {
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
