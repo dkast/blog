@@ -122,7 +122,7 @@ function Header({
   return (
     <div className="px-8 sm:px-3">
       <div className="space-y-3">
-        <div className="flex flex-row items-center gap-2 text-xs font-medium text-gray-400 md:text-sm">
+        <div className="flex flex-row items-center gap-1 text-xs font-medium text-gray-400 md:text-sm">
           <time>{formattedDate},</time>
           <div className="flex flex-row items-center gap-1">
             <span>por</span>
@@ -134,7 +134,7 @@ function Header({
           </span>
         </div>
         <div>
-          <h1 className="font-display text-lg font-medium sm:text-xl">
+          <h1 className="font-display text-xl font-medium sm:text-2xl">
             {title}
           </h1>
           {description && (
