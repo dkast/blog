@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <main className="mx-auto max-w-3xl">
-      <section className="pt-20 sm:pt-36 px-8 sm:px-3">
+      <section className="px-8 pt-24 sm:px-3 sm:pt-36">
         <Hero />
       </section>
       <div className="my-10 sm:my-16" />
@@ -26,7 +26,7 @@ export default function Home() {
           title="Proyectos personales y experimentos"
           className="px-8 sm:px-3"
         />
-        <div className="grid-cols-1 sm:grid-cols-2 grid gap-8">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
           <ProjectCard
             title="Biztro"
             stack={["next.js", "prisma", "next-auth", "craft.js"]}
@@ -48,7 +48,7 @@ export default function Home() {
         </div>
       </section>
       <div className="my-10 sm:my-16" />
-      <section className="pb-24 sm:pb-32 px-8 sm:px-3">
+      <section className="px-8 pb-24 sm:px-3 sm:pb-32">
         <Subheading eyebrow="Blog" title="Últimas entradas" />
         {posts?.length ? (
           <div className="my-4 flex flex-col gap-4">
@@ -75,7 +75,7 @@ function Subheading({
 }) {
   return (
     <div className={className}>
-      <small className="text-xs mb-1 font-semibold uppercase tracking-widest text-gray-500">
+      <small className="mb-1 text-xs font-semibold uppercase tracking-widest text-gray-500">
         {eyebrow}
       </small>
       <h2 className="pb-8 text-lg font-medium md:text-xl">{title}</h2>

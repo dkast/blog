@@ -28,10 +28,10 @@ const ProjectCard = ({
 }: ProjectCardProps) => {
   const domain = new URL(href)
   return (
-    <motion.div whileHover={{ y: -5 }} className="px-2 sm:px-3">
+    <motion.div whileHover={{ y: -5 }} className="px-4 sm:px-3">
       <div
         className={cn(
-          "grid grid-cols-1 gap-2 p-4 relative h-[420px] rounded-lg border-0 border-black/5 shadow-xl overflow-hidden",
+          "relative grid h-[420px] grid-cols-1 gap-2 overflow-hidden rounded-lg border-0 border-black/5 p-4 shadow-xl",
           className
         )}
       >
@@ -44,11 +44,11 @@ const ProjectCard = ({
               (max-width: 1200px) 50vw,
               33vw"
         />
-        <GradientBlur className="inset-x-0 bottom-0 absolute h-2/3 bg-gradient-to-t from-black/50 to-transparent" />
-        <div className="flex flex-col justify-end gap-4 z-20">
+        <GradientBlur className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/50 to-transparent" />
+        <div className="z-20 flex flex-col justify-end gap-4">
           <div className="text-base">
-            <span className="text-white mr-2 font-semibold">{title}.</span>
-            <span className="text-white/80 text-balance">{children}</span>
+            <span className="mr-2 font-semibold text-white">{title}.</span>
+            <span className="text-balance text-white/80">{children}</span>
           </div>
           <div>
             {href && (
@@ -56,7 +56,7 @@ const ProjectCard = ({
                 href={href}
                 target="_blank"
                 aria-label="Liga al sitio del proyecto"
-                className="flex gap-2 no-underline items-center text-white/75 hover:text-white"
+                className="flex items-center gap-2 text-white/75 no-underline hover:text-white"
               >
                 <span>{domain.hostname}</span>
                 {domain.hostname.includes("github") ? (

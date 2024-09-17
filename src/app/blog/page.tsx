@@ -16,8 +16,8 @@ export default async function BlogPage() {
     })
 
   return (
-    <main className="mx-auto max-w-3xl w-full px-8 sm:px-3">
-      <section className="pt-20 sm:pt-36">
+    <main className="mx-auto w-full max-w-3xl px-8 sm:px-3">
+      <section className="pt-24 sm:pt-36">
         <h1 className="font-display text-lg font-medium sm:text-xl">Blog</h1>
         {posts?.length ? (
           <div className="my-4 flex flex-col gap-4">

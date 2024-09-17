@@ -77,7 +77,7 @@ export default async function PostPage({ params }: PostPageProps) {
   }).format(new Date(post?.date))
 
   return (
-    <article className="mx-auto max-w-3xl pt-12 pb-24">
+    <article className="mx-auto max-w-3xl pb-24 pt-32 sm:pt-36">
       <div>
         <Header
           title={post?.title}
@@ -120,7 +120,7 @@ function Header({
   avatar: string
 }) {
   return (
-    <div className="mt-20 px-8 sm:px-3">
+    <div className="px-8 sm:px-3">
       <div className="space-y-3">
         <div className="flex flex-row items-center gap-2 text-xs font-medium text-gray-400 md:text-sm">
           <time>{formattedDate},</time>
