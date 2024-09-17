@@ -42,9 +42,9 @@ const MainNav = () => {
   const segment = useSelectedLayoutSegment()
 
   return (
-    <div className="mx-auto absolute inset-0 z-30">
-      <div className="sm:fixed px-8 sm:px-0 h-20 sm:h-full sm:w-[100px]">
-        <div className="flex flex-row sm:flex-col py-4 gap-10 sm:gap-20 sm:h-screen grow items-center justify-start">
+    <div className="absolute inset-0 z-30 mx-auto">
+      <div className="h-20 px-6 sm:fixed sm:h-full sm:w-[100px] sm:px-0">
+        <div className="flex grow flex-row items-center justify-between gap-10 py-4 sm:h-screen sm:flex-col sm:justify-start sm:gap-20">
           <header>
             <Link href="/" className="flex items-center gap-3 no-underline">
               <Image
@@ -58,7 +58,7 @@ const MainNav = () => {
             </Link>
           </header>
           <div className="relative">
-            <nav className="flex flex-row sm:flex-col gap-2 py-1 rounded-full border border-black/5 bg-white p-1">
+            <nav className="flex flex-row gap-2 rounded-full border border-black/5 bg-white p-1 py-1 sm:flex-col">
               <TooltipProvider>
                 {navItems &&
                   navItems.map((navItem, index) => {
@@ -70,12 +70,12 @@ const MainNav = () => {
                         <TooltipTrigger asChild>
                           <Link
                             href={navItem.href}
-                            className="rounded-full no-underline relative"
+                            className="relative rounded-full no-underline"
                           >
                             {selected && (
                               <motion.div
                                 layoutId="menu"
-                                className="absolute p-2 bg-gray-100 rounded-full inset-0 z-0"
+                                className="absolute inset-0 z-0 rounded-full bg-gray-100 p-2"
                               ></motion.div>
                             )}
                             <span className="relative z-40 text-gray-900">
