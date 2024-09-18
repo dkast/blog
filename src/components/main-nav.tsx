@@ -3,8 +3,8 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { CircleUser, Home, PenLine, type LucideIcon } from "lucide-react"
+import { Link } from "next-view-transitions"
 import Image from "next/image"
-import Link from "next/link"
 import { useSelectedLayoutSegment } from "next/navigation"
 
 import {
@@ -42,7 +42,7 @@ const MainNav = () => {
   const segment = useSelectedLayoutSegment()
 
   return (
-    <div className="absolute inset-0 z-30 mx-auto">
+    <div className="transition-disabled absolute inset-0 z-30 mx-auto">
       <div className="h-20 px-6 sm:fixed sm:h-full sm:w-[100px] sm:px-0">
         <div className="flex grow flex-row items-center justify-between gap-10 py-4 sm:h-screen sm:flex-col sm:justify-start sm:gap-20">
           <header>

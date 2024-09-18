@@ -17,7 +17,27 @@
   }
 }
 
-::view-transition-old(root),
+.transition-disabled {
+  view-transition-name: disabled;
+}
+
+::view-transition-disabled(root) {
+  animation: none;
+}
+
+::view-transition-old(root) {
+  animation: none;
+}
+
 ::view-transition-new(root) {
-  animation: fade 0.5s;
+  animation: fade-in 0.2s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -20,13 +20,12 @@ export default function Home() {
         <Hero />
       </section>
       <div className="my-10 sm:my-16" />
-      <section>
+      <section className="px-8 sm:px-3">
         <Subheading
           eyebrow="Proyectos"
           title="Proyectos personales y experimentos"
-          className="px-8 sm:px-3"
         />
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-16 sm:grid-cols-2 sm:gap-8">
           <ProjectCard
             title="Biztro"
             stack={["next.js", "prisma", "next-auth", "craft.js"]}
