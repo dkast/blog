@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-import { motion } from "framer-motion"
 import { ArrowUpRightIcon, GitFork } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -46,7 +45,6 @@ const ProjectCard = ({
         />
       </div>
       {/* <GradientBlur className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/50 to-transparent" /> */}
-      {/* <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-black/20 backdrop-blur-md"></div> */}
       <div className="z-20 flex flex-col justify-end gap-4">
         <div className="pt-8 text-base">
           <span className="mr-2 font-semibold text-black">{title}.</span>
