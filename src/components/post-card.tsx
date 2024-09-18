@@ -1,5 +1,5 @@
 import React from "react"
-import Link from "next/link"
+import { Link } from "next-view-transitions"
 
 import { formatDate } from "@/lib/utils"
 import { Post } from ".contentlayer/generated/types"

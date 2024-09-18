@@ -134,9 +134,7 @@ function Header({
           </span>
         </div>
         <div>
-          <h1 className="font-display text-xl font-medium sm:text-2xl">
-            {title}
-          </h1>
+          <h1 className="font-display text-2xl font-medium">{title}</h1>
           {description && (
             <p className="font-semilight leading-relaxed text-gray-500 sm:text-sm md:text-base">
               {description}

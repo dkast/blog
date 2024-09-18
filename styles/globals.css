@@ -21,7 +21,9 @@
   view-transition-name: disabled;
 }
 
-::view-transition-disabled(root) {
+::view-transition-group(disabled),
+::view-transition-old(disabled),
+::view-transition-new(disabled) {
   animation: none;
 }
 
