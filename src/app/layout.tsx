@@ -46,9 +46,9 @@ export default function RootLayout({
       >
         <head />
         <body className="flex h-screen flex-col overflow-x-hidden">
-          <div className="relative grid grow grid-cols-1 justify-stretch sm:grid-cols-[100px_1fr]">
+          <div className="grid grow grid-cols-1 grid-rows-[80px_1fr] justify-stretch sm:grid-cols-[100px_1fr] sm:grid-rows-none">
             <MainNav />
-            <div className="col-start-2 flex flex-col justify-start">
+            <div className="flex flex-col justify-start">
               <div className="grow">{children}</div>
               <Footer />
             </div>

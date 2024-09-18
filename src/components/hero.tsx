@@ -23,12 +23,12 @@ const elVariants = {
     transition: {
       ease: "easeOut",
       delay: i * 0.3,
-      duration: 0.7
+      duration: 0.3
     }
   }),
   hidden: {
     opacity: 0,
-    y: 50
+    y: 10
   }
 }
 
@@ -43,12 +43,18 @@ const Hero = () => {
       >
         Hola, soy Daniel Castillejo
       </motion.h1>
-      <div className="flex flex-col gap-2 pt-4 text-sm text-gray-600 sm:text-base">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={elVariants}
+        custom={1}
+        className="flex flex-col gap-2 pt-4 text-sm text-gray-600 sm:text-base"
+      >
         <p className="text-balance">
           Ingeniero de Software con más de 10 años de experiencia. Soy
           entusiasta del diseño, amante de la música y guitarrista promedio.
         </p>
-      </div>
+      </motion.div>
     </>
   )
 }

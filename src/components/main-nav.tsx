@@ -42,7 +42,7 @@ const MainNav = () => {
   const segment = useSelectedLayoutSegment()
 
   return (
-    <div className="transition-disabled absolute inset-0 z-30 mx-auto h-20 sm:h-full">
+    <div className="transition-disabled z-10 h-20 max-h-20 sm:h-full">
       <div className="px-6 sm:fixed sm:w-[100px] sm:px-0">
         <div className="flex grow flex-row items-center justify-between gap-10 py-4 sm:h-screen sm:flex-col sm:justify-start sm:gap-20">
           <header>

@@ -44,7 +44,7 @@ export default async function PagePage({ params }: PagePageProps) {
 
   return (
     <article className="mx-auto w-full max-w-3xl px-8 sm:px-3">
-      <div className="pt-24 sm:pt-36">
+      <div className="pt-4 sm:pt-36">
         <h1 className="mb-8 font-display text-lg font-medium sm:text-xl">
           {post.title}
         </h1>

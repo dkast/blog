@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import { motion } from "framer-motion"
 import { ArrowUpRightIcon, GitFork } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -28,7 +29,8 @@ const ProjectCard = ({
   const domain = new URL(href)
   return (
     <div>
-      <div
+      <motion.div
+        whileHover={{ scale: 1.05 }}
         className={cn(
           "relative grid h-[220px] grid-cols-1 gap-2 overflow-hidden rounded-lg border-0 border-black/5 p-4 shadow-xl",
           className
@@ -37,13 +39,13 @@ const ProjectCard = ({
         <Image
           src={imageURL}
           alt={title}
-          className="object-cover object-top transition-transform hover:scale-105"
+          className="object-cover object-top transition-transform hover:scale-110"
           fill
           sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
         />
-      </div>
+      </motion.div>
       {/* <GradientBlur className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/50 to-transparent" /> */}
       <div className="z-20 flex flex-col justify-end gap-4">
         <div className="pt-8 text-base">
