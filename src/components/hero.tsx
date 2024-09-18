@@ -48,9 +48,9 @@ const Hero = () => {
         animate="visible"
         variants={elVariants}
         custom={1}
-        className="flex flex-col gap-2 pt-4 text-sm text-gray-600 sm:text-base"
+        className="flex flex-col gap-2 pt-4 text-base text-gray-600"
       >
-        <p className="text-balance">
+        <p className="sm:text-balance">
           Ingeniero de Software con más de 10 años de experiencia. Soy
           entusiasta del diseño, amante de la música y guitarrista promedio.
         </p>
