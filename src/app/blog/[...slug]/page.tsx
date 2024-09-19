@@ -35,8 +35,8 @@ export async function generateMetadata({
   const { title, date: publishedTime, description } = post
 
   const url = process.env.NEXT_PUBLIC_APP_URL
-  // let ogImage = new URL(`${url}/api/og`)
-  // ogImage.searchParams.set("title", title)
+  let ogImage = new URL(`${url}/api/og`)
+  ogImage.searchParams.set("title", title)
 
   return {
     title,
@@ -46,18 +46,18 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url
-      // images: [
-      //   {
-      //     url: ogImage.toString()
-      //   }
-      // ]
+      url,
+      images: [
+        {
+          url: ogImage.toString()
+        }
+      ]
     },
     twitter: {
       card: "summary_large_image",
       title,
-      description
-      // images: [ogImage.toString()]
+      description,
+      images: [ogImage.toString()]
     }
   }
 }

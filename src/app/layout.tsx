@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { ViewTransitions } from "next-view-transitions"
 import { Inter, Sora } from "next/font/google"
 
@@ -13,13 +13,16 @@ const display = Sora({
   subsets: ["latin"]
 })
 
+export const viewport: Viewport = {
+  themeColor: "#f9fafb"
+}
+
 export const metadata: Metadata = {
   title: {
     default: "Daniel Castillejo",
-    template: "%s | Daniel Castillejo"
+    template: "%s - Daniel Castillejo"
   },
   description: "Sitio personal de Daniel Castillejo",
-  themeColor: "#ffffff",
   openGraph: {
     title: "Daniel Castillejo",
     type: "website",

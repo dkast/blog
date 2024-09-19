@@ -81,12 +81,6 @@ export default makeSource({
             if (node.children.length === 0) {
               node.children = [{ type: "text", value: " " }]
             }
-          },
-          onVisitHighlightedLine(node: LineElement) {
-            node.properties.className?.push("line--highlighted")
-          },
-          onVisitHighlightedWord(node: LineElement) {
-            node.properties.className = ["word--highlighted"]
           }
         }
       ]
