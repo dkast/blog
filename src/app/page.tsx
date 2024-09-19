@@ -28,12 +28,12 @@ export default function Home() {
         <div className="grid grid-cols-1 gap-16 sm:grid-cols-2 sm:gap-8">
           <ProjectCard
             title="Biztro"
-            stack={["next.js", "prisma", "next-auth", "craft.js"]}
+            stack={["next.js", "prisma", "turso db", "craft.js"]}
             imageURL="/images/editor.png"
             className="bg-gradient-to-r from-purple-400 to-indigo-500"
             href="https://biztro.co"
           >
-            Aplicación SaaS para crear menus digitales con código QR.
+            Crea tus menus digitales con código QR desde un editor web.
           </ProjectCard>
           <ProjectCard
             title="Deberes"
@@ -43,6 +43,16 @@ export default function Home() {
             href="https://github.com/dkast/deeds-app"
           >
             Aplicación web para incentivar las buenas acciones de mis pequeños.
+          </ProjectCard>
+          <ProjectCard
+            title="Cargo"
+            stack={["next.js", "prisma", "postgres", "cloudflare"]}
+            imageURL="/images/cargo-dash.png"
+            className="bg-gradient-to-br from-orange-400 to-violet-500"
+            href="https://cargohq.vercel.app"
+          >
+            Permite gestionar inspecciones CTPAT desde la nube en cualquier
+            dispositivo.
           </ProjectCard>
         </div>
       </section>
