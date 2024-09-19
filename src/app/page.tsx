@@ -16,10 +16,10 @@ export default function Home() {
 
   return (
     <main className="mx-auto max-w-3xl">
-      <section className="px-8 pt-4 sm:px-3 sm:pt-36">
+      <section className="px-8 pt-10 sm:px-3 sm:pt-36">
         <Hero />
       </section>
-      <div className="my-10 sm:my-16" />
+      <div className="my-16" />
       <section className="px-8 sm:px-3">
         <Subheading
           eyebrow="Proyectos"
@@ -46,7 +46,7 @@ export default function Home() {
           </ProjectCard>
         </div>
       </section>
-      <div className="my-10 sm:my-16" />
+      <div className="my-16" />
       <section className="px-8 pb-24 sm:px-3 sm:pb-32">
         <Subheading eyebrow="Blog" title="Últimas entradas" />
         {posts?.length ? (

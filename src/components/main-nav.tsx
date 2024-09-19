@@ -44,7 +44,7 @@ const MainNav = () => {
 
   return (
     <div className="relative z-10 h-20 max-h-20 sm:h-full">
-      <GradientBlur className="fixed inset-0 h-24 rotate-180 sm:hidden" />
+      <GradientBlur className="fixed inset-0 h-20 rotate-180 sm:hidden" />
       <div className="transition-disabled fixed z-20 w-full px-6 sm:w-[100px] sm:px-0">
         <div className="flex grow flex-row items-center justify-between gap-10 py-4 sm:h-screen sm:flex-col sm:justify-start sm:gap-20">
           <header>
