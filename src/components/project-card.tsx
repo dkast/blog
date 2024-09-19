@@ -30,7 +30,7 @@ const ProjectCard = ({
   return (
     <div>
       <motion.div
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.02 }}
         className={cn(
           "relative grid h-[220px] grid-cols-1 gap-2 overflow-hidden rounded-lg border-0 border-black/5 p-4 shadow-xl",
           className
@@ -39,7 +39,7 @@ const ProjectCard = ({
         <Image
           src={imageURL}
           alt={title}
-          className="object-cover object-top transition-transform hover:scale-110"
+          className="object-cover object-top transition-transform hover:scale-105"
           fill
           sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
