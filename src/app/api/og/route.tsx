@@ -76,7 +76,7 @@ export async function GET(req: NextRequest) {
           name: "Inter",
           data: await interBold,
           style: "normal",
-          weight: 400
+          weight: 700
         }
       ]
     }
