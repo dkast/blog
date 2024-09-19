@@ -14,8 +14,8 @@ export async function GET(req: NextRequest) {
     new URL("../../../../assets/fonts/Inter-Regular.ttf", import.meta.url)
   ).then(res => res.arrayBuffer())
 
-  const interBold = fetch(
-    new URL("../../../../assets/fonts/Inter-Bold.ttf", import.meta.url)
+  const soraSemiBold = fetch(
+    new URL("../../../../assets/fonts/Sora-SemiBold.ttf", import.meta.url)
   ).then(res => res.arrayBuffer())
 
   return new ImageResponse(
@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
         </div>
         <div tw="flex flex-col">
           <span tw="text-stone-400 text-2xl uppercase">Blog</span>
-          <h1 tw="text-white text-6xl font-bold">{title}</h1>
+          <h1 tw="text-white text-6xl font-semibold">{title}</h1>
         </div>
         <div tw="flex items-center">
           <svg
@@ -74,9 +74,9 @@ export async function GET(req: NextRequest) {
         },
         {
           name: "Inter",
-          data: await interBold,
+          data: await soraSemiBold,
           style: "normal",
-          weight: 700
+          weight: 600
         }
       ]
     }
