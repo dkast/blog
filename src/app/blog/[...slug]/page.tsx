@@ -42,6 +42,7 @@ export async function generateMetadata({
     title,
     description,
     openGraph: {
+      siteName: "dkast.dev",
       title,
       description,
       type: "article",
