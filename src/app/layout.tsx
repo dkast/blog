@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   },
   description: "Sitio personal de Daniel Castillejo",
   openGraph: {
+    siteName: "Daniel Castillejo",
     title: "Daniel Castillejo",
     type: "website",
     url: "https://dkast.dev"

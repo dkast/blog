@@ -29,8 +29,9 @@ export async function GET(req: NextRequest) {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "space-between",
-          padding: "60px 40px",
-          backgroundImage: "linear-gradient(to bottom, #262626, #0a0a0a)"
+          padding: "60px",
+          backgroundColor: "#1C1C1C",
+          backgroundImage: "radial-gradient(at left top, #1C1C1C, #262626)"
         }}
       >
         <div tw="flex">
@@ -40,7 +41,7 @@ export async function GET(req: NextRequest) {
           <span tw="text-stone-400 text-2xl uppercase">Blog</span>
           <h1 tw="text-white text-6xl font-semibold">{title}</h1>
         </div>
-        <div tw="flex items-center">
+        <div tw="flex justify-end w-full items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
