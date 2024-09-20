@@ -1,13 +1,13 @@
 "use client"
 
 import React from "react"
-
 import { motion } from "framer-motion"
 import { ArrowUpRightIcon, GitFork } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
-import classNames from "@/lib/classnames"
+// import GradientBlur from "@/components/gradient-blur"
+import { cn } from "@/lib/utils"
 
 type ProjectCardProps = {
   title: string
@@ -28,27 +28,29 @@ const ProjectCard = ({
 }: ProjectCardProps) => {
   const domain = new URL(href)
   return (
-    <motion.div whileHover={{ y: -5 }} className="grid grid-cols-1 gap-2">
-      <div
-        className={classNames(
-          "relative h-[220px] rounded-none sm:rounded-lg border border-black/5 overflow-hidden",
+    <div>
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        className={cn(
+          "relative grid h-[220px] grid-cols-1 gap-2 overflow-hidden rounded-lg border-0 border-black/5 p-4 shadow-xl",
           className
         )}
       >
         <Image
           src={imageURL}
           alt={title}
-          className="object-cover object-top"
+          className="object-cover object-top transition-transform hover:scale-105"
           fill
           sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
         />
-      </div>
-      <div className="flex flex-col justify-between gap-4 px-6 sm:px-0">
-        <div className="text-lg">
-          <span className="text-black mr-2 font-semibold">{title}.</span>
-          <span className="text-gray-500">{children}</span>
+      </motion.div>
+      {/* <GradientBlur className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/50 to-transparent" /> */}
+      <div className="z-20 flex flex-col justify-end gap-4">
+        <div className="pt-8 text-base">
+          <span className="mr-2 font-semibold text-black">{title}.</span>
+          <span className="text-balance text-gray-800">{children}</span>
         </div>
         <div>
           {href && (
@@ -56,7 +58,7 @@ const ProjectCard = ({
               href={href}
               target="_blank"
               aria-label="Liga al sitio del proyecto"
-              className="flex gap-2 no-underline items-center"
+              className="flex items-center gap-2 no-underline"
             >
               <span>{domain.hostname}</span>
               {domain.hostname.includes("github") ? (
@@ -72,7 +74,7 @@ const ProjectCard = ({
             return (
               <li
                 key={item}
-                className="rounded-full bg-gray-100 px-3 py-0.5 text-xs tracking-wide text-gray-900"
+                className="rounded-full bg-gray-200/50 px-3 py-0.5 text-xs tracking-wide text-gray-900"
               >
                 {item}
               </li>
@@ -80,7 +82,7 @@ const ProjectCard = ({
           })}
         </ul>
       </div>
-    </motion.div>
+    </div>
   )
 }
 

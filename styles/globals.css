@@ -4,7 +4,10 @@
 
 @layer base {
   a {
-    @apply underline underline-offset-2 hover:text-gray-500
+    @apply underline underline-offset-2 hover:text-gray-500;
+  }
+  :root {
+    --radius: 0.5rem;
   }
 }
 
@@ -12,42 +15,45 @@
   .border {
     background-clip: padding-box;
   }
+}
 
-  .gridline {
-    --background: #FFFFFF;
-    --color: rgba(0, 0, 0, 0.15);
-    --height: 1px;
-    --width: 5px;
-    --fade-stop: 90%;
-    /* Bleed in or out from the container */
-    --offset: -100px;
-  
-    width: calc(100% + var(--offset));
-    height: var(--height);
-    left: calc(var(--offset) / 2 * -1);
-    
-    background: linear-gradient(
-      to right,
-      var(--color),
-      var(--color) 50%,
-      transparent 0,
-      transparent
-    );
-    background-size: var(--width) var(--height);
-  
-    /* Fade out the edges */
-    mask-composite: exclude;
-    -webkit-mask: 
-      linear-gradient(
-        to left,
-        var(--background) var(--fade-stop),
-        transparent
-      ),
-      linear-gradient(
-        to right,
-        var(--background) var(--fade-stop),
-        transparent
-      ),
-      linear-gradient(black, black);
+.transition-disabled {
+  view-transition-name: disabled;
+}
+
+::view-transition-group(disabled),
+::view-transition-old(disabled),
+::view-transition-new(disabled) {
+  animation: none;
+}
+
+::view-transition-old(root) {
+  animation: none;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 0.3s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  25% {
+    opacity: 0.25;
+    filter: blur(7.5px);
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(5px);
+  }
+  75% {
+    opacity: 0.75;
+    filter: blur(2.5px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
   }
 }

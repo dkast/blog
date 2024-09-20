@@ -1,36 +1,35 @@
-import { ImageResponse, NextRequest } from "next/server"
+import { ImageResponse } from "next/og"
 
-import { ogImageSchema } from "@/lib/og"
+// Route segment config
+export const runtime = "edge"
 
-export const config = {
-  runtime: "edge"
+// Image metadata
+export const size = {
+  width: 1200,
+  height: 630
 }
 
-const interRegular = fetch(
-  new URL("../../assets/fonts/Inter-Regular.ttf", import.meta.url)
-).then(res => res.arrayBuffer())
+export const contentType = "image/png"
 
-const groteskBold = fetch(
-  new URL("../../assets/fonts/SpaceGrotesk-Bold.ttf", import.meta.url)
-).then(res => res.arrayBuffer())
-
-export default async function handler(req: NextRequest) {
+// Image generation
+export default async function Image() {
   try {
-    const fontRegular = await interRegular
-    const fontBold = await groteskBold
-
-    const url = new URL(req.url)
-    const values = ogImageSchema.parse(Object.fromEntries(url.searchParams))
-    const title =
-      values.title!.length > 140
-        ? `${values.title!.substring(0, 140)}...`
-        : values.title
+    const url = new URL(
+      process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
+    )
     const avatar = `${url.protocol}//${url.host}/images/avatar.jpg`
+    // Fetch font data
+    const interRegular = fetch(
+      new URL("../../assets/fonts/Inter-Regular.ttf", import.meta.url)
+    ).then(res => res.arrayBuffer())
 
-    // const fontSize = title!.length > 100 ? "70px" : "100px"
-
+    const soraSemiBold = fetch(
+      new URL("../../assets/fonts/Sora-SemiBold.ttf", import.meta.url)
+    ).then(res => res.arrayBuffer())
     return new ImageResponse(
       (
+        // ImageResponse JSX element
+        // ImageResponse JSX element
         <div
           style={{
             height: "100%",
@@ -39,18 +38,21 @@ export default async function handler(req: NextRequest) {
             flexDirection: "column",
             alignItems: "flex-start",
             justifyContent: "space-between",
-            padding: "60px 40px",
-            backgroundImage: "linear-gradient(to bottom, #262626, #0a0a0a)"
+            padding: "60px",
+            backgroundColor: "#1C1C1C",
+            backgroundImage: "radial-gradient(at left top, #1C1C1C, #262626)"
           }}
         >
           <div tw="flex">
             <img tw="w-30 h-30 rounded-full" src={avatar} />
           </div>
           <div tw="flex flex-col">
-            <span tw="text-stone-400 text-2xl uppercase">Blog</span>
-            <h1 tw="text-white text-6xl font-bold">{title}</h1>
+            <span tw="text-stone-400 text-2xl uppercase">
+              Software Developer
+            </span>
+            <h1 tw="text-white text-7xl font-semibold">Daniel Castillejo</h1>
           </div>
-          <div tw="flex items-center">
+          <div tw="flex justify-end w-full items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -71,27 +73,29 @@ export default async function handler(req: NextRequest) {
           </div>
         </div>
       ),
+      // ImageResponse options
       {
-        width: 1200,
-        height: 630,
+        // For convenience, we can re-use the exported opengraph-image
+        // size config to also set the ImageResponse's width and height.
+        ...size,
         fonts: [
           {
             name: "Inter",
-            data: fontRegular,
-            weight: 400,
-            style: "normal"
+            data: await interRegular,
+            style: "normal",
+            weight: 400
           },
           {
             name: "Inter",
-            data: fontBold,
-            weight: 700,
-            style: "normal"
+            data: await soraSemiBold,
+            style: "normal",
+            weight: 600
           }
         ]
       }
     )
-  } catch (error) {
-    return new Response(`Failed to generate image`, {
+  } catch {
+    return new Response("Failed to generate image", {
       status: 500
     })
   }
