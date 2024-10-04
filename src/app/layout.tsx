@@ -13,7 +13,7 @@ const display = Bree_Serif({
   subsets: ["latin"],
   weight: "400"
 })
-const mono = JetBrains_Mono({ variable: "--font-mono" })
+const mono = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"] })
 
 export const viewport: Viewport = {
   themeColor: "#f9fafb"
