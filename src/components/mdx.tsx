@@ -21,7 +21,7 @@ function MdxImage(
       alt={alt || ""}
       width={width ? parseInt(width as string, 10) : undefined}
       height={height ? parseInt(height as string, 10) : undefined}
-      className="mx-auto my-12 rounded-xl shadow-lg"
+      className="mx-auto my-12 rounded-xl shadow-lg sm:max-w-[600px]"
       {...rest}
     />
   )
