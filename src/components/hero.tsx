@@ -43,7 +43,7 @@ const Hero = () => {
       >
         Hola, soy Daniel Castillejo
       </motion.h1>
-      <div className="flex flex-col gap-2 pt-4 text-base text-gray-600">
+      <div className="font-mono flex flex-col gap-2 pt-4 text-base text-gray-600">
         <p className="sm:text-balance">
           Soy un ingeniero de software con más de 15 años de experiencia basado
           en México. Actualmente me desempeño como Arquitecto de Soluciones en

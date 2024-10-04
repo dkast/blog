@@ -6,7 +6,8 @@ const config = {
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     fontFamily: {
-      display: ["var(--font-display)"]
+      display: ["var(--font-display)"],
+      mono: ["var(--font-mono)"]
     },
     extend: {
       colors: {

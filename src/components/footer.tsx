@@ -3,7 +3,7 @@ import React from "react"
 const Footer = () => {
   return (
     <footer className="p-8">
-      <div className="mx-auto max-w-3xl px-3 text-sm text-gray-400">
+      <div className="font-mono mx-auto max-w-3xl px-3 text-sm text-gray-400">
         <div className="flex items-center justify-between">
           <span className="hidden sm:inline">
             &copy; {new Date().getFullYear()} Daniel Castillejo

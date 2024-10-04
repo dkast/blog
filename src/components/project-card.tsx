@@ -47,10 +47,12 @@ const ProjectCard = ({
         />
       </motion.div>
       {/* <GradientBlur className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/50 to-transparent" /> */}
-      <div className="z-20 flex flex-col justify-end gap-4">
-        <div className="pt-8 text-base">
-          <span className="mr-2 font-semibold text-black">{title}.</span>
-          <span className="text-balance text-gray-800">{children}</span>
+      <div className="font-mono z-20 flex flex-col justify-end gap-4">
+        <div className="pt-8 text-sm">
+          <span className="mr-2 font-medium text-black">{title}.</span>
+          <span className="text-balance font-light text-gray-800">
+            {children}
+          </span>
         </div>
         <div>
           {href && (
