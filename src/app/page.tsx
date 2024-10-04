@@ -28,7 +28,7 @@ export default function Home() {
         <div className="grid grid-cols-1 gap-16 sm:grid-cols-2 sm:gap-8">
           <ProjectCard
             title="Biztro"
-            stack={["next.js", "prisma", "turso db", "craft.js"]}
+            stack={["next.js", "prisma", "turso", "craft.js"]}
             imageURL="/images/editor.png"
             className="bg-gradient-to-r from-purple-400 to-indigo-500"
             href="https://biztro.co"
@@ -84,10 +84,10 @@ function Subheading({
 }) {
   return (
     <div className={className}>
-      <small className="mb-1 text-xs font-semibold uppercase tracking-widest text-gray-500">
-        {eyebrow}
+      <small className="mb-1 font-mono text-xs font-semibold uppercase tracking-widest text-orange-600">
+        <span className="text-orange-600/50">##</span> {eyebrow}
       </small>
-      <h2 className="pb-8 text-lg font-medium md:text-xl">{title}</h2>
+      <h2 className="pb-8 font-display text-lg md:text-xl">{title}</h2>
     </div>
   )
 }

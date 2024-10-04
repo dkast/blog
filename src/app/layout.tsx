@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import { ViewTransitions } from "next-view-transitions"
-import { Inter, Sora } from "next/font/google"
+import { Averia_Serif_Libre, Inter, JetBrains_Mono } from "next/font/google"
 
 import Footer from "@/components/footer"
 import MainNav from "@/components/main-nav"
@@ -8,10 +8,12 @@ import MainNav from "@/components/main-nav"
 import "@/styles/globals.css"
 
 const base = Inter({ variable: "--font-inter", subsets: ["latin"] })
-const display = Sora({
+const display = Averia_Serif_Libre({
   variable: "--font-display",
-  subsets: ["latin"]
+  subsets: ["latin"],
+  weight: "400"
 })
+const mono = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"] })
 
 export const viewport: Viewport = {
   themeColor: "#f9fafb"
@@ -46,7 +48,7 @@ export default function RootLayout({
     <ViewTransitions>
       <html
         lang="en"
-        className={`${base.variable} ${display.variable} bg-zinc-50 antialiased`}
+        className={`${base.variable} ${display.variable} ${mono.variable} bg-zinc-50 text-gray-700 antialiased`}
       >
         <head />
         <body className="flex h-screen flex-col overflow-x-hidden">

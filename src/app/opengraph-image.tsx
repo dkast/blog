@@ -23,8 +23,11 @@ export default async function Image() {
       new URL("../../assets/fonts/Inter-Regular.ttf", import.meta.url)
     ).then(res => res.arrayBuffer())
 
-    const soraSemiBold = fetch(
-      new URL("../../assets/fonts/Sora-SemiBold.ttf", import.meta.url)
+    const averiaRegular = fetch(
+      new URL(
+        "../../assets/fonts/AveriaSerifLibre-Regular.ttf",
+        import.meta.url
+      )
     ).then(res => res.arrayBuffer())
     return new ImageResponse(
       (
@@ -87,7 +90,7 @@ export default async function Image() {
           },
           {
             name: "Inter",
-            data: await soraSemiBold,
+            data: await averiaRegular,
             style: "normal",
             weight: 600
           }

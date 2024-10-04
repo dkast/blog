@@ -60,34 +60,36 @@ const MainNav = () => {
             </Link>
           </header>
           <nav className="flex flex-row gap-2 rounded-full border border-black/5 bg-white p-1 py-1 sm:flex-col">
-            <TooltipProvider>
-              {navItems &&
-                navItems.map((navItem, index) => {
-                  const selected =
-                    navItem.href.startsWith(`/${segment}`) ||
-                    (navItem.href === "/" && segment === null)
-                  return (
-                    <Tooltip key={index}>
+            {navItems &&
+              navItems.map((navItem, index) => {
+                const selected =
+                  navItem.href.startsWith(`/${segment}`) ||
+                  (navItem.href === "/" && segment === null)
+                return (
+                  <TooltipProvider key={index}>
+                    <Tooltip>
                       <TooltipTrigger asChild>
-                        <Link
-                          href={navItem.href}
-                          className="grid grid-cols-1 rounded-full no-underline"
-                        >
-                          {selected && (
-                            <div className="z-0 col-start-1 row-start-1 rounded-full bg-gray-100 p-2"></div>
-                          )}
-                          <span className="z-40 col-start-1 row-start-1 text-gray-900">
-                            <navItem.Icon className="size-8 p-2" />
-                          </span>
-                        </Link>
+                        <div>
+                          <Link
+                            href={navItem.href}
+                            className="grid grid-cols-1 rounded-full no-underline"
+                          >
+                            {selected && (
+                              <div className="z-0 col-start-1 row-start-1 rounded-full bg-gray-100 p-2"></div>
+                            )}
+                            <span className="z-40 col-start-1 row-start-1 text-gray-900">
+                              <navItem.Icon className="size-8 p-2" />
+                            </span>
+                          </Link>
+                        </div>
                       </TooltipTrigger>
                       <TooltipContent side="right">
                         {navItem.title}
                       </TooltipContent>
                     </Tooltip>
-                  )
-                })}
-            </TooltipProvider>
+                  </TooltipProvider>
+                )
+              })}
           </nav>
         </div>
       </div>
