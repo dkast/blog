@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import { ViewTransitions } from "next-view-transitions"
-import { Bree_Serif, Inter, JetBrains_Mono } from "next/font/google"
+import { Averia_Serif_Libre, Inter, JetBrains_Mono } from "next/font/google"
 
 import Footer from "@/components/footer"
 import MainNav from "@/components/main-nav"
@@ -8,7 +8,7 @@ import MainNav from "@/components/main-nav"
 import "@/styles/globals.css"
 
 const base = Inter({ variable: "--font-inter", subsets: ["latin"] })
-const display = Bree_Serif({
+const display = Averia_Serif_Libre({
   variable: "--font-display",
   subsets: ["latin"],
   weight: "400"

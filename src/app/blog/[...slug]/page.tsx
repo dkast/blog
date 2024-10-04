@@ -73,7 +73,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
   const formattedDate = new Intl.DateTimeFormat("es-MX", {
     year: "numeric",
-    month: "long",
+    month: "short",
     day: "numeric"
   }).format(new Date(post?.date))
 
@@ -123,15 +123,15 @@ function Header({
   return (
     <div className="px-8 sm:px-3">
       <div className="space-y-3">
-        <div className="font-mono flex flex-row items-center gap-1 text-xs font-normal text-gray-400 md:text-sm">
-          <time>{formattedDate},</time>
+        <div className="flex flex-row items-center gap-1 font-mono text-xs font-normal text-gray-400 md:text-sm">
+          <time>{formattedDate}</time>
           <div className="flex flex-row items-center gap-1">
-            <span>por</span>
+            <span>-</span>
             <span className="text-gray-600">{author}</span>
           </div>
           <Separator orientation="vertical" className="mx-2 h-5 bg-gray-200" />
           <span className="text-xs font-normal text-orange-500 md:text-sm">
-            # {category}
+            {category}
           </span>
         </div>
         <div>

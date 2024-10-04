@@ -4,7 +4,7 @@
 
 @layer base {
   a {
-    @apply underline underline-offset-2 hover:text-gray-500;
+    @apply underline decoration-orange-600 underline-offset-2 hover:text-gray-500;
   }
   :root {
     --radius: 0.5rem;

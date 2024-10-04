@@ -14,8 +14,11 @@ export async function GET(req: NextRequest) {
     new URL("../../../../assets/fonts/Inter-Regular.ttf", import.meta.url)
   ).then(res => res.arrayBuffer())
 
-  const soraSemiBold = fetch(
-    new URL("../../../../assets/fonts/Sora-SemiBold.ttf", import.meta.url)
+  const averiaRegular = fetch(
+    new URL(
+      "../../../../assets/fonts/AveriaSerifLibre-Regular.ttf",
+      import.meta.url
+    )
   ).then(res => res.arrayBuffer())
 
   return new ImageResponse(
@@ -75,7 +78,7 @@ export async function GET(req: NextRequest) {
         },
         {
           name: "Inter",
-          data: await soraSemiBold,
+          data: await averiaRegular,
           style: "normal",
           weight: 600
         }

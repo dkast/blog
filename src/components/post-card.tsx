@@ -12,7 +12,7 @@ const PostCard = ({ post }: PostCardProps) => {
   return (
     <article className="flex gap-4">
       <div className="min-w-[80px] text-right">
-        <span className="font-mono text-sm font-light leading-7 text-gray-500">
+        <span className="font-mono text-xs font-light leading-7 text-gray-500 sm:text-sm">
           {formatDate(post.date)}
         </span>
       </div>
