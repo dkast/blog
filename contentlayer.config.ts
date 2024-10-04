@@ -4,6 +4,7 @@ import {
   type ComputedFields,
   type LocalDocument
 } from "contentlayer2/source-files"
+import rehypeImageSize from "rehype-img-size"
 import rehypePrettyCode, { type LineElement } from "rehype-pretty-code"
 import remarkGfm from "remark-gfm"
 
@@ -82,6 +83,12 @@ export default makeSource({
               node.children = [{ type: "text", value: " " }]
             }
           }
+        }
+      ],
+      [
+        rehypeImageSize,
+        {
+          dir: "public"
         }
       ]
     ]
