@@ -93,33 +93,33 @@ This is a personal blog built with Next.js 16 (App Router), React 19, TypeScript
 
 ```bash
 # Start development server with Turbopack
-npm run dev
+bun run dev
 
-# Build for production
-npm run build
+# Build for production (automatically runs contentlayer2 build first)
+bun run build
 
 # Start production server
-npm start
+bun run start
 
 # Build Contentlayer content
-npm run build:content
+bun run build:content
 ```
 
 ### Code Quality
 
 ```bash
 # Run ESLint
-npm run lint
+bun run lint
 
 # Run TypeScript type checking
-npm run typecheck
+bun run typecheck
 ```
 
 ### Deployment
 
 The site is configured for Vercel deployment. The build process automatically:
-1. Runs `npm run build:content` to generate content types
-2. Runs `npm run build` to create optimized production build
+1. Runs `bun run build` which first generates content types via `contentlayer2 build`
+2. Then creates optimized production build with `next build`
 3. Deploys to Vercel with automatic HTTPS and CDN
 
 ## Environment Variables
@@ -142,14 +142,14 @@ The site is configured for Vercel deployment. The build process automatically:
    ---
    ```
 3. Write content using MDX (Markdown + React components)
-4. Run `npm run build:content` to regenerate types
+4. Run `bun run build:content` to regenerate types
 5. The post will automatically appear in the blog list
 
 ### Adding a New Static Page
 
 1. Create a new `.mdx` file in `content/pages/`
 2. Add frontmatter with title
-3. Run `npm run build:content`
+3. Run `bun run build:content`
 4. Access the page at `/{filename}`
 
 ### Modifying Components
@@ -163,21 +163,22 @@ The site is configured for Vercel deployment. The build process automatically:
 
 ```bash
 # Update all dependencies
-npm update
+bun update
 
 # Check for outdated packages
-npm outdated
+bun outdated
 
 # Update specific package
-npm install <package>@latest
+bun add <package>@latest
 ```
 
 ## Development Notes
 
 - **Font Loading**: Google Fonts are optimized by Next.js during build. In restricted networks, font loading may fail during build but will work in production.
-- **Turbopack**: Default bundler for faster development. Use `--webpack` flag if needed: `npm run build -- --webpack`
-- **Type Safety**: Run `npm run typecheck` before committing to catch type errors
-- **Content Changes**: Always run `npm run build:content` after modifying content structure or adding new content files
+- **Package Manager**: This project uses Bun as the package manager. Do not commit `package-lock.json` or `yarn.lock` files.
+- **Turbopack**: Default bundler for faster development. Use `--webpack` flag if needed: `bun run build -- --webpack`
+- **Type Safety**: Run `bun run typecheck` before committing to catch type errors
+- **Content Changes**: Always run `bun run build:content` after modifying content structure or adding new content files
 
 ## Troubleshooting
 
@@ -185,8 +186,8 @@ npm install <package>@latest
 If building in a restricted network environment, fonts may fail to download. This is expected and won't affect production deployments on Vercel.
 
 ### Type Errors After Updating Next.js
-- Run `npm run build:content` to regenerate Contentlayer types
-- Delete `.next` folder and rebuild: `rm -rf .next && npm run build`
+- Run `bun run build:content` to regenerate Contentlayer types
+- Delete `.next` folder and rebuild: `rm -rf .next && bun run build`
 - Check that params are properly awaited in async page components
 
 ### ESLint Issues
