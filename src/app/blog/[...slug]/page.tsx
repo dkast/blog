@@ -9,13 +9,13 @@ import Mdx from "@/components/mdx"
 import { Separator } from "@/components/ui/separator"
 
 interface PostPageProps {
-  params: {
+  params: Promise<{
     slug: string[]
-  }
+  }>
 }
 
 export async function generateStaticParams(): Promise<
-  PostPageProps["params"][]
+  { slug: string[] }[]
 > {
   return allPosts.map(post => ({
     slug: post.slugAsParams.split("/")
@@ -25,8 +25,9 @@ export async function generateStaticParams(): Promise<
 export async function generateMetadata({
   params
 }: PostPageProps): Promise<Metadata | undefined> {
-  const slug = params?.slug?.join("/")
-  const post = allPosts.find(post => post.slugAsParams === slug)
+  const { slug } = await params
+  const slugStr = slug?.join("/")
+  const post = allPosts.find(post => post.slugAsParams === slugStr)
 
   if (!post) {
     return
@@ -64,8 +65,9 @@ export async function generateMetadata({
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const slug = params?.slug?.join("/")
-  const post = allPosts.find(post => post.slugAsParams === slug)
+  const { slug } = await params
+  const slugStr = slug?.join("/")
+  const post = allPosts.find(post => post.slugAsParams === slugStr)
 
   if (!post) {
     notFound()

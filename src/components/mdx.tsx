@@ -13,7 +13,7 @@ function MdxImage(
   >
 ) {
   const { src, alt, width, height, ...rest } = props
-  if (!src) return null // Ensure src is defined
+  if (!src || typeof src !== 'string') return null // Ensure src is defined and is a string
 
   return (
     <Image
