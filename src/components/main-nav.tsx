@@ -54,7 +54,7 @@ const MainNav = () => {
                 alt="Daniel Castillejo"
                 width={40}
                 height={40}
-                className="rounded-full border border-black/10 shadow-sm"
+                className="rounded-full border border-black/10 shadow-xs"
               ></Image>
               {/* <span className="hidden font-semibold sm:inline">dkast.dev</span> */}
             </Link>
