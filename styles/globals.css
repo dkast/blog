@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+
+/* Enable typography plugin for prose classes used in blog posts */
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
