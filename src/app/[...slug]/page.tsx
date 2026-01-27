@@ -6,16 +6,17 @@ import { notFound } from "next/navigation"
 import Mdx from "@/components/mdx"
 
 interface PagePageProps {
-  params: {
+  params: Promise<{
     slug: string[]
-  }
+  }>
 }
 
 export async function generateMetadata({
   params
 }: PagePageProps): Promise<Metadata | undefined> {
-  const slug = params?.slug?.join("/")
-  const post = allPages.find(post => post.slugAsParams === slug)
+  const { slug } = await params
+  const slugStr = slug?.join("/")
+  const post = allPages.find(post => post.slugAsParams === slugStr)
 
   if (!post) {
     return
@@ -27,7 +28,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams(): Promise<
-  PagePageProps["params"][]
+  { slug: string[] }[]
 > {
   return allPages.map(post => ({
     slug: post.slugAsParams.split("/")
@@ -35,8 +36,9 @@ export async function generateStaticParams(): Promise<
 }
 
 export default async function PagePage({ params }: PagePageProps) {
-  const slug = params?.slug?.join("/")
-  const post = allPages.find(post => post.slugAsParams === slug)
+  const { slug } = await params
+  const slugStr = slug?.join("/")
+  const post = allPages.find(post => post.slugAsParams === slugStr)
 
   if (!post) {
     notFound()

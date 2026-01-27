@@ -1,13 +1,13 @@
 "use client"
 
 import React from "react"
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 
-const titleVariants = {
+const titleVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      ease: "easeOut",
+      ease: "easeOut" as const,
       duration: 0.7
     }
   },
@@ -16,12 +16,12 @@ const titleVariants = {
   }
 }
 
-const elVariants = {
+const elVariants: Variants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      ease: "easeOut",
+      ease: "easeOut" as const,
       delay: i * 0.3,
       duration: 0.3
     }
