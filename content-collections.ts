@@ -12,10 +12,12 @@ const posts = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
+    // Coerce YAML date values to ISO string for JSON-serializable Next.js props
     date: z.coerce.date().transform(d => d.toISOString()),
     published: z.boolean().default(true),
     image: z.string().optional(),
     category: z.string(),
+    // Required by the frontmatter parser; compileMDX reads this as the MDX body
     content: z.string()
   }),
   transform: async (document, context) => {
@@ -49,6 +51,7 @@ const pages = defineCollection({
   include: "**/*.mdx",
   schema: z.object({
     title: z.string(),
+    // Required by the frontmatter parser; compileMDX reads this as the MDX body
     content: z.string()
   }),
   transform: async (document, context) => {
