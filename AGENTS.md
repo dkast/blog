@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a personal blog built with Next.js 16 (App Router), React 19, TypeScript, and Contentlayer2 for MDX content management. The site is hosted on Vercel and features a modern, minimalist design with animations and responsive layouts.
+This is a personal blog built with Next.js 16 (App Router), React 19, TypeScript, and Content Collections for MDX content management. The site is hosted on Vercel and features a modern, minimalist design with animations and responsive layouts.
 
 ## Architecture
 
@@ -12,7 +12,7 @@ This is a personal blog built with Next.js 16 (App Router), React 19, TypeScript
 - **UI Library**: React 19.2.4
 - **Language**: TypeScript 5.6.2
 - **Styling**: Tailwind CSS 3.4.12 with custom design tokens
-- **Content**: Contentlayer2 (MDX-based content management)
+- **Content**: Content Collections (`@content-collections/core`) for MDX content management
 - **Animations**: Framer Motion 11.18.2
 - **Icons**: Lucide React
 - **Code Highlighting**: Shiki with rehype-pretty-code
@@ -44,14 +44,14 @@ This is a personal blog built with Next.js 16 (App Router), React 19, TypeScript
 │   └── pages/          # Static pages
 ├── styles/             # Global styles and CSS modules
 ├── public/             # Static assets
-├── contentlayer.config.ts # Content configuration
+├── content-collections.ts # Content Collections configuration
 ├── next.config.mjs     # Next.js configuration
 └── tailwind.config.ts  # Tailwind CSS configuration
 ```
 
 ### Key Features
 
-1. **Content Management**: Uses Contentlayer2 to transform MDX files into type-safe content
+1. **Content Management**: Uses Content Collections to transform MDX files into type-safe content
 2. **Server Components**: Leverages React Server Components for optimal performance
 3. **Dynamic Routing**: Uses Next.js catch-all routes for blog posts and pages
 4. **Code Highlighting**: Syntax highlighting with Shiki and the Vesper theme
@@ -95,14 +95,11 @@ This is a personal blog built with Next.js 16 (App Router), React 19, TypeScript
 # Start development server with Turbopack
 bun run dev
 
-# Build for production (automatically runs contentlayer2 build first)
+# Build for production (content-collections runs automatically via Next.js plugin)
 bun run build
 
 # Start production server
 bun run start
-
-# Build Contentlayer content
-bun run build:content
 ```
 
 ### Code Quality
@@ -118,8 +115,8 @@ bun run typecheck
 ### Deployment
 
 The site is configured for Vercel deployment. The build process automatically:
-1. Runs `bun run build` which first generates content types via `contentlayer2 build`
-2. Then creates optimized production build with `next build`
+1. Runs `bun run build` which triggers Content Collections via the Next.js plugin
+2. Creates an optimized production build with `next build`
 3. Deploys to Vercel with automatic HTTPS and CDN
 
 ## Environment Variables
@@ -142,15 +139,13 @@ The site is configured for Vercel deployment. The build process automatically:
    ---
    ```
 3. Write content using MDX (Markdown + React components)
-4. Run `bun run build:content` to regenerate types
-5. The post will automatically appear in the blog list
+4. The post will automatically appear in the blog list (Content Collections regenerates on next build/dev)
 
 ### Adding a New Static Page
 
 1. Create a new `.mdx` file in `content/pages/`
 2. Add frontmatter with title
-3. Run `bun run build:content`
-4. Access the page at `/{filename}`
+3. Access the page at `/{filename}` after the next build/dev
 
 ### Modifying Components
 
@@ -178,7 +173,7 @@ bun add <package>@latest
 - **Package Manager**: This project uses Bun as the package manager. Do not commit `package-lock.json` or `yarn.lock` files.
 - **Turbopack**: Default bundler for faster development. Use `--webpack` flag if needed: `bun run build -- --webpack`
 - **Type Safety**: Run `bun run typecheck` before committing to catch type errors
-- **Content Changes**: Always run `bun run build:content` after modifying content structure or adding new content files
+- **Content Changes**: Content Collections regenerates automatically during `bun run dev` and `bun run build` — no separate build step needed
 
 ## Troubleshooting
 
@@ -186,8 +181,7 @@ bun add <package>@latest
 If building in a restricted network environment, fonts may fail to download. This is expected and won't affect production deployments on Vercel.
 
 ### Type Errors After Updating Next.js
-- Run `bun run build:content` to regenerate Contentlayer types
-- Delete `.next` folder and rebuild: `rm -rf .next && bun run build`
+- Delete `.next` and `.content-collections` folders and rebuild: `rm -rf .next .content-collections && bun run build`
 - Check that params are properly awaited in async page components
 
 ### ESLint Issues

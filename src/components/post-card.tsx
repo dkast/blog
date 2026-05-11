@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "next-view-transitions"
 
 import { formatDate } from "@/lib/utils"
-import { Post } from ".contentlayer/generated/types"
+import type { Post } from "content-collections"
 
 interface PostCardProps {
   post: Post
