@@ -11,6 +11,9 @@
     "typecheck": "tsc --project ./tsconfig.json"
   },
   "dependencies": {
+    "@content-collections/core": "^0.15.0",
+    "@content-collections/mdx": "^0.2.2",
+    "@content-collections/next": "^0.2.11",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.2",
     "@tailwindcss/postcss": "^4.1.18",
