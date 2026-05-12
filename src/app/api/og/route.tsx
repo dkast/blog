@@ -55,6 +55,7 @@ export async function GET(req: NextRequest) {
     ),
     // ImageResponse options
     {
+      // Use the default OG font to keep the edge bundle below Vercel's size limit.
       width: 1200,
       height: 630
     }
