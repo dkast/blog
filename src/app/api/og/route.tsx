@@ -9,18 +9,6 @@ export async function GET(req: NextRequest) {
   const title = searchParams.get("title") || "Default Title"
   const avatar = `${url.protocol}//${url.host}/images/avatar.jpg`
 
-  // Fetch font data
-  const interRegular = fetch(
-    new URL("../../../../assets/fonts/Inter-Regular.ttf", import.meta.url)
-  ).then(res => res.arrayBuffer())
-
-  const averiaRegular = fetch(
-    new URL(
-      "../../../../assets/fonts/AveriaSerifLibre-Regular.ttf",
-      import.meta.url
-    )
-  ).then(res => res.arrayBuffer())
-
   return new ImageResponse(
     (
       // ImageResponse JSX element
@@ -67,22 +55,9 @@ export async function GET(req: NextRequest) {
     ),
     // ImageResponse options
     {
+      // Use the default OG font to keep the edge bundle below Vercel's size limit.
       width: 1200,
-      height: 630,
-      fonts: [
-        {
-          name: "Inter",
-          data: await interRegular,
-          style: "normal",
-          weight: 400
-        },
-        {
-          name: "Inter",
-          data: await averiaRegular,
-          style: "normal",
-          weight: 600
-        }
-      ]
+      height: 630
     }
   )
 }

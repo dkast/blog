@@ -1,5 +1,5 @@
 import Balancer from "react-wrap-balancer"
-import { allPages } from "contentlayer/generated"
+import { allPages } from "content-collections"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
@@ -50,7 +50,7 @@ export default async function PagePage({ params }: PagePageProps) {
         <h1 className="mb-8 font-display text-lg font-medium sm:text-xl">
           {post.title}
         </h1>
-        <Mdx code={post.body.code} />
+        <Mdx code={post.mdx} />
       </div>
     </article>
   )

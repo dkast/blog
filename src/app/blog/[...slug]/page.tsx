@@ -1,4 +1,4 @@
-import { allPosts } from "contentlayer/generated"
+import { allPosts } from "content-collections"
 
 import "@/styles/mdx.css"
 
@@ -101,7 +101,7 @@ export default async function PostPage({ params }: PostPageProps) {
               className="my-12 sm:rounded-xl sm:shadow-lg"
             />
           )} */}
-          <Mdx code={post.body.code} />
+          <Mdx code={post.mdx} />
         </div>
       </div>
     </article>
