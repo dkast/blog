@@ -18,17 +18,7 @@ export default async function Image() {
       process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
     )
     const avatar = `${url.protocol}//${url.host}/images/avatar.jpg`
-    // Fetch font data
-    const interRegular = fetch(
-      new URL("../../assets/fonts/Inter-Regular.ttf", import.meta.url)
-    ).then(res => res.arrayBuffer())
 
-    const averiaRegular = fetch(
-      new URL(
-        "../../assets/fonts/AveriaSerifLibre-Regular.ttf",
-        import.meta.url
-      )
-    ).then(res => res.arrayBuffer())
     return new ImageResponse(
       (
         // ImageResponse JSX element
@@ -80,21 +70,7 @@ export default async function Image() {
       {
         // For convenience, we can re-use the exported opengraph-image
         // size config to also set the ImageResponse's width and height.
-        ...size,
-        fonts: [
-          {
-            name: "Inter",
-            data: await interRegular,
-            style: "normal",
-            weight: 400
-          },
-          {
-            name: "Inter",
-            data: await averiaRegular,
-            style: "normal",
-            weight: 600
-          }
-        ]
+        ...size
       }
     )
   } catch {
