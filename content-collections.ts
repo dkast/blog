@@ -1,9 +1,9 @@
 import { defineCollection, defineConfig } from "@content-collections/core"
 import { compileMDX } from "@content-collections/mdx"
+import parseAttr from "md-attr-parser"
 import rehypeImageSize from "rehype-img-size"
 import rehypePrettyCode, { type LineElement } from "rehype-pretty-code"
 import remarkGfm from "remark-gfm"
-import parseAttr from "md-attr-parser"
 import { z } from "zod"
 
 function escapeHtmlAttribute(value: string) {
@@ -17,7 +17,13 @@ function escapeHtmlAttribute(value: string) {
 function applyImageAttributes(content: string) {
   return content.replace(
     /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)\s*(\{[^}]*\})/g,
-    (_, alt: string, src: string, title: string | undefined, attrText: string) => {
+    (
+      _,
+      alt: string,
+      src: string,
+      title: string | undefined,
+      attrText: string
+    ) => {
       const parsed = parseAttr(attrText)
       const attributes = [
         `src="${escapeHtmlAttribute(src)}"`,
@@ -28,7 +34,9 @@ function applyImageAttributes(content: string) {
       const classNames = parsed.prop.class
       const identifier = parsed.prop.id
       const { class: _class, id: _id, ...rest } = parsed.prop
-      const normalizedId = Array.isArray(identifier) ? identifier[0] : identifier
+      const normalizedId = Array.isArray(identifier)
+        ? identifier[0]
+        : identifier
 
       if (normalizedId) {
         attributes.push(`id="${escapeHtmlAttribute(normalizedId)}"`)
@@ -46,9 +54,7 @@ function applyImageAttributes(content: string) {
           const normalizedValue = Array.isArray(value)
             ? value.join(" ")
             : String(value)
-          attributes.push(
-            `${key}="${escapeHtmlAttribute(normalizedValue)}"`
-          )
+          attributes.push(`${key}="${escapeHtmlAttribute(normalizedValue)}"`)
         }
       })
 
@@ -74,27 +80,31 @@ const posts = defineCollection({
   }),
   transform: async (document, context) => {
     const content = applyImageAttributes(document.content)
-    const mdx = await compileMDX(context, {
-      ...document,
-      content
-    }, {
-      remarkPlugins: [remarkGfm],
-      rehypePlugins: [
-        [
-          rehypePrettyCode,
-          {
-            theme: "vesper",
-            keepBackground: true,
-            onVisitLine(node: LineElement) {
-              if (node.children.length === 0) {
-                node.children = [{ type: "text", value: " " }]
+    const mdx = await compileMDX(
+      context,
+      {
+        ...document,
+        content
+      },
+      {
+        remarkPlugins: [remarkGfm],
+        rehypePlugins: [
+          [
+            rehypePrettyCode,
+            {
+              theme: "vesper",
+              keepBackground: true,
+              onVisitLine(node: LineElement) {
+                if (node.children.length === 0) {
+                  node.children = [{ type: "text", value: " " }]
+                }
               }
             }
-          }
-        ],
-        [rehypeImageSize, { dir: "public" }]
-      ]
-    })
+          ],
+          [rehypeImageSize, { dir: "public" }]
+        ]
+      }
+    )
     const slugAsParams = document._meta.path
     const slug = `/blog/${slugAsParams}`
     return { ...document, mdx, slug, slugAsParams }
