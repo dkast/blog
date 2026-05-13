@@ -14,9 +14,7 @@ interface PostPageProps {
   }>
 }
 
-export async function generateStaticParams(): Promise<
-  { slug: string[] }[]
-> {
+export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   return allPosts.map(post => ({
     slug: post.slugAsParams.split("/")
   }))
@@ -34,10 +32,8 @@ export async function generateMetadata({
   }
 
   const { title, date: publishedTime, description } = post
-
-  const url = process.env.NEXT_PUBLIC_APP_URL
-  let ogImage = new URL(`${url}/api/og`)
-  ogImage.searchParams.set("title", title)
+  const pageUrl = `/blog/${slugStr}`
+  const ogImage = `/api/og?${new URLSearchParams({ title }).toString()}`
 
   return {
     title,
@@ -48,10 +44,10 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url,
+      url: pageUrl,
       images: [
         {
-          url: ogImage.toString()
+          url: ogImage
         }
       ]
     },
@@ -59,7 +55,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage.toString()]
+      images: [ogImage]
     }
   }
 }
@@ -80,7 +76,7 @@ export default async function PostPage({ params }: PostPageProps) {
   }).format(new Date(post?.date))
 
   return (
-    <article className="mx-auto max-w-3xl pb-24 pt-12 sm:pt-36">
+    <article className="mx-auto max-w-3xl pt-12 pb-24 sm:pt-36">
       <div>
         <Header
           title={post?.title}

@@ -13,15 +13,28 @@ function MdxImage(
   >
 ) {
   const { src, alt, width, height, ...rest } = props
-  if (!src || typeof src !== 'string') return null // Ensure src is defined and is a string
+  const imageClassName = [
+    "mx-auto my-12 rounded-xl shadow-lg sm:max-w-[600px]",
+    rest.className
+  ]
+    .filter(Boolean)
+    .join(" ")
+
+  if (!src || typeof src !== "string") return null
+
+  if (!width || !height) {
+    return (
+      <img src={src} alt={alt || ""} className={imageClassName} {...rest} />
+    )
+  }
 
   return (
     <Image
       src={src}
       alt={alt || ""}
-      width={width ? parseInt(width as string, 10) : undefined}
-      height={height ? parseInt(height as string, 10) : undefined}
-      className="mx-auto my-12 rounded-xl shadow-lg sm:max-w-[600px]"
+      width={parseInt(width as string, 10)}
+      height={parseInt(height as string, 10)}
+      className={imageClassName}
       {...rest}
     />
   )
@@ -29,7 +42,7 @@ function MdxImage(
 
 const Mdx = ({ code }: MdxProps) => {
   return (
-    <div className="prose prose-neutral max-w-none lg:prose lg:prose-neutral prose-headings:font-display prose-headings:font-normal prose-headings:text-gray-600 prose-h2:text-xl prose-a:decoration-orange-600 prose-pre:-mx-6 prose-pre:overflow-x-auto prose-pre:rounded-none prose-pre:bg-gray-800 sm:px-0 md:prose-pre:mx-0 md:prose-pre:rounded-lg">
+    <div className="prose prose-neutral lg:prose lg:prose-neutral prose-headings:font-display prose-headings:font-normal prose-headings:text-gray-600 prose-h2:text-xl prose-a:decoration-orange-600 prose-pre:-mx-6 prose-pre:overflow-x-auto prose-pre:rounded-none prose-pre:bg-gray-800 md:prose-pre:mx-0 md:prose-pre:rounded-lg max-w-none sm:px-0">
       <MDXContent code={code} components={{ img: MdxImage }} />
     </div>
   )

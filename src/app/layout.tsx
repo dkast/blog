@@ -14,12 +14,16 @@ const display = Averia_Serif_Libre({
   weight: "400"
 })
 const mono = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"] })
+const metadataBase = new URL(
+  process.env.NEXT_PUBLIC_APP_URL || "https://dkast.dev"
+)
 
 export const viewport: Viewport = {
   themeColor: "#f9fafb"
 }
 
 export const metadata: Metadata = {
+  metadataBase,
   title: {
     default: "Daniel Castillejo",
     template: "%s - Daniel Castillejo"
@@ -29,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "dkast.dev",
     title: "Daniel Castillejo",
     type: "website",
-    url: "https://dkast.dev"
+    url: "/"
   },
   twitter: {
     title: "Daniel Castillejo",
