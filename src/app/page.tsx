@@ -84,10 +84,10 @@ function Subheading({
 }) {
   return (
     <div className={className}>
-      <small className="mb-1 font-mono text-xs font-semibold uppercase tracking-widest text-orange-600">
-        <span className="text-orange-600/50">##</span> {eyebrow}
+      <small className="text-primary mb-1 font-mono text-xs font-semibold tracking-widest uppercase">
+        <span className="text-primary/50">##</span> {eyebrow}
       </small>
-      <h2 className="pb-8 font-display text-lg md:text-xl">{title}</h2>
+      <h2 className="font-display pb-8 text-lg md:text-xl">{title}</h2>
     </div>
   )
 }

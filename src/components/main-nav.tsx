@@ -54,12 +54,12 @@ const MainNav = () => {
                 alt="Daniel Castillejo"
                 width={40}
                 height={40}
-                className="rounded-full border border-black/10 shadow-xs"
+                className="border-border/10 rounded-full border shadow-xs"
               ></Image>
               {/* <span className="hidden font-semibold sm:inline">dkast.dev</span> */}
             </Link>
           </header>
-          <nav className="flex flex-row gap-2 rounded-full border border-black/5 bg-white p-1 py-1 sm:flex-col">
+          <nav className="border-border/5 bg-background flex flex-row gap-2 rounded-full border p-1 py-1 sm:flex-col">
             {navItems &&
               navItems.map((navItem, index) => {
                 const selected =
@@ -75,9 +75,9 @@ const MainNav = () => {
                             className="grid grid-cols-1 rounded-full no-underline"
                           >
                             {selected && (
-                              <div className="z-0 col-start-1 row-start-1 rounded-full bg-gray-100 p-2"></div>
+                              <div className="bg-muted z-0 col-start-1 row-start-1 rounded-full p-2"></div>
                             )}
-                            <span className="z-40 col-start-1 row-start-1 text-gray-900">
+                            <span className="text-foreground z-40 col-start-1 row-start-1">
                               <navItem.Icon className="size-8 p-2" />
                             </span>
                           </Link>

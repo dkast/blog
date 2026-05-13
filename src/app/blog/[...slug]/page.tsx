@@ -121,27 +121,27 @@ function Header({
   return (
     <div className="px-8 sm:px-3">
       <div className="space-y-3">
-        <div className="flex flex-row items-center gap-1 font-mono text-xs font-normal text-gray-400 md:text-sm">
+        <div className="text-muted-foreground flex flex-row items-center gap-1 font-mono text-xs font-normal md:text-sm">
           <time>{formattedDate}</time>
           <div className="flex flex-row items-center gap-1">
             <span>-</span>
-            <span className="text-gray-600">{author}</span>
+            <span className="text-muted-foreground">{author}</span>
           </div>
-          <Separator orientation="vertical" className="mx-2 h-5 bg-gray-200" />
-          <span className="text-xs font-normal text-orange-500 md:text-sm">
+          <Separator orientation="vertical" className="bg-border mx-2 h-5" />
+          <span className="text-primary text-xs font-normal md:text-sm">
             {category}
           </span>
         </div>
         <div>
           <h1 className="font-display text-2xl font-medium">{title}</h1>
           {description && (
-            <p className="font-semilight leading-relaxed text-gray-500 sm:text-sm md:text-base">
+            <p className="font-semilight text-muted-foreground leading-relaxed sm:text-sm md:text-base">
               {description}
             </p>
           )}
         </div>
       </div>
-      <Separator className="my-10 w-20 bg-gray-200" />
+      <Separator className="bg-border my-10 w-20" />
     </div>
   )
 }

@@ -52,7 +52,7 @@ export default function RootLayout({
     <ViewTransitions>
       <html
         lang="en"
-        className={`${base.variable} ${display.variable} ${mono.variable} bg-zinc-50 text-gray-700 antialiased`}
+        className={`${base.variable} ${display.variable} ${mono.variable} bg-background text-foreground antialiased`}
       >
         <head />
         <body className="flex h-screen flex-col overflow-x-hidden">

@@ -49,8 +49,8 @@ const ProjectCard = ({
       {/* <GradientBlur className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/50 to-transparent" /> */}
       <div className="z-20 flex flex-col justify-end gap-4 font-mono">
         <div className="pt-8 text-sm">
-          <span className="mr-2 font-medium text-gray-950">{title}.</span>
-          <span className="text-balance font-light">{children}</span>
+          <span className="text-foreground mr-2 font-medium">{title}.</span>
+          <span className="font-light text-balance">{children}</span>
         </div>
         <div>
           {href && (
@@ -74,7 +74,7 @@ const ProjectCard = ({
             return (
               <li
                 key={item}
-                className="rounded-full bg-gray-200/50 px-3 py-0.5 text-xs tracking-wide text-gray-900"
+                className="bg-muted/50 text-foreground rounded-full px-3 py-0.5 text-xs tracking-wide"
               >
                 {item}
               </li>

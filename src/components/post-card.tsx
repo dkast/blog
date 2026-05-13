@@ -12,7 +12,7 @@ const PostCard = ({ post }: PostCardProps) => {
   return (
     <article className="flex gap-4">
       <div className="min-w-[80px] text-right">
-        <span className="font-mono text-xs font-light leading-7 text-gray-500 sm:text-sm">
+        <span className="text-muted-foreground font-mono text-xs leading-7 font-light sm:text-sm">
           {formatDate(post.date)}
         </span>
       </div>
@@ -20,7 +20,9 @@ const PostCard = ({ post }: PostCardProps) => {
         <Link href={post.slug} className="no-underline">
           <h2 className="font-display text-lg no-underline">{post.title}</h2>
         </Link>
-        <small className="text-sm text-gray-500">{post.description}</small>
+        <small className="text-muted-foreground text-sm">
+          {post.description}
+        </small>
       </div>
     </article>
   )
