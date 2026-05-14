@@ -39,11 +39,11 @@ const Hero = () => {
         initial="hidden"
         animate="visible"
         variants={titleVariants}
-        className="font-display text-xl font-medium text-foreground sm:text-3xl"
+        className="font-display text-foreground text-xl font-medium sm:text-3xl"
       >
         Hola, soy Daniel Castillejo
       </motion.h1>
-      <div className="flex flex-col gap-2 pt-4 text-sm sm:text-base">
+      <div className="text-muted-foreground flex flex-col gap-2 pt-4 text-sm sm:text-base">
         <p className="text-balance">
           Soy un ingeniero de software con más de 15 años de experiencia basado
           en México. Actualmente me desempeño como Arquitecto de Soluciones en

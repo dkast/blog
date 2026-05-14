@@ -30,7 +30,7 @@ export default function Home() {
             title="Biztro"
             stack={["next.js", "prisma", "turso", "craft.js"]}
             imageURL="/images/editor.png"
-            className="bg-gradient-to-r from-purple-400 to-indigo-500"
+            className="bg-linear-to-r/hsl from-purple-400 to-indigo-500"
             href="https://biztro.co"
           >
             Crea tus menus digitales con código QR desde un editor web.
@@ -39,7 +39,7 @@ export default function Home() {
             title="Deberes"
             stack={["next.js", "prisma", "next-auth", "trpc"]}
             imageURL="/images/deberes-project.png"
-            className="bg-gradient-to-br from-purple-500 to-red-400"
+            className="bg-linear-to-br from-purple-500 to-red-400"
             href="https://github.com/dkast/deeds-app"
           >
             Aplicación web para incentivar las buenas acciones de mis pequeños.
@@ -48,7 +48,7 @@ export default function Home() {
             title="Cargo"
             stack={["next.js", "prisma", "postgres", "cloudflare"]}
             imageURL="/images/cargo-dash.png"
-            className="bg-gradient-to-br from-orange-400 to-violet-500"
+            className="bg-linear-to-br from-orange-400 to-violet-500"
             href="https://cargohq.vercel.app"
           >
             Permite gestionar inspecciones CTPAT desde la nube en cualquier
@@ -85,9 +85,11 @@ function Subheading({
   return (
     <div className={className}>
       <small className="text-primary mb-1 font-mono text-xs font-semibold tracking-widest uppercase">
-        <span className="text-primary/50">##</span> {eyebrow}
+        {eyebrow}
       </small>
-      <h2 className="font-display pb-8 text-lg md:text-xl">{title}</h2>
+      <h2 className="font-display text-secondary-foreground pb-8 text-lg md:text-xl">
+        {title}
+      </h2>
     </div>
   )
 }

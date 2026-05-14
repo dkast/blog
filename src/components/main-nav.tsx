@@ -54,12 +54,12 @@ const MainNav = () => {
                 alt="Daniel Castillejo"
                 width={40}
                 height={40}
-                className="border-border/10 rounded-full border shadow-xs"
+                className="border-border/10 rounded-full border shadow"
               ></Image>
               {/* <span className="hidden font-semibold sm:inline">dkast.dev</span> */}
             </Link>
           </header>
-          <nav className="border-border/5 bg-background flex flex-row gap-2 rounded-full border p-1 py-1 sm:flex-col">
+          <nav className="flex flex-row gap-2 rounded-full bg-white p-1 py-1 shadow sm:flex-col">
             {navItems &&
               navItems.map((navItem, index) => {
                 const selected =
