@@ -14,7 +14,7 @@ function MdxCode({
   // Code blocks (inside <pre>) receive a data-language attribute from rehype-pretty-code
   if ("data-language" in rest) {
     return (
-      <code className={className} {...rest}>
+      <code {...rest} className={className}>
         {children}
       </code>
     )
@@ -22,13 +22,13 @@ function MdxCode({
 
   return (
     <code
+      {...rest}
       className={[
         "text-primary rounded-sm bg-white px-1.5 py-1 font-mono text-[0.85em] font-normal inset-ring inset-ring-black/10 before:content-none after:content-none dark:bg-gray-800",
         className
       ]
         .filter(Boolean)
         .join(" ")}
-      {...rest}
     >
       {children}
     </code>
@@ -53,18 +53,18 @@ function MdxImage(
 
   if (!width || !height) {
     return (
-      <img src={src} alt={alt || ""} className={imageClassName} {...rest} />
+      <img {...rest} src={src} alt={alt || ""} className={imageClassName} />
     )
   }
 
   return (
     <Image
+      {...rest}
       src={src}
       alt={alt || ""}
       width={parseInt(width as string, 10)}
       height={parseInt(height as string, 10)}
       className={imageClassName}
-      {...rest}
     />
   )
 }

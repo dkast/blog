@@ -2,8 +2,6 @@ import React from "react"
 import type { Post } from "content-collections"
 import { Link } from "next-view-transitions"
 
-import { formatDate } from "@/lib/utils"
-
 interface PostCardProps {
   post: Post
 }
