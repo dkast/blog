@@ -59,6 +59,10 @@
   html {
     @apply font-sans;
   }
+
+  em {
+    @apply font-display italic;
+  }
 }
 
 @utility border {
@@ -164,9 +168,9 @@
   --primary: oklch(64.6% 0.222 41.116);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --secondary-foreground: oklch(37.15% 0.00004 271.152);
   --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
+  --muted-foreground: oklch(55.167% 0.01387 285.878);
   --accent: oklch(0.967 0.001 286.375);
   --accent-foreground: oklch(0.21 0.006 285.885);
   --destructive: oklch(0.577 0.245 27.325);

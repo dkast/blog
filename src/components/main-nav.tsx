@@ -45,6 +45,10 @@ const MainNav = () => {
   return (
     <div className="relative z-10 h-20 max-h-20 sm:h-full">
       <GradientBlur className="fixed inset-0 h-20 rotate-180 sm:hidden" />
+      <div
+        aria-hidden="true"
+        className="from-background fixed inset-x-0 top-0 z-[15] h-20 bg-gradient-to-b to-transparent sm:hidden"
+      />
       <div className="transition-disabled fixed z-20 w-full px-6 sm:w-[100px] sm:px-0">
         <div className="flex grow flex-row items-center justify-between gap-10 py-4 sm:h-screen sm:flex-col sm:justify-start sm:gap-20">
           <header>
@@ -59,7 +63,7 @@ const MainNav = () => {
               {/* <span className="hidden font-semibold sm:inline">dkast.dev</span> */}
             </Link>
           </header>
-          <nav className="flex flex-row gap-2 rounded-full bg-white p-1 py-1 shadow sm:flex-col">
+          <nav className="flex flex-row gap-2 rounded-full bg-white/50 p-1 py-1 shadow inset-ring inset-ring-white/60 backdrop-blur sm:flex-col">
             {navItems &&
               navItems.map((navItem, index) => {
                 const selected =

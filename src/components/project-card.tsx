@@ -16,6 +16,7 @@ type ProjectCardProps = {
   stack?: string[]
   className?: string
   href: string
+  index?: number
 }
 
 const ProjectCard = ({
@@ -24,11 +25,18 @@ const ProjectCard = ({
   children,
   stack,
   className,
-  href
+  href,
+  index = 0
 }: ProjectCardProps) => {
   const domain = new URL(href)
   return (
-    <motion.div className="rounded-2xl bg-zinc-200/40 p-1">
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ ease: "easeOut", duration: 0.4, delay: index * 0.1 }}
+      className="rounded-2xl bg-white p-1 shadow inset-ring shadow-black/5 inset-ring-black/10"
+    >
       <div
         className={cn(
           "relative grid h-[220px] grid-cols-1 gap-2 overflow-hidden rounded-xl border border-white/5 p-4",
