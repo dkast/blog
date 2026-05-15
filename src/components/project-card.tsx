@@ -28,24 +28,23 @@ const ProjectCard = ({
 }: ProjectCardProps) => {
   const domain = new URL(href)
   return (
-    <div className="rounded-xl bg-zinc-200/40 p-1.5">
-      <motion.div
-        // whileHover={{ scale: 1.02 }}
+    <motion.div className="rounded-2xl bg-zinc-200/40 p-1">
+      <div
         className={cn(
-          "relative grid h-[220px] grid-cols-1 gap-2 overflow-hidden rounded-lg border border-black/5 p-4",
+          "relative grid h-[220px] grid-cols-1 gap-2 overflow-hidden rounded-xl border border-white/5 p-4",
           className
         )}
       >
         <Image
           src={imageURL}
           alt={title}
-          className="object-cover object-top transition-transform hover:scale-102"
+          className="object-cover object-top transition-transform"
           fill
           sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
         />
-      </motion.div>
+      </div>
       {/* <GradientBlur className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/50 to-transparent" /> */}
       <div className="z-20 flex flex-col justify-end gap-4 text-sm">
         <div className="px-1.5 pt-2">
@@ -58,7 +57,7 @@ const ProjectCard = ({
               href={href}
               target="_blank"
               aria-label="Liga al sitio del proyecto"
-              className="text-muted-foreground flex items-center gap-2 font-mono text-sm no-underline"
+              className="text-muted-foreground hover:text-foreground flex items-center justify-end gap-2 px-2 py-1 font-mono text-sm no-underline"
             >
               <span>{domain.hostname}</span>
               {domain.hostname.includes("github") ? (
@@ -82,7 +81,7 @@ const ProjectCard = ({
           })}
         </ul> */}
       </div>
-    </div>
+    </motion.div>
   )
 }
 
