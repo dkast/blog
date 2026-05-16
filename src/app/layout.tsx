@@ -55,7 +55,7 @@ export default function RootLayout({
         className={`${base.variable} ${display.variable} ${mono.variable} bg-background text-foreground antialiased`}
       >
         <head />
-        <body className="flex h-screen flex-col overflow-x-hidden">
+        <body className="mx-auto flex h-screen max-w-7xl flex-col overflow-x-hidden">
           <div className="grid grow grid-cols-1 grid-rows-[80px_1fr] justify-stretch sm:grid-cols-[100px_1fr] sm:grid-rows-none">
             <MainNav />
             <div className="flex flex-col justify-start">

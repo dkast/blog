@@ -76,7 +76,7 @@ export default async function PostPage({ params }: PostPageProps) {
   }).format(new Date(post?.date))
 
   return (
-    <article className="mx-auto max-w-3xl pt-12 pb-24 sm:pt-36">
+    <article className="mx-auto max-w-3xl pt-12 pb-24 sm:pt-30">
       <div>
         <Header
           title={post?.title}

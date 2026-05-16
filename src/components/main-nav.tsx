@@ -47,10 +47,10 @@ const MainNav = () => {
       <GradientBlur className="fixed inset-0 h-20 rotate-180 sm:hidden" />
       <div
         aria-hidden="true"
-        className="from-background fixed inset-x-0 top-0 z-[15] h-20 bg-gradient-to-b to-transparent sm:hidden"
+        className="from-background fixed inset-x-0 top-0 z-15 h-20 bg-linear-to-b to-transparent sm:hidden"
       />
       <div className="transition-disabled fixed z-20 w-full px-6 sm:w-[100px] sm:px-0">
-        <div className="flex grow flex-row items-center justify-between gap-10 py-4 sm:h-screen sm:flex-col sm:justify-start sm:gap-20">
+        <div className="flex grow flex-row items-center justify-between gap-10 py-4 sm:h-screen sm:flex-col sm:justify-start sm:gap-16">
           <header>
             <Link href="/" className="flex items-center gap-3 no-underline">
               <Image

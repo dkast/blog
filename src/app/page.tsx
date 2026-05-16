@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <main className="mx-auto max-w-3xl">
-      <section className="px-8 pt-10 sm:px-3 sm:pt-36">
+      <section className="px-8 pt-10 sm:px-3 sm:pt-30">
         <Hero />
       </section>
       <div className="my-16" />
