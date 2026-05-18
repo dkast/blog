@@ -14,12 +14,16 @@ const display = Averia_Serif_Libre({
   weight: "400"
 })
 const mono = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"] })
+const metadataBase = new URL(
+  process.env.NEXT_PUBLIC_APP_URL || "https://dkast.dev"
+)
 
 export const viewport: Viewport = {
   themeColor: "#f9fafb"
 }
 
 export const metadata: Metadata = {
+  metadataBase,
   title: {
     default: "Daniel Castillejo",
     template: "%s - Daniel Castillejo"
@@ -29,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "dkast.dev",
     title: "Daniel Castillejo",
     type: "website",
-    url: "https://dkast.dev"
+    url: "/"
   },
   twitter: {
     title: "Daniel Castillejo",
@@ -48,10 +52,10 @@ export default function RootLayout({
     <ViewTransitions>
       <html
         lang="en"
-        className={`${base.variable} ${display.variable} ${mono.variable} bg-zinc-50 text-gray-700 antialiased`}
+        className={`${base.variable} ${display.variable} ${mono.variable} bg-background text-foreground antialiased`}
       >
         <head />
-        <body className="flex h-screen flex-col overflow-x-hidden">
+        <body className="mx-auto flex h-screen max-w-7xl flex-col overflow-x-hidden">
           <div className="grid grow grid-cols-1 grid-rows-[80px_1fr] justify-stretch sm:grid-cols-[100px_1fr] sm:grid-rows-none">
             <MainNav />
             <div className="flex flex-col justify-start">

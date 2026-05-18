@@ -1,9 +1,14 @@
 import { defineCollection, defineConfig } from "@content-collections/core"
 import { compileMDX } from "@content-collections/mdx"
+import rehypeImageToolkit from "rehype-image-toolkit"
 import rehypeImageSize from "rehype-img-size"
 import rehypePrettyCode, { type LineElement } from "rehype-pretty-code"
 import remarkGfm from "remark-gfm"
 import { z } from "zod"
+
+const imageToolkitOptions = {
+  enableMdxJsx: false
+} as const
 
 const posts = defineCollection({
   name: "posts",
@@ -36,7 +41,8 @@ const posts = defineCollection({
             }
           }
         ],
-        [rehypeImageSize, { dir: "public" }]
+        [rehypeImageSize, { dir: "public" }],
+        [rehypeImageToolkit, imageToolkitOptions]
       ]
     })
     const slugAsParams = document._meta.path
@@ -55,7 +61,9 @@ const pages = defineCollection({
     content: z.string()
   }),
   transform: async (document, context) => {
-    const mdx = await compileMDX(context, document)
+    const mdx = await compileMDX(context, document, {
+      rehypePlugins: [[rehypeImageToolkit, imageToolkitOptions]]
+    })
     const slugAsParams = document._meta.path
     const slug = `/${slugAsParams}`
     return { ...document, mdx, slug, slugAsParams }

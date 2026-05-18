@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og"
 
-// Route segment config
-export const runtime = "edge"
+import { getOgAvatarDataUrl } from "@/lib/og"
 
 // Image metadata
 export const size = {
@@ -14,10 +13,7 @@ export const contentType = "image/png"
 // Image generation
 export default async function Image() {
   try {
-    const url = new URL(
-      process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
-    )
-    const avatar = `${url.protocol}//${url.host}/images/avatar.jpg`
+    const avatar = await getOgAvatarDataUrl()
 
     return new ImageResponse(
       (
@@ -37,7 +33,7 @@ export default async function Image() {
           }}
         >
           <div tw="flex">
-            <img tw="w-30 h-30 rounded-full" src={avatar} />
+            <img tw="rounded-full" src={avatar} width={120} height={120} />
           </div>
           <div tw="flex flex-col">
             <span tw="text-stone-400 text-2xl uppercase">

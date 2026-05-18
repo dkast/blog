@@ -27,9 +27,7 @@ export async function generateMetadata({
   }
 }
 
-export async function generateStaticParams(): Promise<
-  { slug: string[] }[]
-> {
+export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   return allPages.map(post => ({
     slug: post.slugAsParams.split("/")
   }))
@@ -46,8 +44,8 @@ export default async function PagePage({ params }: PagePageProps) {
 
   return (
     <article className="mx-auto w-full max-w-3xl px-8 sm:px-3">
-      <div className="pt-10 sm:pt-36">
-        <h1 className="mb-8 font-display text-lg font-medium sm:text-xl">
+      <div className="pt-10 sm:pt-30">
+        <h1 className="font-display mb-8 text-lg font-medium sm:text-xl">
           {post.title}
         </h1>
         <Mdx code={post.mdx} />

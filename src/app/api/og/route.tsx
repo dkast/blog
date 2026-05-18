@@ -1,13 +1,12 @@
 import { ImageResponse } from "next/og"
 import { NextRequest } from "next/server"
 
-export const runtime = "edge"
+import { getOgAvatarDataUrl } from "@/lib/og"
 
 export async function GET(req: NextRequest) {
-  const url = new URL(req.url)
   const { searchParams } = new URL(req.url)
   const title = searchParams.get("title") || "Default Title"
-  const avatar = `${url.protocol}//${url.host}/images/avatar.jpg`
+  const avatar = await getOgAvatarDataUrl()
 
   return new ImageResponse(
     (
@@ -26,7 +25,7 @@ export async function GET(req: NextRequest) {
         }}
       >
         <div tw="flex">
-          <img tw="w-30 h-30 rounded-full" src={avatar} />
+          <img tw="rounded-full" src={avatar} width={120} height={120} />
         </div>
         <div tw="flex flex-col">
           <span tw="text-stone-400 text-2xl uppercase">Blog</span>

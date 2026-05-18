@@ -14,9 +14,7 @@ interface PostPageProps {
   }>
 }
 
-export async function generateStaticParams(): Promise<
-  { slug: string[] }[]
-> {
+export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   return allPosts.map(post => ({
     slug: post.slugAsParams.split("/")
   }))
@@ -34,10 +32,8 @@ export async function generateMetadata({
   }
 
   const { title, date: publishedTime, description } = post
-
-  const url = process.env.NEXT_PUBLIC_APP_URL
-  let ogImage = new URL(`${url}/api/og`)
-  ogImage.searchParams.set("title", title)
+  const pageUrl = `/blog/${slugStr}`
+  const ogImage = `/api/og?${new URLSearchParams({ title }).toString()}`
 
   return {
     title,
@@ -48,10 +44,10 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url,
+      url: pageUrl,
       images: [
         {
-          url: ogImage.toString()
+          url: ogImage
         }
       ]
     },
@@ -59,7 +55,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage.toString()]
+      images: [ogImage]
     }
   }
 }
@@ -80,7 +76,7 @@ export default async function PostPage({ params }: PostPageProps) {
   }).format(new Date(post?.date))
 
   return (
-    <article className="mx-auto max-w-3xl pb-24 pt-12 sm:pt-36">
+    <article className="mx-auto max-w-3xl pt-12 pb-24 sm:pt-30">
       <div>
         <Header
           title={post?.title}
@@ -125,27 +121,27 @@ function Header({
   return (
     <div className="px-8 sm:px-3">
       <div className="space-y-3">
-        <div className="flex flex-row items-center gap-1 font-mono text-xs font-normal text-gray-400 md:text-sm">
+        <div className="text-muted-foreground flex flex-row items-center gap-1 font-mono text-xs font-normal md:text-sm">
           <time>{formattedDate}</time>
-          <div className="flex flex-row items-center gap-1">
+          {/* <div className="flex flex-row items-center gap-1">
             <span>-</span>
-            <span className="text-gray-600">{author}</span>
-          </div>
-          <Separator orientation="vertical" className="mx-2 h-5 bg-gray-200" />
-          <span className="text-xs font-normal text-orange-500 md:text-sm">
+            <span className="text-muted-foreground">{author}</span>
+          </div> */}
+          <Separator orientation="vertical" className="bg-border mx-2 h-5" />
+          <span className="text-primary text-xs font-normal md:text-sm">
             {category}
           </span>
         </div>
         <div>
           <h1 className="font-display text-2xl font-medium">{title}</h1>
           {description && (
-            <p className="font-semilight leading-relaxed text-gray-500 sm:text-sm md:text-base">
+            <p className="font-semilight text-muted-foreground leading-relaxed sm:text-sm md:text-base">
               {description}
             </p>
           )}
         </div>
       </div>
-      <Separator className="my-10 w-20 bg-gray-200" />
+      <Separator className="my-10 w-20 bg-transparent" />
     </div>
   )
 }
