@@ -1,0 +1,46 @@
+---
+title: Tips para programar con Agentes
+description: Lo que me ha funcionado (y lo que no) al programar con IA
+image: ""
+date: 2026-05-19
+category: Desarrollo
+---
+Llevo un par de meses pensando en escribir un poco sobre cómo la nueva ola de agentes de código con IA ha cambiado mi forma de trabajar, y en ese tiempo el ecosistema ha cambiado tanto que es difícil mantenerse vigente.
+
+Pero también es verdad que la IA es una burbuja y no todos estamos dentro de ella, al pendiente de cada nuevo modelo o avance. Por eso aquí dejo un par de tips para programar con IA que pueden ser de utilidad para los que van iniciando.
+
+## Ten cuidado con el *vibe coding*
+Si estás en X (antes Twitter), Reddit o Hacker News, seguramente habrás escuchado el término *vibe coding*, que no es más que hablar de "desarrollar" software o aplicaciones usando algún agente sin prestar mucha atención al código o, de plano, ignorarlo.
+
+La verdad es que los agentes cada vez son más capaces, pero con ellos viene un gran riesgo: fácilmente puedes perder el control o la calidad del código de tu aplicación, volviéndolo código espagueti.
+
+Puedes delegar a la inteligencia el escribir tu código, pero no delegues el *entendimiento* de tu código. Es importante poner algunas reglas o límites para evitar que tu agente escriba código que sea complejo o difícil de entender.
+
+## Crea tu AGENTS.md
+`AGENTS.md` es un documento en formato Markdown que describe algunas reglas básicas o instrucciones que deben incluirse en las peticiones o conversaciones que mantienes con tu agente. La mayoría de las herramientas, como Codex, GitHub Copilot y Claude Code, reconocen este documento y algunas de estas herramientas incluso te ofrecen la posibilidad de inicializar este archivo, revisando tu proyecto, documentando la arquitectura, comandos de ejecución, etc.
+
+¿Pero qué debería incluir este documento? Algunas recomendaciones que puedo dar, con base en mi experiencia, son:
+
+- **Describe cuál es el objetivo de tu proyecto.** Esto le permite al agente entender qué estás desarrollando y dar mejores recomendaciones cuando realices alguna petición o tarea.
+- **Lista tu stack.** Detalles como el framework que estás utilizando, librerías, base de datos, ORM, etc. Si bien muchos de estos detalles serán captados por el agente al leer tu código, tener centralizado qué tecnologías usas puede empujar a tu agente a respetar de mejor manera las mejores prácticas del stack que estás manejando.
+- **Estilo de código.** Si tienes alguna preferencia por estilo de código, por ejemplo, usar camelCase vs PascalCase, o cómo debe nombrar tus componentes, variables, etc. Todas estas reglas pueden ser definidas.
+- **Menciona al agente lo que quieres que haga y NO lo que no debe hacer.** Lista tus reglas, pero en mi experiencia estas son más efectivas si le indicas qué hacer con ejemplos, en lugar de indicarle qué no hacer.
+
+Cada nuevo modelo es mejor y entiende mejor la intención de tus comandos, por lo que este archivo tenderá a reducirse con el tiempo. Con los nuevos modelos SOTA (_State of the Art_) menos es más.
+
+## Crea un plan
+Generalmente, los agentes pueden trabajar bajo diferentes modos, como _Plan_, _Edit_ o _Ask_. Cada modo tiene su propósito, y el modo Plan, en mi opinión, es uno de los más importantes.
+
+Cuando estoy por desarrollar una nueva funcionalidad dentro de mis proyectos, lo primero que hago es construir un plan con la ayuda del agente. Para esto le describo qué quiero lograr y qué archivos pueden estar involucrados; por ejemplo, algún modelo o clase si estamos hablando de datos, controladores, componentes, etc.
+
+Trata de dar ejemplos, ya sea en forma de código o describiendo la lógica de negocio. Intenta ser lo más descriptivo posible en lo que quieres lograr y no en cómo crees que debería implementarse. Permite que el agente defina cuáles son las mejores opciones. Usualmente, sus recomendaciones te darán ideas o nuevos enfoques que pueden ser mejores que la forma en la que pensabas implementarlo originalmente.
+
+Una de las ventajas de realizar un plan es que el agente hace preguntas de seguimiento para aclarar puntos o profundizar en ellos. Mientras menos ambigüedad exista, el resultado será mejor.
+
+## Elige al modelo de acuerdo a la tarea
+Este punto es un poco al _feeling_ de cada quien. Para desarrollar un plan, por ejemplo, es mejor utilizar modelos grandes como GPT-5.5. Sin embargo, para implementar esos planes, puedes recurrir a modelos más pequeños y ahorrarte unos cuantos tokens en tu suscripción. También hay modelos cuyo fuerte es más el diseño, frontend o backend. Si tienes la posibilidad de recurrir a diferentes modelos, aprovéchala para obtener mejores resultados.
+
+## Realiza code reviews
+Finalmente, cuando ya estás listo para crear tu Pull Request, recuerda revisar el código que acabas de generar con la ayuda de tu agente. Existen varias herramientas; en mi caso, utilizo GitHub Copilot, lo que me permite usar agentes directamente en la plataforma para tareas específicas como el _code review_. Mi sugerencia es: intenta utilizar un modelo diferente al que usaste para desarrollar e intenta capturar esas posibles malas prácticas o bugs que el primer modelo pudo no haber considerado.
+
+Recuerda que tu revisión también es importante. Los agentes pueden quitarnos mucho trabajo, pero no te sustituyen al 100%.
